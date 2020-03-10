@@ -12,16 +12,19 @@ end
   )
 end
 
-5.times do
+3.times do
   Room.create!(
-    price: (15_000..40_000)
+    price: (15_000..40_000),
+    flat_id: 6
   )
 end
 
-50.times do
+3.times do
+  room = Flat.find(6).rooms.sample
+
   Rent.create!(
     user: User.all.sample,
-    flat: Flat.all.sample,
-    room: Room.all.sample
+    flat_id: 6,
+    room_id: 10
   )
 end
