@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_10_193253) do
+ActiveRecord::Schema.define(version: 2020_03_10_221509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,18 @@ ActiveRecord::Schema.define(version: 2020_03_10_193253) do
     t.bigint "user_id", null: false
     t.index ["conversation_id", "user_id"], name: "index_conversations_users_on_conversation_id_and_user_id"
     t.index ["user_id", "conversation_id"], name: "index_conversations_users_on_user_id_and_conversation_id"
+  end
+
+  create_table "flat_attachments", force: :cascade do |t|
+    t.string "image"
+    t.bigint "flat_id"
+    t.bigint "room_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["flat_id"], name: "index_flat_attachments_on_flat_id"
+    t.index ["room_id"], name: "index_flat_attachments_on_room_id"
+    t.index ["user_id"], name: "index_flat_attachments_on_user_id"
   end
 
   create_table "flats", force: :cascade do |t|
@@ -100,6 +112,9 @@ ActiveRecord::Schema.define(version: 2020_03_10_193253) do
     t.boolean "couple"
   end
 
+  add_foreign_key "flat_attachments", "flats"
+  add_foreign_key "flat_attachments", "rooms"
+  add_foreign_key "flat_attachments", "users"
   add_foreign_key "message_statuses", "messages"
   add_foreign_key "message_statuses", "users"
 end

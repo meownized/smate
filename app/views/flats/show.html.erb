@@ -20,5 +20,12 @@
   <%= @flat.status %>
 </p>
 
+<p>
+  <strong>Image:</strong>
+  <% @flat.flat_attachments.each do |flat_attachment| %>
+    <%= image_tag(flat_attachment.image.to_s) %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_flat_path(@flat) %> |
 <%= link_to 'Back', flats_path %>

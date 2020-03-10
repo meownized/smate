@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'ffaker'
 # gem 'rails-erd'
 gem 'erd'
-
+gem 'carrierwave', '~> 2.0'
 
 
 

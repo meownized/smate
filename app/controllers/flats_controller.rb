@@ -10,11 +10,13 @@ class FlatsController < ApplicationController
   # GET /flats/1
   # GET /flats/1.json
   def show
+    @flat_attachments = @flat.flat_attachments.all
   end
 
   # GET /flats/new
   def new
     @flat = Flat.new
+    @flat_attachment = @flat.flat_attachments.build
   end
 
   # GET /flats/1/edit
@@ -28,6 +30,13 @@ class FlatsController < ApplicationController
 
     respond_to do |format|
       if @flat.save
+        params[:flat_attachments]['image'].each do |image|
+          @flat_attachment = @flat.flat_attachments.create!(
+            image: image,
+            flat_id: @flat.id
+          )
+        end
+
         format.html { redirect_to @flat, notice: 'Flat was successfully created.' }
         format.json { render :show, status: :created, location: @flat }
       else
@@ -69,6 +78,14 @@ class FlatsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def flat_params
-      params.require(:flat).permit(:price, :district, :subway, :status)
+      params.require(:flat).permit(
+        :price,
+        :district,
+        :subway,
+        :status,
+        flat_attachments_attributes: [
+          :id, :flat_id, :image
+        ]
+      )
     end
 end

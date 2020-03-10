@@ -1,4 +1,4 @@
-<%= form_with(model: flat, local: true) do |form| %>
+<%= form_for(@flat, :html => { :multipart => true }) do |form| %>
   <% if flat.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(flat.errors.count, "error") %> prohibited this flat from being saved:</h2>
@@ -30,6 +30,14 @@
     <%= form.label :status %>
     <%= form.check_box :status %>
   </div>
+
+  <%= form.fields_for :flat_attachments do |image_form| %>
+    <div class="field">
+      <%= image_form.label :image %><br>
+      <%= image_form.file_field :image, :multiple => true, name: "flat_attachments[image][]"
+      %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>
