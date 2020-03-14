@@ -77,7 +77,7 @@
 
 <p>
   <strong>Avatar:</strong>
-  <%= @user.avatar %>
+  <%= image_tag(@user.avatar.to_s) %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
