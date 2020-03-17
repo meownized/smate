@@ -1,0 +1,19 @@
+h1
+  | Снимай жильё, заводи друзей
+
+p
+  | S!Mate — приложение для коллективного съёма жилья. Регистрируйся, заполняй анкету и смотри только подходящие тебе предложения и квартиры.
+
+h2
+   = link_to 'All flats', flats_path
+
+h2
+  - if user_signed_in?
+    div.username
+      = link_to current_user.name, current_user
+      = link_to 'Выйти', destroy_user_session_path, method: :delete
+
+  - else
+    div.log_in
+      = link_to 'Зарегистрироваться', new_user_registration_path
+      = link_to 'Войти', new_user_session_path

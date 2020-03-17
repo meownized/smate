@@ -1,0 +1,24 @@
+= form_with(model: message, local: true) do |form|
+  - if message.errors.any?
+    #error_explanation
+      h2
+        = pluralize(message.errors.count, "error")
+        |  prohibited this message from being saved:
+      ul
+        - message.errors.full_messages.each do |message|
+          li
+            = message
+  .field
+    = form.label :body
+    = form.text_field :body
+  .field
+    = form.label :user_id
+    = form.number_field :user_id
+  .field
+    = form.label :read
+    = form.check_box :read
+  .field
+    = form.label :conversation_id
+    = form.number_field :conversation_id
+  .actions
+    = form.submit

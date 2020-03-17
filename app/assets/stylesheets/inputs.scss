@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&display=swap');
+
+textarea, select, input, button { outline: none; }
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+
+input, select {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  border: 2px solid #ADB2BA;
+  box-sizing: border-box;
+  border-radius: 8px;
+  height: 50px;
+  width: 302px;
+  background: white;
+  padding: 8px;
+  margin-top: 20px;
+
+  &[type=text] {
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -0.3px;
+    color: #18214D;
+  }
+
+  &:focus {
+    border: 2px solid #18214D;
+  }
+}
+
+// button {
+  .primary, .secondary {
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+    background: #F36D03;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+  .primary:hover{
+    background: #F05600;
+  }
+
+  .secondary:hover{
+    background: lightgray;
+  }
+
+  .secondary {
+    background: white;
+    border: 2px solid #ADB2BA;
+    color: black;
+    margin-left: 20px;
+  }
+// }

@@ -1,0 +1,83 @@
+p#notice
+  = notice
+h1
+  | Users
+table
+  thead
+    tr
+      th
+        | Status
+      th
+        | Name
+      th
+        | Surname
+      th
+        | Sex
+      th
+        | Age
+      th
+        | Animals
+      th
+        | Smoke
+      th
+        | Alcohol
+      th
+        | Children
+      th
+        | Lgbtq
+      th
+        | Job
+      th
+        | Persnonal info
+      th
+        | Vk
+      th
+        | Facebook
+      th
+        | Instagram
+      th
+        | Avatar
+      th[colspan="3"]
+  tbody
+    - @users.each do |user|
+      tr
+        td
+          = user.status
+        td
+          = user.name
+        td
+          = user.surname
+        td
+          = user.sex
+        td
+          = user.age
+        td
+          = user.animals
+        td
+          = user.smoke
+        td
+          = user.alcohol
+        td
+          = user.children
+        td
+          = user.lgbtq
+        td
+          = user.job
+        td
+          = user.persnonal_info
+        td
+          = user.vk
+        td
+          = user.facebook
+        td
+          = user.instagram
+        td
+          = user.avatar
+        td
+          = link_to 'Show', user
+        td
+          = link_to 'Edit', edit_user_path(user)
+        td
+          = link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
+br
+= link_to 'New User', new_user_path

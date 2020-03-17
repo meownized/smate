@@ -1,0 +1,10 @@
+p#notice
+  = notice
+h1
+  | Объявления
+
+.flat_container
+  = render partial: 'flat_card', collection: @flats, as: :flat
+
+br
+= link_to 'New Flat', new_flat_path

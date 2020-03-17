@@ -5,6 +5,6 @@ class Flat < ActiveRecord::Base
 
   has_many :conversations
 
-  has_many :flat_attachments
-  accepts_nested_attributes_for :flat_attachments
+  has_many :flat_attachments, dependent: :destroy
+  accepts_nested_attributes_for :flat_attachments, allow_destroy: true
 end

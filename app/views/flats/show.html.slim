@@ -1,0 +1,69 @@
+p#notice
+  = notice
+
+.info
+  button.apply
+    | Подать заявку
+
+  p.flat_price
+    = @flat.price
+    |  руб. в месяц
+
+  p.flat_description
+    | 2 человека в комнате •  2 комнаты • 4 человека всего
+  //p
+    //= @flat.district
+  p.subway
+    = @flat.subway
+
+  p.distance
+   | 15  Пушкинская, Фёдора Длинное-имя Полетаева, дом 20 к1
+
+
+
+.flat_wrapper
+  p.flat_back
+    = link_to '← Назад', flats_path
+  h1
+    | Комната в трешке на соколе
+
+  .photosFlat
+
+    .first
+      = image_tag(@flat.flat_attachments.first.image.to_s)
+
+    .other
+      - @flat.flat_attachments.drop(1).each do |flat_attachment|
+        = image_tag(flat_attachment.image.to_s)
+        = link_to "Удалить картинку", flat_flat_attachment_path(@flat, flat_attachment), method: :delete
+
+  = link_to "Удалить картинку", flat_flat_attachment_path(@flat, @flat.flat_attachments.first), method: :delete
+
+  .people
+    h2
+      | В квартире живут
+    .people_cards
+      .person_card
+        .photo
+        .about_person
+          p.person_name
+            | Валеева Анастасия
+          p.person_job
+            | Бекендер
+
+      .person_card
+        .photo
+        .about_person
+          p.person_name
+            | Данилов Вячеслав
+          p.person_job
+            | дизайнер
+
+  .about
+    h2
+      | О квартире
+    p.about_
+      | Сдается комната. Без комиссии. Метро ВДНХ 10-12 минут, раcстояние - 1км если ходит по прямой, как ходят все люди микрорайона, 1,3 км это если по автодорогам. Для одной девушки или одного парня, можно студентам. В квартире чисто и очень уютная. Южная сторона - светло и красиво. В комнате есть комод, двуспальный большой что-то.
+
+= link_to 'Edit', edit_flat_path(@flat)
+= link_to 'Destroy', @flat, method: :delete, data: { confirm: 'Are you sure?' }

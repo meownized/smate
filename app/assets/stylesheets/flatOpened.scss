@@ -1,0 +1,142 @@
+p.person_name {
+  font-size: 16px;
+  line-height: normal;
+}
+
+p.person_job {
+  font-size: 14px;
+  color: #ADB2BA;
+}
+
+p.flat_price {
+  margin-top: 40px;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: -0.4px;
+  color: #18214D;
+}
+
+p.flat_description, .distance {
+  margin-top: 12px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.2px;
+  color: #333;
+}
+
+button.apply {
+  width: 296px;
+  height: 50px;
+  border: none;
+  color: white;
+  background: #F36D03;
+  border-radius: 8px;
+
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  letter-spacing: -0.4px;
+}
+
+.flat_back {
+  margin-bottom: 20px;
+}
+
+.photosFlat {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: row;
+
+  .first {
+    img {
+      object-fit: cover;
+      width: 516px;
+      height: 368px;
+      border-radius: 8px;
+    }
+  }
+
+  .other {
+    margin-left: 12px;
+    display: flex;
+    flex-direction: column;
+    img {
+      object-fit: cover;
+      width: 100px;
+      height: 72px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.people {
+  margin-top: 48px;
+
+  .people_cards {
+    margin-top: 20px;
+    display: flex;
+    max-width: 516px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .person_card {
+      display: flex;
+      flex-direction: row;
+      width: 240px;
+      height: 124px;
+      left: 186px;
+      top: 756px;
+      background: #FFFFFF;
+      // box-shadow: 0px 3px 16px rgba(0, 0, 0, 0.08);
+      border-radius: 8px;
+      border: 1px solid #DFE4EA;
+
+      .photo {
+        min-width: 100px;
+        height: 100px;
+        margin: 12px;
+        background-color: black;
+        border-radius: 4px;
+      }
+
+      .about_person {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 12px;
+        margin-bottom: 12px;
+        //margin-left: 4px;
+      }
+    }
+  }
+}
+
+.about {
+  margin-top: 48px;
+  margin-bottom: 120px;
+
+  .about_flat {
+    margin-top: 12px;
+    color: #3E4462;
+    max-width: 516px;
+  }
+}
+
+.info {
+  padding: 36px;
+  position: fixed;
+  top: 280px;
+  right: 186px;
+  width: 296px;
+  height: auto;
+  background: #FFFFFF;
+  // box-shadow: 0px 3px 16px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  border: 1px solid #DFE4EA;
+}

@@ -1,0 +1,31 @@
+= form_for(@flat, :html => { :multipart => true }) do |form|
+  - if flat.errors.any?
+    #error_explanation
+      h2
+        = pluralize(flat.errors.count, "error")
+        |  prohibited this flat from being saved:
+      ul
+        - flat.errors.full_messages.each do |message|
+          li
+            = message
+  .field
+    = form.label :price
+    = form.number_field :price
+  .field
+    = form.label :district
+    = form.text_field :district
+  .field
+    = form.label :subway
+    = form.text_field :subway
+  .field
+    = form.label :status
+    = form.check_box :status
+
+  = form.fields_for :flat_attachments do |image_form|
+    .field
+      = image_form.label :image
+      br
+      = image_form.file_field :image, :multiple => true, name: "flat_attachments[image][]"
+
+  .actions
+    = form.submit

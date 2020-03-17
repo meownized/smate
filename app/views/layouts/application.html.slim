@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title
+      | Smate
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    - #= javascript_pack_tag 'hello_react'
+
+  body
+
+    .menubar
+      .menu_items_left
+        .logo
+        a.menu_item
+          | Уведомления
+        a.menu_item
+          | Чаты
+      .menu_items_right
+          - if user_signed_in?
+            div.username
+              = link_to current_user.name, current_user
+              = link_to 'Выйти', destroy_user_session_path, method: :delete
+
+          - else
+            div.log_in
+              = link_to 'Зарегистрироваться', new_user_registration_path
+              = link_to 'Войти', new_user_session_path
+
+    .container
+      = yield
+
+    footer

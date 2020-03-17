@@ -51,6 +51,13 @@ class FlatsController < ApplicationController
   def update
     respond_to do |format|
       if @flat.update(flat_params)
+        params[:flat_attachments]['image'].each do |image|
+          @flat_attachment = @flat.flat_attachments.create!(
+            image: image,
+            flat_id: @flat.id
+          )
+        end
+
         format.html { redirect_to @flat, notice: 'Flat was successfully updated.' }
         format.json { render :show, status: :ok, location: @flat }
       else
@@ -70,6 +77,10 @@ class FlatsController < ApplicationController
     end
   end
 
+  def destroy_image
+    flat_attachment.destroy
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_flat
@@ -79,6 +90,8 @@ class FlatsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def flat_params
       params.require(:flat).permit(
+        :name,
+        :description,
         :price,
         :district,
         :subway,

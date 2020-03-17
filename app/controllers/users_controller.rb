@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :neighbor_edit]
 
   # GET /users
   # GET /users.json
@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    # render json: @user, serializer: UserSerializer
   end
 
   # POST /users
@@ -28,6 +29,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        format.js
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -42,8 +44,9 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
+        format.js
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
+        format.json { render :show, notice: 'User was successfully updated.' }
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -69,6 +72,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:status, :name, :surname, :sex, :age, :animals, :smoke, :alcohol, :children, :lgbtq, :job, :persnonal_info, :vk, :facebook, :instagram, :avatar)
+      params.require(:user).permit(:status, :name, :surname, :sex, :age, :animals, :smoke, :alcohol, :children, :lgbtq, :job, :persnonal_info, :vk, :facebook, :instagram, :avatar, :email)
     end
 end

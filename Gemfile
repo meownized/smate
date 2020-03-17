@@ -32,6 +32,13 @@ gem 'ffaker'
 gem 'erd'
 gem 'carrierwave', '~> 2.0'
 
+gem 'devise'
+
+gem 'slim-rails'
+
+gem 'jquery-rails'
+
+gem "active_model_serializers", "~> 0.8.0"
 
 
 # Use ActiveStorage variant

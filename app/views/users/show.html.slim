@@ -1,0 +1,69 @@
+p#notice
+  = notice
+p
+  strong
+    | Status:
+  = @user.status
+p
+  strong
+    | Name:
+  = @user.name
+p
+  strong
+    | Surname:
+  = @user.surname
+p
+  strong
+    | Sex:
+  = @user.sex
+p
+  strong
+    | Age:
+  = @user.age
+p
+  strong
+    | Animals:
+  = @user.animals
+p
+  strong
+    | Smoke:
+  = @user.smoke
+p
+  strong
+    | Alcohol:
+  = @user.alcohol
+p
+  strong
+    | Children:
+  = @user.children
+p
+  strong
+    | Lgbtq:
+  = @user.lgbtq
+p
+  strong
+    | Job:
+  = @user.job
+p
+  strong
+    | Persnonal info:
+  = @user.persnonal_info
+p
+  strong
+    | Vk:
+  = @user.vk
+p
+  strong
+    | Facebook:
+  = @user.facebook
+p
+  strong
+    | Instagram:
+  = @user.instagram
+p
+  strong
+    | Avatar:
+  = image_tag(@user.avatar.to_s)
+= link_to 'Edit', edit_user_path(@user)
+|  | 
+= link_to 'Back', users_path

@@ -1,0 +1,21 @@
+p#notice
+  = notice
+p
+  strong
+    | Body:
+  = @message.body
+p
+  strong
+    | User:
+  = @message.user_id
+p
+  strong
+    | Read:
+  = @message.read
+p
+  strong
+    | Conversation:
+  = @message.conversation_id
+= link_to 'Edit', edit_message_path(@message)
+|  | 
+= link_to 'Back', messages_path

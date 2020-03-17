@@ -1,0 +1,74 @@
+.flat_arrow_icon {
+  background-image: url(flat_arrow_icon.svg);
+  width: 32px;
+  height: 32px;
+  background-size: contain;
+}
+
+h1, h2, h3, h4, h5, h6, p, a {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: -1.5px;
+  color: #18214D;
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 28px;
+}
+
+h3 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: -0.4px;
+  color: #18214D;
+}
+
+p {
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: -0.3px;
+  color: #3E4462;
+  padding-top: 20px;
+  max-width: 648px;
+}
+
+p.card {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #3E4462;
+}
+
+p.price {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: -0.4px;
+  color: #F36D03;
+}
+
+a {
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: -0.4px;
+  color: #18214D;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

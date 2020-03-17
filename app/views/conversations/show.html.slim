@@ -1,0 +1,13 @@
+p#notice
+  = notice
+p
+  strong
+    | Flat:
+  = @conversation.flat_id
+p
+  strong
+    | Status:
+  = @conversation.status
+= link_to 'Edit', edit_conversation_path(@conversation)
+|  | 
+= link_to 'Back', conversations_path

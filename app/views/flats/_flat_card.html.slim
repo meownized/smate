@@ -1,0 +1,26 @@
+.flatCard
+  .flat_image
+    = image_tag(flat.flat_attachments.first.image.to_s)
+  .flat_info
+    .flat_description
+      h3 = flat.name
+      p.card = flat.description
+      //p = flat.district
+      p = flat.subway
+    .flat_action
+      p.price
+        = flat.price
+        |   руб
+      = link_to '', flat_path(flat), class: 'flat_arrow_icon'
+
+          // Тут первая? фотка квартиры
+          // - flat.flat_attachments.each do |flat_attachment|
+            // = image_tag(flat_attachment.image.to_s)
+  // p
+  //   = flat.status
+  // div
+  //   = link_to 'Show', flat
+  // div
+  //   = link_to 'Edit', edit_flat_path(flat)
+  // div
+  //   = link_to 'Destroy', flat, method: :delete, data: { confirm: 'Are you sure?' }
