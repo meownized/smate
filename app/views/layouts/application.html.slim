@@ -14,10 +14,14 @@ html
     .menubar
       .menu_items_left
         .logo
-        a.menu_item
-          | Уведомления
-        a.menu_item
-          | Чаты
+          =link_to 'Поиск', flats_path
+        - if user_signed_in?
+          a.menu_item
+            | Уведомления
+          a.menu_item
+            | Чаты
+        - else
+
       .menu_items_right
           - if user_signed_in?
             div.username

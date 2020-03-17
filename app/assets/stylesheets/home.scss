@@ -1,0 +1,51 @@
+.wrapper {
+  margin-top: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .picture {
+    background-image: url('main.svg');
+    background-size: contain;
+    width: 120px;
+    height: 168px;
+  }
+
+  p, h1 {
+    text-align: center;
+  }
+
+  h1 {
+    margin-top: 20px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 44px;
+    line-height: 52px;
+    text-align: center;
+    letter-spacing: -2.4px;
+    color: #18214D;
+  }
+
+  p {
+    margin-top: 16px;
+    max-width: 540px;
+    padding-top: 0;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 26px;
+    text-align: center;
+    letter-spacing: -0.4px;
+    color: #3E4462;
+  }
+
+  .log_in {
+    margin-top: 28px;
+    width: 292px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+}
