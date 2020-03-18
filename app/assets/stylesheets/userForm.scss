@@ -9,4 +9,11 @@ section .UserForm {
     margin-top: auto;
       // margin-top: 20px;
   }
+
+  .buttonWrapper {
+    margin-top: 8px;
+    button {
+      margin-right: 12px;
+    }
+  }
 }

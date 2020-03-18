@@ -241,19 +241,22 @@ export default class UserForm extends React.Component {
           handleInstagramChange={ this.handleInstagramChange }
         />
 
-        <button
+        <div class="buttonWrapper">
+          <button
           onClick={this.handleSubmit}
           type="submit"
           value="Submit"
           className="submitButton primary"> Сохранить
-        </button>
+          </button>
 
-        <button
+          <button
           onClick={this.handleSubmit}
           type="submit"
           value="Submit"
           className="submitButton secondary"> Пропустить
-        </button>
+          </button>
+        </div>
+
       </section>
 
     )

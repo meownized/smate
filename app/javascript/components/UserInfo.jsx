@@ -129,8 +129,8 @@ class UserInfo extends React.Component {
               name="sex"
               value={ this.props.user.sex }
               onChange={ this.handleSexChange }>
-              <option value="М">Мужской</option>
-              <option value="Ж">Женский</option>
+              <option value="Female">Женский</option>
+              <option value="Male">Мужской</option>
             </select>
 
 
@@ -148,8 +148,8 @@ class UserInfo extends React.Component {
               name="animals"
               value={ this.props.user.animals }
               onChange={ this.handleAnimalsChange }>
-              <option value="No">Без животных</option>
-              <option value="Yes">Есть животные</option>
+              <option value="No_pets">Без животных</option>
+              <option value="Has_pets">Есть животные</option>
             </select>
 
             <select
@@ -158,26 +158,30 @@ class UserInfo extends React.Component {
               name="Smoke"
               value={ this.props.user.smoke }
               onChange={ this.handleSmokeChange }>
-              <option value="No">Не курю</option>
-              <option value="Sometimes">Курю иногда</option>
-              <option value="Yes">Курю постоянно</option>
+              <option value="No_smoking">Не курю</option>
+              <option value="Sometimes_smoking">Иногда курю</option>
+              <option value="Smoking_allowed">Курю постоянно</option>
             </select>
 
-            <input
+            <select
               type="text"
               placeholder="Отношение к алкоголю"
               name="Alcohol"
               value={ this.props.user.alcohol }
-              onChange={ this.handleAlcoholChange }
-            />
+              onChange={ this.handleAlcoholChange }>
+              <option value="No_alchohol">Не пью</option>
+              <option value="Alchohol_allowed">Иногда пью</option>
+            </select>
 
-            <input
+            <select
               type="text"
               placeholder="Дети"
               name="Children"
               value={ this.props.user.children }
-              onChange={ this.handleChildrenChange }
-            />
+              onChange={ this.handleChildrenChange }>
+              <option value="No_children">Нет детей</option>
+              <option value="Has_children">Есть дети</option>
+            </select>
 
             <input
               type="text"

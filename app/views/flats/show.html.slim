@@ -35,9 +35,6 @@ p#notice
     .other
       - @flat.flat_attachments.drop(1).each do |flat_attachment|
         = image_tag(flat_attachment.image.to_s)
-        = link_to "Удалить картинку", flat_flat_attachment_path(@flat, flat_attachment), method: :delete
-
-  = link_to "Удалить картинку", flat_flat_attachment_path(@flat, @flat.flat_attachments.first), method: :delete
 
   .people
     h2

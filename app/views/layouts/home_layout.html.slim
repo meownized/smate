@@ -10,6 +10,24 @@ html
     - javascript_pack_tag 'hello_react'
 
   body
+    .menubar
+      .menu_items_left
+        = link_to(root_path) do
+          .logo
+        - if user_signed_in?
+
+        - else
+
+      .menu_items_right
+          - if user_signed_in?
+            div.username
+              = link_to current_user.name, current_user
+              = link_to 'Выйти', destroy_user_session_path, method: :delete
+
+          - else
+            div.log_in
+              = link_to 'Регистрация', new_user_registration_path
+              = link_to 'Вход', new_user_session_path
 
     .container
       = yield

@@ -2,10 +2,26 @@
 
 textarea, select, input, button { outline: none; }
 
+.form {
+  h1 {
+    margin-bottom: 12px;
+  }
+
+  p {
+    margin-bottom: 16px;
+  }
+}
+
 .field {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   margin-top: 0;
+  // background: white;
+
+  input, select {
+    margin-bottom: 16px;
+  }
 }
 
 input, select {
@@ -39,4 +55,10 @@ label {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+}
+
+.field label {
+  font-family: 'Open Sans', sans-serif;
+  color: #ADB2BA;
+  margin-bottom: 4px;/*or whatever you want to change*/
 }

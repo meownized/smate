@@ -17,6 +17,8 @@ html
           =link_to 'Поиск', flats_path
         - if user_signed_in?
           a.menu_item
+            =link_to 'Поиск', flats_path
+          a.menu_item
             | Уведомления
           a.menu_item
             | Чаты
@@ -30,8 +32,8 @@ html
 
           - else
             div.log_in
-              = link_to 'Зарегистрироваться', new_user_registration_path
-              = link_to 'Войти', new_user_session_path
+              = link_to 'Регистрация', new_user_registration_path
+              = link_to 'Вход', new_user_session_path
 
     .container
       = yield
