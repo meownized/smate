@@ -13,5 +13,4 @@ class PagesController < ApplicationController
      "application"
    end
  end
-
 end

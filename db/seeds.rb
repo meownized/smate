@@ -3,6 +3,7 @@ require 'ffaker'
 5.times do
   User.create!(
     name: FFaker::NameRU.first_name,
+    surname: FFaker::NameRU.last_name,
     email: FFaker::Internet.email,
     password: "123456"
   )

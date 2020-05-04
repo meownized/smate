@@ -8,9 +8,13 @@ class User < ApplicationRecord
   has_many :flats, through: :rents, dependent: :destroy
   has_many :rooms, through: :rents, dependent: :destroy
 
-  has_many :messages
-  has_many :message_statuses
-  has_and_belongs_to_many :conversations
+  has_many :conversations, dependent: :destroy
+  has_many :messages, dependent: :destroy
+  # has_many :message_statuses
+  # has_and_belongs_to_many :conversations
+  accepts_nested_attributes_for :messages, allow_destroy: true
+  accepts_nested_attributes_for :conversations, allow_destroy: true
+  
 
   mount_uploader :avatar, AvatarUploader
 end
