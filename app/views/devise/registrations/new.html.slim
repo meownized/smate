@@ -5,12 +5,12 @@
     = render "devise/shared/error_messages", resource: resource
 
     .field
-      = f.label :email
-      = f.email_field :email, autocomplete: "name"
+      = f.label :name
+      = f.text_field :name, autocomplete: "name"
 
     .field
-      = f.label :email
-      = f.email_field :email, autocomplete: "surname"
+      = f.label :surname
+      = f.text_field :surname, autocomplete: "surname"
 
     .field
       = f.label :email

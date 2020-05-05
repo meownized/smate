@@ -129,8 +129,8 @@ class UserInfo extends React.Component {
               name="sex"
               value={ this.props.user.sex }
               onChange={ this.handleSexChange }>
-              <option value="Female">Женский</option>
-              <option value="Male">Мужской</option>
+              <option value="ж">Женский</option>
+              <option value="м">Мужской</option>
             </select>
 
 
