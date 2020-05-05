@@ -8,14 +8,13 @@
   - else
     section.flat_conversations data-props=FlatSerializer.new(@flat).to_json
 
-  - if @flat.conversations.any? {|conversation| @flat.users.each {|user| conversation.user_id == user.id}}
-    - if @flat.id == current_user&.flats&.last&.id
-      = link_to 'Проголосовать за кандидата',
-        flat_conversation_path(@flat, @flat.conversations.last, decision: true),
-        method: :delete
-      = link_to 'Отклонить',
-        flat_conversation_path(@flat, @flat.conversations.last, decision: false),
-        method: :delete
+  - if @flat.conversations.pluck(:user_id).uniq.include? @flat.users.ids
+    = link_to 'Проголосовать за кандидата',
+      flat_conversation_path(@flat, @flat.conversations.last, decision: true),
+      method: :delete
+    = link_to 'Отклонить',
+      flat_conversation_path(@flat, @flat.conversations.last, decision: false),
+      method: :delete
 
   section.flat_info
     = render partial: 'flats/flat_info', locals: {flat: @flat}

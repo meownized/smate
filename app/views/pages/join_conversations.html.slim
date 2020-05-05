@@ -1,9 +1,12 @@
 = javascript_pack_tag 'conversation_pack'
 
 .conversation_container
-  - @conversations.pluck(:flat_id).uniq.each do |flat_id|
-    - flat ||= Flat.find(flat_id)
-    section.flat_conversations data-props=FlatSerializer.new(flat).to_json
-    //.conversation data-props=conversation_room(@conversations.last)
-    section.flat_info
-      = render partial: 'flats/flat_info', locals: {flat: flat}
+  section.flat_conversation
+    - @conversations.where(user_id: current_user.id).each do |conversation|
+      h3 #{conversation.title}
+  - flat = Flat.find(@conversations.last.flat_id)
+  section.users_info Renters #{flat.users.count}
+  section.conversation data-props=ConversationSerializer.new(@conversations.last).to_json
+  //.conversation data-props=conversation_room(@conversations.last)
+  section.flat_info
+    = render partial: 'flats/flat_info', locals: {flat: flat}

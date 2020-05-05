@@ -12,6 +12,8 @@
 
   .flat_conversation {
     width: 352px;
+    display: flex;
+    flex-direction: column;
   }
 
   .conversation {
