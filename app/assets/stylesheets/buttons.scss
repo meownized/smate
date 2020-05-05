@@ -1,4 +1,5 @@
-.primary, .secondary {
+.primary,
+.secondary {
   cursor: pointer;
   font-family: 'Open Sans', sans-serif;
   font-size: 18px;
@@ -7,14 +8,12 @@
   padding: 15px 29px;
   text-align: center;
   display: inline-block;
-
   font-weight: normal;
   font-size: 16px;
   line-height: 22px;
   text-align: center;
   letter-spacing: -0.4px;
 }
-
 
 .primary {
   background: #F36D03;
@@ -44,20 +43,21 @@
 }
 
 .actions {
-   input {
-      width: 296px;
-      height: 50px;
-      border: none;
-      color: white;
-      background: #F36D03;
-      border-radius: 8px;
-      cursor: pointer;
-   }
+  input {
+    width: 296px;
+    height: 50px;
+    border: none;
+    color: white;
+    background: #F36D03;
+    border-radius: 8px;
+    cursor: pointer;
+  }
 }
 
-button.apply {
+a.apply {
+  display: block;
+  padding: 14px;
   width: 296px;
-  height: 50px;
   border: none;
   color: white;
   background: #F36D03;

@@ -9,3 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   ReactDOM.render(<Conversation {...conversationInfo}/>, document.getElementsByClassName('conversation')[0].appendChild(document.createElement('section')))
 })
+
+import FlatConversations from '../containers/FlatConversations'
+
+document.addEventListener('DOMContentLoaded', () => {
+  const conversationsInfo = JSON.parse(document.getElementsByClassName('flat_conversations')[0].dataset.props)
+
+  ReactDOM.render(<FlatConversations {...conversationsInfo}/>, document.getElementsByClassName('flat_conversations')[0].appendChild(document.createElement('section')))
+})

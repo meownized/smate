@@ -1,32 +1,85 @@
 class ConversationsController < ApplicationController
+  before_action :get_outlet
 
   def index
-    @conversations = ConversationDecorator.decorate_collection(Conversation.all)
-  end
-
-  def show
-    @conversation = Conversation.find(params[:id])
     @json_object = ConversationSerializer.new(@conversation).to_json
   end
 
-  def new
-    @conversation = Conversation.new
+  def show
+    @conversation = @flat.conversations.find(params[:id])
+    # @json_object = ConversationSerializer.new(@conversation).to_json
   end
 
   def create
-    @conversation = current_user.conversations.new(conversation_params)
+    @conversation = @flat.conversations.build(join_conversation)
 
     if @conversation.save
-      flash[:success] = 'Conversation sucessfully created.'
-      redirect_to conversations_path
+      redirect_to flat_conversations_path(@flat)
     else
       render 'new'
     end
   end
 
+  def destroy
+    @conversation = @flat.conversations.find(params[:id])
+
+    return @conversation.destroy unless params[:decision]
+
+    user = User.find(@conversation.user_id)
+    puts "Это пользователь: #{user}"
+    user.decision << true
+    user.save
+
+    return if user.decision.count != @flat.users.count
+
+    Rent.create(
+      user_id: @conversation.user_id,
+      flat_id: @flat.id,
+      room_id: @flat.rooms.sample.id
+    )
+
+    @conversation.destroy
+    respond_to do |format|
+      format.html { redirect_to flat_conversations_path(@flat) }
+      format.json { head :no_content }
+    end
+  end
+  #
+  # def submit_person
+  #   user = User.find(@conversation.user_id)
+  #   user.update(
+  #     decision: user.decision << true
+  #   )
+  #   return if user.decision.count != @flat.users.count
+  #
+  #   Rent.create(
+  #     user_id: @conversation.user_id,
+  #     flat_id: @flat.id,
+  #     room_id: @flat.rooms.sample
+  #   )
+  #
+  #   @conversation.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to flat_conversations_path(@flat) }
+  #     format.json { head :no_content }
+  #   end
+  # end
+
   private
 
+  def get_outlet
+    @flat = Flat.find(params[:flat_id])
+  end
+
+  def join_conversation
+    {
+      flat_id: @flat.id,
+      user_id: current_user.id,
+      title: "Вселение #{current_user.name + " " + current_user.surname}"
+    }
+  end
+
   def conversation_params
-    params.require(:conversation).permit(:title)
+    params.require(:conversation).permit(:title, :flat_id, :user_id)
   end
 end

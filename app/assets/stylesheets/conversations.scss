@@ -1,3 +1,26 @@
 // Place all the styles related to the conversations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.conversation_container {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .flat_conversations {
+    width: 352px;
+  }
+
+  .conversation {
+    width: 738px;
+  }
+
+  .flat_info {
+    position: absolute;
+    width: 352px;
+    right: 0;
+  }
+}

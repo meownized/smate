@@ -5,6 +5,10 @@ class PagesController < ApplicationController
 
   end
 
+  def join_conversations
+    @conversations = Conversation.all.where(user_id: current_user.id)
+  end
+
   def resolve_layout
    case action_name
    when "home"

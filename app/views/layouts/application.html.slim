@@ -19,8 +19,10 @@ html
             =link_to 'Поиск', flats_path
           a.menu_item
             | Уведомления
-          a.menu_item
-            | Чаты
+          - if current_user.flats.present?
+            = link_to 'Чаты', flat_conversations_path(current_user.flats.first), class: 'menu_item'
+          - else
+            = link_to 'Чаты', pages_join_conversations_path, class: 'menu_item'
         - else
 
       .menu_items_right

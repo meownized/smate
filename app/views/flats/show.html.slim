@@ -2,8 +2,10 @@ p#notice
   = notice
 
 .info
-  button.apply
-    | Подать заявку
+  - if @flat.conversations.any? { |conversation| conversation.user_id == current_user.id}
+    = link_to 'Перейти в чат', flat_conversations_path(@flat), :method => :post, class: 'apply'
+  - else
+    = link_to 'Подать заявку', flat_conversations_path(@flat), :method => :post, class: 'apply'
 
   p.flat_price
     = @flat.price

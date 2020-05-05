@@ -1,27 +1,19 @@
-p#notice
-  = notice
-h1
-  | Conversations
-table
-  thead
-    tr
-      th
-        | Flat
-      th
-        | Status
-      th[colspan="3"]
-  tbody
-    - @conversations.each do |conversation|
-      tr
-        td
-          = conversation.flat_id
-        td
-          = conversation.status
-        td
-          = link_to 'Show', conversation
-        td
-          = link_to 'Edit', edit_conversation_path(conversation)
-        td
-          = link_to 'Destroy', conversation, method: :delete, data: { confirm: 'Are you sure?' }
-br
-= link_to 'New Conversation', new_conversation_path
+= javascript_pack_tag 'conversation_pack'
+
+.conversation_container
+  - if @flat.conversations.all { |conversation| conversation.user_id == current_user.id }
+    section.flat_conversation #{@flat.conversations.where(user_id: current_user.id).last.title}
+  - else
+    section.flat_conversations data-props=FlatSerializer.new(@flat).to_json
+
+  - if @flat.id == current_user.flats.last.id
+    = link_to 'Прогологовать за кандидата',
+      flat_conversation_path(@flat, @flat.conversations.last, decision: true),
+      method: :delete
+    = link_to 'Отклонить',
+      flat_conversation_path(@flat, @flat.conversations.last, decision: false),
+      method: :delete
+
+  .conversation data-props=conversation_room(@flat.conversations.last)
+  section.flat_info
+    = render partial: 'flats/flat_info', locals: {flat: @flat}
