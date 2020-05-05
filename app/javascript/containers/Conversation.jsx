@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import MessageList from "../components/MessageList"
 
-class Conversation extends React.Component {
+export default class Conversation extends React.Component {
   constructor(props) {
     super(props);
 
@@ -12,12 +12,13 @@ class Conversation extends React.Component {
     this.state = {
       conversation: {
         messages: this.props.conversation.messages,
-        onlineUsers: [] // Need to implement this functionality
+        onlineUsers: []
       }
     };
   }
 
   newMessage(message) {
+
     const {messages} = this.state.conversation;
 
     const msgs = [...messages];
@@ -53,11 +54,20 @@ class Conversation extends React.Component {
       conversation_id: this.props.conversation.id
     }, {
       received: (data) => {
-        console.log(data);
         this.newMessage(data);
       }
     });
   }
+
+  // shouldComponentUpdate(nextProps){
+  //   return nextProps.conversation.id !== this.state.conversation.id;
+  // }
+  //
+  // componentDidUpdate(prevProps){
+  //   this.setState({
+  //     conversation: this.props.conversation
+  //   });
+  // }
 
   form() {
     return (<div className="col-sm-12">
@@ -86,5 +96,3 @@ class Conversation extends React.Component {
     </div>)
   }
 }
-
-export default Conversation

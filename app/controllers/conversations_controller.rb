@@ -11,12 +11,12 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    @conversation = @flat.conversations.build(join_conversation)
+    conversation = @flat.conversations.build(join_conversation)
 
-    if @conversation.save
+    if conversation.save
+      serialized_data = ConversationSerializer.new(conversation).as_json
+      ActionCable.server.broadcast 'conversations_channel', serialized_data[:conversation]
       redirect_to flat_conversations_path(@flat)
-    else
-      render 'new'
     end
   end
 
@@ -44,26 +44,6 @@ class ConversationsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  #
-  # def submit_person
-  #   user = User.find(@conversation.user_id)
-  #   user.update(
-  #     decision: user.decision << true
-  #   )
-  #   return if user.decision.count != @flat.users.count
-  #
-  #   Rent.create(
-  #     user_id: @conversation.user_id,
-  #     flat_id: @flat.id,
-  #     room_id: @flat.rooms.sample
-  #   )
-  #
-  #   @conversation.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to flat_conversations_path(@flat) }
-  #     format.json { head :no_content }
-  #   end
-  # end
 
   private
 

@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 class MessageList extends React.Component {
   messagesList() {
     const messages = this.props.messages
-
+    console.log('Все сообщения', messages);
     return messages.map((message, index) => <div className="col-sm-12" key={index}>
       <p className="message-text">
         <span className="text-muted">

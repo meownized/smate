@@ -2,9 +2,9 @@
 
 .conversation_container
   - if @flat.conversations.all { |conversation| conversation.user_id == current_user.id }
-    section.flat_conversation #{@flat.conversations.where(user_id: current_user.id).last.title}
-  - else
     section.flat_conversations data-props=FlatSerializer.new(@flat).to_json
+  - else
+    section.flat_conversation #{@flat.conversations.where(user_id: current_user.id).last.title}
 
   - if @flat.id == current_user.flats.last.id
     = link_to 'Прогологовать за кандидата',
@@ -14,6 +14,6 @@
       flat_conversation_path(@flat, @flat.conversations.last, decision: false),
       method: :delete
 
-  .conversation data-props=conversation_room(@flat.conversations.last)
+  // .conversation data-props=conversation_room(@flat.conversations.last)
   section.flat_info
     = render partial: 'flats/flat_info', locals: {flat: @flat}
