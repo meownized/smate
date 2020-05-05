@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&display=swap");
 
 button,
 input,
@@ -22,6 +22,7 @@ textarea {
   flex-direction: column;
   justify-content: space-between;
   margin-top: 0;
+
   // background: white;
   input,
   select {
@@ -32,7 +33,7 @@ textarea {
 input,
 select {
   font-size: 16px;
-  border: 2px solid #ADB2BA;
+  border: 2px solid #adb2ba;
   box-sizing: border-box;
   border-radius: 8px;
   height: 50px;
@@ -40,20 +41,21 @@ select {
   background: white;
   padding: 8px;
 
-  &[type=text] {
+  &[type="text"] {
     font-size: 18px;
     line-height: 26px;
     letter-spacing: -0.3px;
-    color: #18214D;
+    color: #18214d;
   }
 
   &:focus {
-    border: 2px solid #18214D;
+    border: 2px solid #18214d;
   }
 }
 
 label {
   color: red;
+
   //opacity: 0;
 }
 
@@ -64,8 +66,9 @@ label {
 }
 
 .field label {
-  font-family: 'Open Sans', sans-serif;
-  color: #ADB2BA;
+  font-family: "Open Sans", sans-serif;
+  color: #adb2ba;
   margin-bottom: 4px;
+
   /*or whatever you want to change*/
 }

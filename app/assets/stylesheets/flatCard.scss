@@ -9,7 +9,7 @@
 //   border-radius: 8px;
 //   position: relative;
 // }
-@import 'colors';
+@import "colors";
 
 .flatCard {
   width: 476px;
@@ -20,6 +20,7 @@
   justify-content: flex-start;
   padding: 20px;
   margin-bottom: 32px;
+
   // box-shadow: 2px 2px 16px 0px rgba(0,0,0,0.16);
   .flat_image {
     img {
@@ -30,7 +31,7 @@
   }
 
   &:hover {
-    box-shadow: 2px 2px 16px 0 rgba(0,0,0,0.12);
+    box-shadow: 2px 2px 16px 0 rgba(0, 0, 0, 0.12);
     cursor: pointer;
   }
 

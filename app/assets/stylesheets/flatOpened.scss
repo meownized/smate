@@ -5,7 +5,7 @@ p.person_name {
 
 p.person_job {
   font-size: 14px;
-  color: #ADB2BA;
+  color: #adb2ba;
 }
 
 p.flat_price {
@@ -14,7 +14,7 @@ p.flat_price {
   font-size: 24px;
   line-height: 28px;
   letter-spacing: -0.4px;
-  color: #18214D;
+  color: #18214d;
 }
 
 .distance,
@@ -79,10 +79,11 @@ p.flat_description {
       height: 124px;
       left: 186px;
       top: 756px;
-      background: #FFFFFF;
+      background: #ffffff;
+
       // box-shadow: 0px 3px 16px rgba(0, 0, 0, 0.08);
       border-radius: 8px;
-      border: 1px solid #DFE4EA;
+      border: 1px solid #dfe4ea;
 
       .photo {
         min-width: 100px;
@@ -98,6 +99,7 @@ p.flat_description {
         justify-content: space-between;
         margin-top: 12px;
         margin-bottom: 12px;
+
         //margin-left: 4px;
       }
     }
@@ -110,7 +112,7 @@ p.flat_description {
 
   .about_flat {
     margin-top: 12px;
-    color: #3E4462;
+    color: #3e4462;
     max-width: 516px;
   }
 }
@@ -122,8 +124,9 @@ p.flat_description {
   right: 186px;
   width: 296px;
   height: auto;
-  background: #FFFFFF;
+  background: #ffffff;
+
   // box-shadow: 0px 3px 16px rgba(0, 0, 0, 0.08);
   border-radius: 8px;
-  border: 1px solid #DFE4EA;
+  border: 1px solid #dfe4ea;
 }

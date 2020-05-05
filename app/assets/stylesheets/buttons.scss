@@ -1,7 +1,7 @@
 .primary,
 .secondary {
   cursor: pointer;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 18px;
   line-height: 22px;
   border-radius: 8px;
@@ -16,7 +16,7 @@
 }
 
 .primary {
-  background: #F36D03;
+  background: #f36d03;
   color: white;
 
   a {
@@ -28,13 +28,13 @@
   }
 
   &:hover {
-    background: #F05600;
+    background: #f05600;
   }
 }
 
 .secondary {
   background: white;
-  border: 2px solid #ADB2BA;
+  border: 2px solid #adb2ba;
   color: black;
 
   &:hover {
@@ -48,7 +48,7 @@
     height: 50px;
     border: none;
     color: white;
-    background: #F36D03;
+    background: #f36d03;
     border-radius: 8px;
     cursor: pointer;
   }
@@ -60,7 +60,7 @@ a.apply {
   width: 296px;
   border: none;
   color: white;
-  background: #F36D03;
+  background: #f36d03;
   border-radius: 8px;
   font-weight: normal;
   font-size: 18px;
@@ -75,10 +75,10 @@ a.apply {
   font-size: 16px;
   line-height: 26px;
   letter-spacing: -0.3px;
-  color: #ADB2BA;
+  color: #adb2ba;
 
   &:hover {
     text-decoration: none;
-    color: #3E4462;
+    color: #3e4462;
   }
 }
