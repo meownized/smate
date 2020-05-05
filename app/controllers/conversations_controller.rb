@@ -26,7 +26,6 @@ class ConversationsController < ApplicationController
     return @conversation.destroy unless params[:decision]
 
     user = User.find(@conversation.user_id)
-    puts "Это пользователь: #{user}"
     user.decision << true
     user.save
 

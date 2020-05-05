@@ -1,30 +1,29 @@
 class FlatsController < ApplicationController
   before_action :set_flat, only: [:show, :edit, :update, :destroy]
 
-  # GET /flats
-  # GET /flats.json
   def index
-    @flats = Flat.all
+    @flats = Flat.where('? = ANY (sex)', current_user.sex)
+      .where(couple: current_user.couple)
+      .where(smoke: current_user.smoke)
+      .where(animals: current_user.animals)
+      .where(party: current_user.party)
+      .where(children: current_user.children)
+      .where(lgbtq: current_user.lgbtq)
+
   end
 
-  # GET /flats/1
-  # GET /flats/1.json
   def show
     @flat_attachments = @flat.flat_attachments.all
   end
 
-  # GET /flats/new
   def new
     @flat = Flat.new
     @flat_attachment = @flat.flat_attachments.build
   end
 
-  # GET /flats/1/edit
   def edit
   end
 
-  # POST /flats
-  # POST /flats.json
   def create
     @flat = Flat.new(flat_params)
 
@@ -37,7 +36,7 @@ class FlatsController < ApplicationController
           )
         end
 
-        format.html { redirect_to @flat, notice: 'Flat was successfully created.' }
+        format.html { redirect_to @flat }
         format.json { render :show, status: :created, location: @flat }
       else
         format.html { render :new }
@@ -46,8 +45,6 @@ class FlatsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /flats/1
-  # PATCH/PUT /flats/1.json
   def update
     respond_to do |format|
       if @flat.update(flat_params)
@@ -58,7 +55,7 @@ class FlatsController < ApplicationController
           )
         end
 
-        format.html { redirect_to @flat, notice: 'Flat was successfully updated.' }
+        format.html { redirect_to @flat }
         format.json { render :show, status: :ok, location: @flat }
       else
         format.html { render :edit }
@@ -67,12 +64,10 @@ class FlatsController < ApplicationController
     end
   end
 
-  # DELETE /flats/1
-  # DELETE /flats/1.json
   def destroy
     @flat.destroy
     respond_to do |format|
-      format.html { redirect_to flats_url, notice: 'Flat was successfully destroyed.' }
+      format.html { redirect_to flats_url }
       format.json { head :no_content }
     end
   end
@@ -82,23 +77,22 @@ class FlatsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_flat
-      @flat = Flat.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def flat_params
-      params.require(:flat).permit(
-        :name,
-        :description,
-        :price,
-        :district,
-        :subway,
-        :status,
-        flat_attachments_attributes: [
-          :id, :flat_id, :image
-        ]
-      )
-    end
+  def set_flat
+    @flat = Flat.find(params[:id])
+  end
+
+  def flat_params
+    params.require(:flat).permit(
+      :name,
+      :description,
+      :price,
+      :district,
+      :subway,
+      :status,
+      flat_attachments_attributes: [
+        :id, :flat_id, :image
+      ]
+    )
+  end
 end

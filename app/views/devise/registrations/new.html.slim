@@ -6,7 +6,15 @@
 
     .field
       = f.label :email
-      = f.email_field :email, autofocus: true, autocomplete: "email"
+      = f.email_field :email, autocomplete: "name"
+
+    .field
+      = f.label :email
+      = f.email_field :email, autocomplete: "surname"
+
+    .field
+      = f.label :email
+      = f.email_field :email, autocomplete: "email"
 
     .field
       = f.label :password

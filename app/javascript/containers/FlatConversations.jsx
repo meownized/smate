@@ -8,9 +8,11 @@ export default class FlatConversations extends React.Component {
   constructor(props) {
     super(props)
     this.handleClick = this.handleClick.bind(this)
+    // this.userList = this.userList.bind(this)
 
     this.state = {
       flat: {
+        users: this.props.flat.users,
         conversations: this.props.flat.conversations,
         activeConversation: 1
       }
@@ -45,8 +47,21 @@ export default class FlatConversations extends React.Component {
     this.setState({ newState });
   };
 
+  // userList(){
+  //   const {users} = this.state.flat;
+  //   const all_users = [...users];
+  //
+  //   return all_users.map((user, index) =>
+  //     <div className="col-sm-12" key={index}>
+  //       <p className="message-text">
+  //         {user.full_name}
+  //       </p>
+  //     </div>
+  //   );
+  // }
+
   render() {
-    const {conversations, activeConversation} = this.state.flat;
+    const {conversations, activeConversation, users} = this.state.flat;
     const {messages} = conversations;
 
     const findActiveConversation = (conversations, activeConversation) => {
@@ -55,19 +70,22 @@ export default class FlatConversations extends React.Component {
       );
     };
 
-    return (<div className={activeConversation} >
+    return (<div className="conversation_container" >
       <ConversationList
+        className="flat_conversation"
         conversations={conversations}
         handleClick={this.handleClick}
       />
+    <div className="conversation">
+      <div className="users_count">{ users.length } участника</div>
       <Conversation
-        className={activeConversation}
         conversation={
           findActiveConversation(
             conversations,
             activeConversation
-        )}
-      />
+          )}
+          />
+    </div>
     </div>)
   }
 }

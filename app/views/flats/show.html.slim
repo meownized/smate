@@ -13,8 +13,7 @@ p#notice
 
   p.flat_description
     | 2 человека в комнате •  2 комнаты • 4 человека всего
-  //p
-    //= @flat.district
+
   p.subway
     = @flat.subway
 
@@ -42,21 +41,14 @@ p#notice
     h2
       | В квартире живут
     .people_cards
-      .person_card
-        .photo
-        .about_person
-          p.person_name
-            | Валеева Анастасия
-          p.person_job
-            | Бекендер
-
-      .person_card
-        .photo
-        .about_person
-          p.person_name
-            | Данилов Вячеслав
-          p.person_job
-            | дизайнер
+      - @flat.users.each do |user|
+        .person_card
+          .photo
+          .about_person
+            p.person_name
+              = user.name
+            p.person_job
+              = user.job
 
   .about
     h2

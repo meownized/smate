@@ -4,6 +4,6 @@
   - @conversations.pluck(:flat_id).uniq.each do |flat_id|
     - flat ||= Flat.find(flat_id)
     section.flat_conversations data-props=FlatSerializer.new(flat).to_json
-    .conversation data-props=conversation_room(@conversations.last)
+    //.conversation data-props=conversation_room(@conversations.last)
     section.flat_info
       = render partial: 'flats/flat_info', locals: {flat: flat}
