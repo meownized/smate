@@ -21,7 +21,6 @@
   padding: 20px;
   margin-bottom: 32px;
   // box-shadow: 2px 2px 16px 0px rgba(0,0,0,0.16);
-
   .flat_image {
     img {
       object-fit: cover;
@@ -31,7 +30,7 @@
   }
 
   &:hover {
-    box-shadow: 2px 2px 16px 0px rgba(0,0,0,0.12);
+    box-shadow: 2px 2px 16px 0 rgba(0,0,0,0.12);
     cursor: pointer;
   }
 
@@ -58,7 +57,11 @@
     }
   }
 
-  p, h1, h2, h3, a {
+  a,
+  h1,
+  h2,
+  h3,
+  p {
     &:hover {
       text-decoration: none;
     }

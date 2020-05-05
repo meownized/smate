@@ -1,11 +1,18 @@
 .flat_arrow_icon {
-  background-image: url(flat_arrow_icon.svg);
+  background-image: url("flat_arrow_icon.svg");
   width: 32px;
   height: 32px;
   background-size: contain;
 }
 
-h1, h2, h3, h4, h5, h6, p, a {
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   font-family: 'Open Sans', sans-serif;
 }
 

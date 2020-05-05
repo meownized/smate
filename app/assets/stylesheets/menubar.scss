@@ -10,9 +10,8 @@
   padding-top: 12px;
   // position: sticky;
   // top:0;
-
   .logo {
-    background-image: url('logo.svg');
+    background-image: url("logo.svg");
     margin-left: 60px;
     background-size: contain;
     width: 88px;
@@ -20,7 +19,7 @@
     margin-top: -4px;
 
     a {
-      opacity: 0%;
+      opacity: 0;
     }
   }
 
@@ -29,23 +28,25 @@
     flex-direction: row;
   }
 
-  .menu_items_right,
-  .icons {
+  .icons,
+  .menu_items_right {
     display: flex;
   }
 
-  .menu_items_right,.menu_items_left {
+  .menu_items_left,
+  .menu_items_right {
     a {
       margin-left: 20px;
     }
 
     a:last-child {
-        margin-right: 40px;
+      margin-right: 40px;
     }
   }
 
   .icons {
     margin-right: 160px;
+
     a {
       margin-left: 16px;
     }

@@ -5,13 +5,14 @@
   align-items: center;
 
   .picture {
-    background-image: url('main.svg');
+    background-image: url("main.svg");
     background-size: contain;
     width: 120px;
     height: 168px;
   }
 
-  p, h1 {
+  h1,
+  p {
     text-align: center;
   }
 
@@ -46,5 +47,4 @@
     flex-direction: row;
     justify-content: space-between;
   }
-
 }

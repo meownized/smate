@@ -17,7 +17,8 @@ p.flat_price {
   color: #18214D;
 }
 
-p.flat_description, .distance {
+.distance,
+p.flat_description {
   margin-top: 12px;
   font-style: normal;
   font-weight: normal;
@@ -49,6 +50,7 @@ p.flat_description, .distance {
     margin-left: 12px;
     display: flex;
     flex-direction: column;
+
     img {
       object-fit: cover;
       width: 100px;
