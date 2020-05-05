@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 class FlatAttachmentsController < ApplicationController
-  def show
-  end
+  def show; end
 
   def destroy
     @flat = Flat.find(params[:id])

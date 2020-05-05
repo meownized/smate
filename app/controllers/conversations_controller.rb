@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ConversationsController < ApplicationController
   before_action :get_outlet
 
@@ -54,7 +56,7 @@ class ConversationsController < ApplicationController
     {
       flat_id: @flat.id,
       user_id: current_user.id,
-      title: "Вселение #{current_user.name + " " + current_user.surname}"
+      title: "Вселение #{current_user.name + ' ' + current_user.surname}"
     }
   end
 

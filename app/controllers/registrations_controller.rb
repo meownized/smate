@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 class RegistrationsController < Devise::RegistrationsController
   protected
+
   layout :resolve_layout
 
   def after_sign_up_path_for(resource)
@@ -7,11 +10,11 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def resolve_layout
-   case action_name
-   when "new"
-     "home_layout"
-   else
-     "application"
-   end
+    case action_name
+    when 'new'
+      'home_layout'
+    else
+      'application'
+    end
   end
 end

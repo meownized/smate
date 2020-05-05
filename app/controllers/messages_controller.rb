@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:show, :edit, :update, :destroy]
+  before_action :set_message, only: %i[show edit update destroy]
 
   def create
     message = Message.new(message_params)

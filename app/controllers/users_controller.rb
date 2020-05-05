@@ -1,12 +1,13 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :neighbor_edit]
+  before_action :set_user, only: %i[show edit update destroy neighbor_edit]
 
   def index
     @users = User.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @user = User.new

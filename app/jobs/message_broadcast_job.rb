@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MessageBroadcastJob < ApplicationJob
   queue_as :messages
 

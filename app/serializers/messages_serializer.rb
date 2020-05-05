@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MessagesSerializer < ActiveModel::Serializer
   attributes :id, :body, :written_at, :user
   has_one :user, serializer: UserSerializer

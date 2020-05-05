@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'ffaker'
 
 5.times do
@@ -5,12 +7,12 @@ require 'ffaker'
     name: FFaker::NameRU.first_name,
     surname: FFaker::NameRU.last_name,
     email: FFaker::Internet.email,
-    password: "123456"
+    password: '123456'
   )
 end
 
 5.times do
-  subways = ['Сокол', 'Войковская', ]
+  subways = %w[Сокол Войковская]
   district = "#{rand(80_000..200_000)} минут от #{subways.sample} #{FFaker::AddressRU.street_address}"
   image = [
     'db/images/flat1.jpg',
@@ -22,11 +24,11 @@ end
   name = ['Комната в трешке', 'Двушка на войковской', 'Арт-пространство', 'Комната для дизайнера']
 
   flat = Flat.create!(
-    name: "#{name.sample}",
+    name: name.sample.to_s,
     price: rand(80_000..200_000),
-    subway: "#{subways.sample}",
+    subway: subways.sample.to_s,
     description: FFaker::LoremRU.sentence(word_count = 5),
-    district: district,
+    district: district
   )
 
   4.times do

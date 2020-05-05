@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Flat < ActiveRecord::Base
   has_many :rents
   has_many :users, through: :rents

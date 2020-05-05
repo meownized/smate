@@ -1,15 +1,16 @@
+# frozen_string_literal: true
+
 class FlatsController < ApplicationController
-  before_action :set_flat, only: [:show, :edit, :update, :destroy]
+  before_action :set_flat, only: %i[show edit update destroy]
 
   def index
     @flats = Flat.where('? = ANY (sex)', current_user.sex)
-      .where(couple: current_user.couple)
-      .where(smoke: current_user.smoke)
-      .where(animals: current_user.animals)
-      .where(party: current_user.party)
-      .where(children: current_user.children)
-      .where(lgbtq: current_user.lgbtq)
-
+                 .where(couple: current_user.couple)
+                 .where(smoke: current_user.smoke)
+                 .where(animals: current_user.animals)
+                 .where(party: current_user.party)
+                 .where(children: current_user.children)
+                 .where(lgbtq: current_user.lgbtq)
   end
 
   def show
@@ -21,8 +22,7 @@ class FlatsController < ApplicationController
     @flat_attachment = @flat.flat_attachments.build
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @flat = Flat.new(flat_params)
@@ -90,8 +90,8 @@ class FlatsController < ApplicationController
       :district,
       :subway,
       :status,
-      flat_attachments_attributes: [
-        :id, :flat_id, :image
+      flat_attachments_attributes: %i[
+        id flat_id image
       ]
     )
   end

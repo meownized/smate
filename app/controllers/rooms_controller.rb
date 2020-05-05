@@ -1,12 +1,13 @@
+# frozen_string_literal: true
+
 class RoomsController < ApplicationController
-  before_action :set_room, only: [:show, :edit, :update, :destroy]
+  before_action :set_room, only: %i[show edit update destroy]
 
   def index
     @rooms = Room.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @room = Room.new
@@ -49,6 +50,7 @@ class RoomsController < ApplicationController
   end
 
   private
+
   def set_room
     @room = Room.find(params[:id])
   end

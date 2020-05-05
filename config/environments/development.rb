@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -11,7 +13,7 @@ Rails.application.configure do
 
   # Show full error reports.
   config.consider_all_requests_local = true
-  config.cache_store = :redis_cache_store, { url: "redis://localhost:6379/0" }
+  config.cache_store = :redis_cache_store, { url: 'redis://localhost:6379/0' }
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
   if Rails.root.join('tmp', 'caching-dev.txt').exist?
@@ -52,7 +54,7 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
-  config.x.webpacker[:dev_server_host] = "http://localhost:8080"
+  config.x.webpacker[:dev_server_host] = 'http://localhost:8080'
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
