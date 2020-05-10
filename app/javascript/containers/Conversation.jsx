@@ -3,96 +3,106 @@ import PropTypes from "prop-types"
 import MessageList from "../components/MessageList"
 
 export default class Conversation extends React.Component {
-  constructor(props) {
-    super(props);
+	constructor(props) {
+		super(props);
 
-    this.postMessage = this.postMessage.bind(this)
-    this.newMessage = this.newMessage.bind(this)
+		this.postMessage = this.postMessage.bind(this)
+		this.newMessage = this.newMessage.bind(this)
 
-    this.state = {
-      conversation: {
-        messages: this.props.conversation.messages,
-        onlineUsers: []
-      }
-    };
-  }
+		this.state = {
+			conversation: {
+				messages: this.props.conversation.messages,
+				id: this.props.conversation.id,
+				onlineUsers: []
+			}
+		};
+	}
 
-  newMessage(message) {
+	newMessage(message) {
 
-    const {messages} = this.state.conversation;
+		const {messages} = this.state.conversation;
 
-    const msgs = [...messages];
+		const msgs = [...messages];
 
-    if (msgs.length >= 15) {
-      msgs.shift();
-    }
+		if (msgs.length >= 15) {
+			msgs.shift();
+		}
 
-    msgs.push(message);
+		msgs.push(message);
 
-    let newState = this.state
-    newState.conversation.messages = msgs
+		let newState = this.state
+		newState.conversation.messages = msgs
 
-    this.setState({newState})
-  }
+		this.setState({newState})
+	}
 
-  postMessage(event) {
-    event.preventDefault();
-    App.conversationChannel.perform("send_message", {
-      conversation_id: this.props.conversation.id,
-      body: this.refs.body.value
-    });
-    this.refs.body.value = "";
-  }
+	postMessage(event) {
+		event.preventDefault();
+		App.conversationChannel.perform("send_message", {
+			conversation_id: this.props.conversation.id,
+			body: this.refs.body.value
+		});
+		this.refs.body.value = "";
+	}
 
-  componentWillUnmount() {
-    App.conversationChannel.unsubscribe()
-  }
+	componentWillUnmount() {
+		App.conversationChannel.unsubscribe()
+	}
 
-  componentDidMount() {
-    App.conversationChannel = App.cable.subscriptions.create({
-      channel: "ConversationChannel",
-      conversation_id: this.props.conversation.id
-    }, {
-      received: (data) => {
-        this.newMessage(data);
-      }
-    });
-  }
+	componentDidMount() {
+		App.conversationChannel = App.cable.subscriptions.create({
+			channel: "ConversationChannel",
+			conversation_id: this.props.conversation.id
+		}, {
+			received: (data) => {
+				this.newMessage(data);
+			}
+		});
+	}
 
-  // shouldComponentUpdate(nextProps){
-  //   return nextProps.conversation.id !== this.state.conversation.id;
-  // }
-  //
-  // componentDidUpdate(prevProps){
-  //   this.setState({
-  //     conversation: this.props.conversation
-  //   });
-  // }
+	componentDidUpdate(nextProps) {
+		console.log("hey")
+		if (this.props.conversation.id !== nextProps.conversation.id) {
+			App.conversationChannel.unsubscribe()
 
-  form() {
-    return (<div className="col-sm-12">
-      <form className="form-inline" onSubmit={this.postMessage}>
-        <div className="form-group col-sm-11">
-          <input style={{
-              width: "100%"
-            }} ref="body" type="text" className="form-control" placeholder="Text..."/>
-        </div>
-        <div className="form-group col-sm-1">
-          <button type="submit" className="btn btn-primary">send</button>
-        </div>
-      </form>
-    </div>)
-  }
+			App.conversationChannel = App.cable.subscriptions.create({
+				channel: "ConversationChannel",
+				conversation_id: this.props.conversation.id
+			}, {
+				received: (data) => {
+					this.newMessage(data);
+				}
+			});
 
-  render() {
-    const {messages} = this.state.conversation;
+			this.setState({conversation: this.props.conversation})
+		}
+	}
 
-    return (<div className="row">
-      <div className="col-sm-12">
-        <MessageList messages={messages}/>
-      </div>
+	form() {
+		return (<div className="col-sm-12">
+			<form className="form-inline" onSubmit={this.postMessage}>
+				<div className="form-group col-sm-11">
+					<input style={{
+							width: "100%"
+						}} ref="body" type="text" className="form-control" placeholder="Text..."/>
+				</div>
+				<div className="form-group col-sm-1">
+					<button type="submit" className="btn btn-primary">send</button>
+				</div>
+			</form>
+		</div>)
+	}
 
-      {this.form()}
-    </div>)
-  }
+	render() {
+		const {messages} = this.state.conversation;
+		console.log('Передаваемые сообщения', messages);
+
+		return (<div className="row">
+			<div className="col-sm-12">
+				<MessageList messages={messages}/>
+			</div>
+
+			{this.form()}
+		</div>)
+	}
 }

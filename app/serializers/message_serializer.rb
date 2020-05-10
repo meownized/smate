@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class MessageSerializer < ActiveModel::Serializer
-  attributes :id, :body, :written_at
+  attributes :id, :body, :written_at, :conversation_id
   has_one :user, serializer: UserSerializer
 
   def written_at
