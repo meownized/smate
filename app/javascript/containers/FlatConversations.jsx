@@ -3,18 +3,22 @@ import $ from 'jquery'
 
 import ConversationList from '../components/ConversationList'
 import Conversation from '../containers/Conversation'
+import UsersPopup from '../components/UsersPopup'
 
 export default class FlatConversations extends React.Component {
 	constructor(props) {
 		super(props)
 		this.handleClick = this.handleClick.bind(this)
+		this.showModal = this.showModal.bind(this)
+		this.hideModal = this.hideModal.bind(this)
 		// this.userList = this.userList.bind(this)
 
 		this.state = {
 			flat: {
 				users: this.props.flat.users,
 				conversations: this.props.flat.conversations,
-				activeConversation: 1
+				activeConversation: 1,
+				usersShow: false
 			}
 		}
 	}
@@ -47,30 +51,45 @@ export default class FlatConversations extends React.Component {
 		this.setState({newState});
 	};
 
-	// userList(){
-	//   const {users} = this.state.flat;
-	//   const all_users = [...users];
-	//
-	//   return all_users.map((user, index) =>
-	//     <div className="col-sm-12" key={index}>
-	//       <p className="message-text">
-	//         {user.full_name}
-	//       </p>
-	//     </div>
-	//   );
-	// }
+	showModal = () => {
+		console.log('Показать');
+		this.setState({usersShow: true});
+	};
+
+	hideModal = () => {
+		this.setState({usersShow: false});
+	};
+
+	userList(){
+	  const {users} = this.state.flat;
+	  const all_users = [...users];
+
+	  return all_users.map((user, index) =>
+	    <div className="col-sm-12" key={index}>
+	      <p className="message-text">
+	        {user.full_name}
+	      </p>
+	    </div>
+	  );
+	}
 
 	render() {
 		const {conversations, activeConversation, users} = this.state.flat;
 		const {messages} = conversations;
-
 		const findActiveConversation = conversations.find(conversation => conversation.id === activeConversation);
+		console.log(findActiveConversation);
 
 		return (<div className="conversation_container">
 			<ConversationList className="flat_conversation" conversations={conversations} handleClick={this.handleClick}/>
 			<div className="conversation">
-				<div className="users_count">{users.length}
-					участника</div>
+				<div className="users_count" onClick={this.showModal}>{users.length}
+					участниdка</div>
+				<button type="button" onClick={this.showModal}>
+          open
+        </button>
+				<UsersPopup usersShow={this.state.usersShow} handleClose={this.hideModal}>
+					{this.userList()}
+				</UsersPopup>
 				<Conversation conversation={findActiveConversation}/>
 			</div>
 		</div>)
