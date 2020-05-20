@@ -25,7 +25,6 @@ export default class UserForm extends React.Component {
     this.handleInstagramChange = this.handleInstagramChange.bind(this)
 
     this.handleSubmit = this.handleSubmit.bind(this)
-
     this.state = {
       user: {
         id: this.props.user.id,
