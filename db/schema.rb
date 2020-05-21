@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_05_142149) do
+ActiveRecord::Schema.define(version: 2020_05_20_221016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2020_05_05_142149) do
     t.boolean "party", default: true
     t.boolean "children", default: true
     t.boolean "lgbtq", default: true
+    t.integer "owner_id"
   end
 
   create_table "message_statuses", force: :cascade do |t|

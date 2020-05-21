@@ -2,6 +2,7 @@
 
 class Room < ApplicationRecord
   has_many :rents
+  # has_many :flats, through: :rents
   belongs_to :flat
   has_many :users, through: :rents
 
