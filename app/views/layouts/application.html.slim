@@ -12,18 +12,18 @@ html
 
     .menubar
       .menu_items_left
-        .logo
-          =link_to 'Поиск', flats_path
-        - if user_signed_in?
-          a.menu_item
-            =link_to 'Поиск', flats_path
-          a.menu_item
-            | Уведомления
-          - if current_user.flats.present?
-            = link_to 'Чаты', flat_conversations_path(current_user.flats.first), class: 'menu_item'
-          - else
-            = link_to 'Чаты', pages_join_conversations_path, class: 'menu_item'
+        = link_to '', flats_path, class: 'logo menu_item'
+
+        a.menu_item
+          = link_to 'Поиск', flats_path
+
+        a.menu_item Уведомления
+
+        - if current_user.flats.present?
+          = link_to 'Чаты', flat_conversations_path(current_user.flats.first), class: 'menu_item'
         - else
+          = link_to 'Чаты', pages_join_conversations_path, class: 'menu_item'
+
 
       .menu_items_right
           - if user_signed_in?

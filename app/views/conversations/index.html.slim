@@ -1,20 +1,15 @@
 = javascript_pack_tag 'conversation_pack'
 
 .conversation_container
-  - if @flat.conversations.any? { |conversation| conversation.user_id == current_user.id }
-    section.flat_conversation #{@flat.conversations.where(user_id: current_user.id).last.title}
-    section.users_info Renters #{@flat.users.count}
-    section.conversation data-props=ConversationSerializer.new(@flat.conversations.where(user_id: current_user.id).last).to_json
-  - else
-    section.flat_conversations data-props=FlatSerializer.new(@flat).to_json
+  section.flat_conversations data-props=FlatSerializer.new(@flat).to_json
 
-  - if @flat.conversations.pluck(:user_id).uniq.include? @flat.users.ids
-    = link_to 'Проголосовать за кандидата',
-      flat_conversation_path(@flat, @flat.conversations.last, decision: true),
-      method: :delete
-    = link_to 'Отклонить',
-      flat_conversation_path(@flat, @flat.conversations.last, decision: false),
-      method: :delete
+//  - if @flat.conversations.pluck(:user_id).uniq.include? @flat.users.ids
+//    = link_to 'Проголосовать за кандидата',
+//      flat_conversation_path(@flat, @flat.conversations.last, decision: true),
+//      method: :delete
+//    = link_to 'Отклонить',
+//      flat_conversation_path(@flat, @flat.conversations.last, decision: false),
+//      method: :delete
 
   section.flat_info
     = render partial: 'flats/flat_info', locals: {flat: @flat}

@@ -11,13 +11,13 @@ export default class FlatConversations extends React.Component {
 		this.handleClick = this.handleClick.bind(this)
 		this.showModal = this.showModal.bind(this)
 		this.hideModal = this.hideModal.bind(this)
-		// this.userList = this.userList.bind(this)
+		this.userList = this.userList.bind(this)
 
 		this.state = {
 			flat: {
 				users: this.props.flat.users,
 				conversations: this.props.flat.conversations,
-				activeConversation: 1,
+				activeConversation: this.props.flat.conversations[0].id,
 				usersShow: false
 			}
 		}
@@ -75,15 +75,13 @@ export default class FlatConversations extends React.Component {
 
 	render() {
 		const {conversations, activeConversation, users} = this.state.flat;
-		const {messages} = conversations;
 		const findActiveConversation = conversations.find(conversation => conversation.id === activeConversation);
-		console.log(findActiveConversation);
 
 		return (<div className="conversation_container">
 			<ConversationList className="flat_conversation" conversations={conversations} handleClick={this.handleClick}/>
 			<div className="conversation">
 				<div className="users_count" onClick={this.showModal}>{users.length}
-					участниdка</div>
+					участника</div>
 				<button type="button" onClick={this.showModal}>
           open
         </button>
