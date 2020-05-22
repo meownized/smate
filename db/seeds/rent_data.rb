@@ -1,4 +1,6 @@
-require File.expand_path(File.dirname(__FILE__))+"/user_data.rb"
+# frozen_string_literal: true
+
+require __dir__ + '/user_data.rb'
 
 def create_rents
   Flat.all.each do |flat|

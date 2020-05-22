@@ -1,4 +1,6 @@
-require File.expand_path(File.dirname(__FILE__))+"/data.rb"
+# frozen_string_literal: true
+
+require __dir__ + '/data.rb'
 
 def create_flats
   create_flat(flat_subway: subway, pack: 1, rooms_count: 1)
@@ -55,14 +57,14 @@ def subway
   file = File.open(File.join(File.dirname(__FILE__), '..', 'catalog', 'subway.json'))
   data = JSON.load file
   subway = data.sample
-  subway["name"]
+  subway['name']
 end
 
 def district(for_subway)
   minutes = [5, 10, 15, 20]
   district = "#{minutes.sample} минут"
-    + "от #{for_subway}"
-    + "#{FFaker::AddressRU.street_address}"
+  + "от #{for_subway}"
+  + FFaker::AddressRU.street_address.to_s
 end
 
 def image(pack)

@@ -1,4 +1,6 @@
-require File.expand_path(File.dirname(__FILE__))+"/data.rb"
+# frozen_string_literal: true
+
+require __dir__ + '/data.rb'
 
 def create_users
   4.times do

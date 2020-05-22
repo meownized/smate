@@ -1,12 +1,6 @@
-= javascript_pack_tag 'conversation_pack'
+= javascript_pack_tag 'join_conversations_pack'
 
 .conversation_container
-  section.flat_conversation
-    - @conversations.where(user_id: current_user.id).each do |conversation|
-      h3 #{conversation.title}
-  - flat = Flat.find(@conversations.last.flat_id)
-  section.users_info Renters #{flat.users.count}
-  section.conversation data-props=ConversationSerializer.new(@conversations.last).to_json
-  //.conversation data-props=conversation_room(@conversations.last)
+  section.flat_conversations data-props=@join_conversations.to_json
   section.flat_info
-    = render partial: 'flats/flat_info', locals: {flat: flat}
+  //  = render partial: 'flats/flat_info', locals: {flat: flat}

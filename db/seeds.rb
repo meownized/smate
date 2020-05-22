@@ -1,12 +1,13 @@
 # frozen_string_literal: true
+
 require 'ffaker'
 
-%w{
+%w[
   user_data
   flat_data
   rent_data
-}.each do |file|
-  require File.expand_path(File.dirname(__FILE__))+"/seeds/#{file}.rb"
+].each do |file|
+  require __dir__ + "/seeds/#{file}.rb"
 end
 
 create_users
