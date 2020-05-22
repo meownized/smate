@@ -1,11 +1,11 @@
 import React from 'react'
 import $ from 'jquery'
 
-import ConversationList from '../components/ConversationList'
+import JoinConversationList from '../components/JoinConversationList'
 import Conversation from '../containers/Conversation'
 import UsersPopup from '../components/UsersPopup'
 
-export default class FlatConversations extends React.Component {
+export default class JoinConversations extends React.Component {
 	constructor(props) {
 		super(props)
 		this.handleClick = this.handleClick.bind(this)
@@ -14,11 +14,9 @@ export default class FlatConversations extends React.Component {
 		this.userList = this.userList.bind(this)
 
 		this.state = {
-			flat: {
-				conversations: this.props.flat.conversations,
-				usersShow: false,
-				activeConversation: this.props.flat.conversations[0].id
-			}
+			usersShow: false,
+			activeConversation: this.props.active_conversation,
+			join_conversations: this.props.join_conversations
 		}
 	}
 
@@ -33,25 +31,24 @@ export default class FlatConversations extends React.Component {
 	}
 
 	newConversation(conversation) {
-		const {conversations} = this.state.flat;
+		const {conversations} = this.state.join_conversations;
 		const cnvs = [...conversations];
 
 		cnvs.push(conversation);
 
 		let newState = this.state
-		newState.flat.conversations = cnvs
+		newState.join_conversations.conversations = cnvs
 		this.setState({newState})
 	}
 
 	handleClick = id => {
 		let newState = this.state
-		newState.flat.activeConversation = id
+		newState.activeConversation = id
 
 		this.setState({newState});
 	};
 
 	showModal = () => {
-		console.log('Показать');
 		this.setState({usersShow: true});
 	};
 
@@ -60,10 +57,10 @@ export default class FlatConversations extends React.Component {
 	};
 
 	userList(){
-		const {conversations, activeConversation} = this.state.flat;
-		const findActiveConversation = conversations.find(conversation => conversation.id === activeConversation);
-		const {users} = findActiveConversation;
-		
+		const {join_conversations, activeConversation} = this.state;
+		const findActiveConversation = join_conversations.find(conversation => conversation.conversation.id === activeConversation);
+		const {users} = findActiveConversation.conversation
+
 	  const all_users = [...users];
 
 	  return all_users.map((user, index) =>
@@ -76,12 +73,12 @@ export default class FlatConversations extends React.Component {
 	}
 
 	render() {
-		const {conversations, activeConversation} = this.state.flat;
-		const findActiveConversation = conversations.find(conversation => conversation.id === activeConversation);
-		const {users} = findActiveConversation
+		const {join_conversations, activeConversation} = this.state;
+		const findActiveConversation = join_conversations.find(conversation => conversation.conversation.id === activeConversation);
+		const {users} = findActiveConversation.conversation
 
 		return (<div className="conversation_container">
-			<ConversationList className="flat_conversation" conversations={conversations} handleClick={this.handleClick}/>
+			<JoinConversationList className="flat_conversation" conversations={join_conversations} handleClick={this.handleClick}/>
 			<div className="conversation">
 				<div className="users_count" onClick={this.showModal}>{users.length}
 					участника</div>
@@ -91,7 +88,7 @@ export default class FlatConversations extends React.Component {
 				<UsersPopup usersShow={this.state.usersShow} handleClose={this.hideModal}>
 					{this.userList()}
 				</UsersPopup>
-				<Conversation conversation={findActiveConversation}/>
+				<Conversation conversation={findActiveConversation.conversation}/>
 			</div>
 		</div>)
 	}

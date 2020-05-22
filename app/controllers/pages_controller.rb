@@ -7,6 +7,11 @@ class PagesController < ApplicationController
 
   def join_conversations
     @conversations = Conversation.all.where(user_id: current_user.id)
+    @conversations_ser = @conversations.map { |conversation| ConversationSerializer.new(conversation) }
+    @join_conversations = {
+      active_conversation: @conversations.last.id,
+      join_conversations: @conversations_ser
+    }
   end
 
   def resolve_layout
@@ -16,5 +21,5 @@ class PagesController < ApplicationController
     else
       'application'
     end
- end
+  end
 end

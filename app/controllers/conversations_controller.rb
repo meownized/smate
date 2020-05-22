@@ -9,16 +9,16 @@ class ConversationsController < ApplicationController
 
   def show
     @conversation = @flat.conversations.find(params[:id])
-    # @json_object = ConversationSerializer.new(@conversation).to_json
   end
 
   def create
     conversation = @flat.conversations.build(join_conversation)
+    conversation.users << @flat.users << User.find(@flat.owner_id)
 
     if conversation.save
       serialized_data = ConversationSerializer.new(conversation).as_json
       ActionCable.server.broadcast 'conversations_channel', serialized_data[:conversation]
-      redirect_to flat_conversations_path(@flat)
+      redirect_to pages_join_conversations_path({ activeConversation: conversation.id })
     end
   end
 
