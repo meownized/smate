@@ -3,8 +3,9 @@
 require __dir__ + '/data.rb'
 
 def create_users
-  4.times do
-    User.create(basic_info)
+  4.times do |time|
+    user ||= User.create(basic_info)
+    user.avatar.attach(filename: "#{time}.jpg", io: File.open("db/images/avatars/#{time}.jpg", content_type: "image/jpg"))
   end
 end
 

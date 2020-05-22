@@ -15,8 +15,9 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   # has_many :message_statuses
   has_and_belongs_to_many :conversations
-  accepts_nested_attributes_for :messages, allow_destroy: true
-  accepts_nested_attributes_for :conversations, allow_destroy: true
+  # accepts_nested_attributes_for :messages, allow_destroy: true
+  # accepts_nested_attributes_for :conversations, allow_destroy: true
 
-  mount_uploader :avatar, AvatarUploader
+  # mount_uploader :avatar, AvatarUploader
+  has_one_attached :avatar
 end

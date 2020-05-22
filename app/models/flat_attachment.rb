@@ -5,5 +5,6 @@ class FlatAttachment < ApplicationRecord
   belongs_to :room, required: false
   belongs_to :user, required: false # временно
 
-  mount_uploader :image, FlatAttachmentUploader
+  # mount_uploader :image, FlatAttachmentUploader
+  has_many_attached :images
 end

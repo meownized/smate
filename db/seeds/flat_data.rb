@@ -23,10 +23,8 @@ def create_flat(flat_subway:, pack:, rooms_count:)
     owner_id: user.id
   )
 
-  3.times do
-    flat.flat_attachments.create(
-      image: image(pack)
-    )
+  2.times do |time|
+    create_image(flat: flat, pack: pack, time: time + 1)
   end
 
   create_conversations(flat)
@@ -38,7 +36,7 @@ end
 
 def subway
   file = File.open(File.join(File.dirname(__FILE__), '..', 'catalog', 'subway.json'))
-  data = JSON.parse file
+  data = JSON.load file
   subway = data.sample
   subway['name']
 end
@@ -48,8 +46,13 @@ def district(for_subway)
   "#{minutes.sample} минут" + "от #{for_subway}" + FFaker::AddressRU.street_address.to_s
 end
 
-def image(pack)
-  File.open(Dir.glob(File.join(Rails.root, 'db/images', "flat_#{pack}_*.jpg")).sample)
+def create_image(flat:, pack:, time:)
+  photo = flat.flat_attachments.create(
+    flat_id: flat.id,
+    user_id: flat.owner_id
+  )
+
+  photo.images.attach(filename: "flat_#{pack}_#{time}.jpg", io: File.open("db/images/flat_#{pack}_#{time}.jpg", content_type: "image/jpg"))
 end
 
 def create_room(flat)
