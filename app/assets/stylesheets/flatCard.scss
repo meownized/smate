@@ -15,7 +15,7 @@
   width: 476px;
   height: 200px;
   border-radius: 8px;
-  border: 1px solid $grey;
+  // border: 1px solid $grey;
   display: flex;
   justify-content: flex-start;
   padding: 20px;
@@ -24,7 +24,8 @@
   // box-shadow: 2px 2px 16px 0px rgba(0,0,0,0.16);
   .flat_image {
     img {
-      object-fit: cover;
+      -o-object-fit: cover;
+         object-fit: cover;
       width: 200px;
       height: 200px;
     }

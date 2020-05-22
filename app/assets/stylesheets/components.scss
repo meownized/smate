@@ -1,0 +1,34 @@
+@import "colors";
+@import "fonts";
+@import "icons";
+@import "atoms";
+
+@mixin ava_name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  img {
+    @include images(140px, 140px, 50%);
+    margin-right: 40px;
+  }
+  .user_info {
+    display: flex;
+    flex-direction: column;
+    h3 {
+      width: 332px;
+    }
+  }
+}
+
+// Tabs
+
+@mixin nav_tab {
+  display: flex;
+  border-bottom: 1px solid $grey2;
+  padding-bottom: -1px;
+
+  .tab {
+    @include tab;
+  }
+}

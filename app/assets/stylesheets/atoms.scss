@@ -1,0 +1,36 @@
+@import "colors";
+@import "fonts";
+@import "icons";
+
+// Tabs
+
+@mixin tab {
+  @include p2;
+  color: $neutral;
+  margin-right: 24px;
+
+  &.active {
+    color: $primary;
+    border-bottom: 2px solid $primary;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding-bottom: 10px;
+    margin-bottom: -1px;
+  }
+
+  &:hover {
+    color: $primary;
+    cursor: pointer;
+  }
+}
+
+// Images
+
+@mixin images($width, $height, $radius) {
+  border-radius: $radius;
+  width: $width;
+  height: $height;
+  -o-object-fit: cover;
+  object-fit: cover;
+}

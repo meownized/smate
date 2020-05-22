@@ -1,81 +1,61 @@
-.flat_arrow_icon {
-  background-image: url("flat_arrow_icon.svg");
-  width: 32px;
-  height: 32px;
-  background-size: contain;
+@import "colors";
+
+h1, h2, h3, h4, h5, p, a,
+.h1, .h2, .h3, .h4, .h5, .p, .p2, .p3, .p4,
+div {
+  font-family: 'Helvetica', sans-serif;
+  color: $black;
 }
 
-a,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  font-family: "Open Sans", sans-serif;
-}
-
-h1 {
+h1, h2, h3 {
   font-weight: bold;
-  font-size: 36px;
-  line-height: 44px;
-  letter-spacing: -1.5px;
-  color: #18214d;
-  margin-top: 20px;
-  margin-bottom: 12px;
+  letter-spacing: -3px;
 }
 
-h2 {
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 28px;
+@mixin font_settings($size, $height, $spacing) {
+  font-size: $size;
+  line-height: $height;
+  letter-spacing: $spacing;
 }
 
-h3 {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 28px;
-  letter-spacing: -0.4px;
-  color: #18214d;
-}
+// Headers
 
-p {
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 26px;
-  letter-spacing: -0.3px;
-  color: #3e4462;
-  padding-top: 20px;
-  max-width: 648px;
-}
+@mixin h1 { @include font_settings(72px, 80px, -3px) }
+h1 { @include h1; }
+.h1 { @include h1; }
 
-p.card {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 20px;
-  color: #3e4462;
-}
+@mixin h2 { @include font_settings(56px, 62px, -2.4px) }
+h2 { @include h2; }
+.h2 { @include h2; }
 
-p.price {
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 22px;
-  letter-spacing: -0.4px;
-  color: #f36d03;
-}
+@mixin h3 { @include font_settings(36px, 44px, -1px) }
+h3 { @include h3; }
+.h3 { @include h3; }
 
-a {
-  text-decoration: none;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 18px;
-  letter-spacing: -0.4px;
-  color: #18214d;
+@mixin h4 { @include font_settings(22px, 32px, -0.55px) }
+h4 { @include h4; }
+.h4 { @include h4; }
 
-  &:hover {
-    text-decoration: underline;
-  }
-}
+@mixin h5 { @include font_settings(16px, 20px, -0.4px) }
+h5 { @include h1; }
+.h5 { @include h1; }
+
+// Buttons
+@mixin l_button_font { @include font_settings(20px, 24px, -0.5px) }
+@mixin m_button_font { @include font_settings(18px, 24px, -0.5px) }
+@mixin s_button_font { @include font_settings(16px, 16px, -0.4px) }
+
+// Paragraphs
+
+@mixin p { @include font_settings(20px, 28px, -0.4px) }
+p { @include p; }
+.p { @include p; }
+
+@mixin p2 { @include font_settings(18px, 24px, -0.3px) }
+.p2 { @include p2; }
+
+@mixin p3 { @include font_settings(16px, 20px, -0.2px) }
+.p3 { @include p3; }
+
+@mixin p4 { @include font_settings(14px, 20px, -0.4px) }
+.p4 { @include p4; }
