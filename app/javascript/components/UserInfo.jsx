@@ -92,147 +92,138 @@ class UserInfo extends React.Component {
 
   render () {
     return (
-      <div className="form">
+      <div className="user_form">
+        <input
+          type="text"
+          placeholder="Email"
+          name="email"
+          value={ this.props.user.email }
+          onChange={ this.handleEmailChange }
+        />
 
-        <h1>Расскажите о себе</h1>
-        <p>Это понадобится, чтобы мы смогли подобрать наиболее подходящего соседа.
-         К этим пунктам можно будет вернуться в любой момент.</p>
-        <div className="field">
+        <input
+          type="text"
+          placeholder="Имя"
+          name="name"
+          value={ this.props.user.name }
+          onChange={ this.handleNameChange }
+        />
 
-            <input
-              type="text"
-              placeholder="Email"
-              name="email"
-              value={ this.props.user.email }
-              onChange={ this.handleEmailChange }
-            />
+        <input
+          type="text"
+          placeholder="Фамилия"
+          name="surname"
+          value={ this.props.user.surname }
+          onChange={ this.handleSurnameChange }
+        />
 
-            <input
-              type="text"
-              placeholder="Имя"
-              name="name"
-              value={ this.props.user.name }
-              onChange={ this.handleNameChange }
-            />
-
-            <input
-              type="text"
-              placeholder="Фамилия"
-              name="surname"
-              value={ this.props.user.surname }
-              onChange={ this.handleSurnameChange }
-            />
-
-            <select
-              type="text"
-              placeholder="Пол"
-              name="sex"
-              value={ this.props.user.sex }
-              onChange={ this.handleSexChange }>
-              <option value="ж">Женский</option>
-              <option value="м">Мужской</option>
-            </select>
+        <select
+          type="text"
+          placeholder="Пол"
+          name="sex"
+          value={ this.props.user.sex }
+          onChange={ this.handleSexChange }>
+          <option value="ж">Женский</option>
+          <option value="м">Мужской</option>
+        </select>
 
 
-            <input
-              type="text"
-              placeholder="Возраст"
-              name="age"
-              value={ this.props.user.age }
-              onChange={ this.handleAgeChange }
-            />
+        <input
+          type="text"
+          placeholder="Возраст"
+          name="age"
+          value={ this.props.user.age }
+          onChange={ this.handleAgeChange }
+        />
 
-            <select
-              type="text"
-              placeholder="Животные"
-              name="animals"
-              value={ this.props.user.animals }
-              onChange={ this.handleAnimalsChange }>
-              <option value="No_pets">Без животных</option>
-              <option value="Has_pets">Есть животные</option>
-            </select>
+        <select
+          type="text"
+          placeholder="Животные"
+          name="animals"
+          value={ this.props.user.animals }
+          onChange={ this.handleAnimalsChange }>
+          <option value="No_pets">Без животных</option>
+          <option value="Has_pets">Есть животные</option>
+        </select>
 
-            <select
-              type="text"
-              placeholder="Отношение к курению"
-              name="Smoke"
-              value={ this.props.user.smoke }
-              onChange={ this.handleSmokeChange }>
-              <option value="No_smoking">Не курю</option>
-              <option value="Sometimes_smoking">Иногда курю</option>
-              <option value="Smoking_allowed">Курю постоянно</option>
-            </select>
+        <select
+          type="text"
+          placeholder="Отношение к курению"
+          name="Smoke"
+          value={ this.props.user.smoke }
+          onChange={ this.handleSmokeChange }>
+          <option value="No_smoking">Не курю</option>
+          <option value="Sometimes_smoking">Иногда курю</option>
+          <option value="Smoking_allowed">Курю постоянно</option>
+        </select>
 
-            <select
-              type="text"
-              placeholder="Отношение к алкоголю"
-              name="Alcohol"
-              value={ this.props.user.alcohol }
-              onChange={ this.handleAlcoholChange }>
-              <option value="No_alchohol">Не пью</option>
-              <option value="Alchohol_allowed">Иногда пью</option>
-            </select>
+        <select
+          type="text"
+          placeholder="Отношение к алкоголю"
+          name="Alcohol"
+          value={ this.props.user.alcohol }
+          onChange={ this.handleAlcoholChange }>
+          <option value="No_alchohol">Не пью</option>
+          <option value="Alchohol_allowed">Иногда пью</option>
+        </select>
 
-            <select
-              type="text"
-              placeholder="Дети"
-              name="Children"
-              value={ this.props.user.children }
-              onChange={ this.handleChildrenChange }>
-              <option value="No_children">Нет детей</option>
-              <option value="Has_children">Есть дети</option>
-            </select>
+        <select
+          type="text"
+          placeholder="Дети"
+          name="Children"
+          value={ this.props.user.children }
+          onChange={ this.handleChildrenChange }>
+          <option value="No_children">Нет детей</option>
+          <option value="Has_children">Есть дети</option>
+        </select>
 
-            <input
-              type="text"
-              placeholder="LGBTQ"
-              name="Lgbtq"
-              value={ this.props.user.lgbtq }
-              onChange={ this.handleLgbtqChange }
-            />
+        <input
+          type="text"
+          placeholder="LGBTQ"
+          name="Lgbtq"
+          value={ this.props.user.lgbtq }
+          onChange={ this.handleLgbtqChange }
+        />
 
-            <input
-              type="text"
-              placeholder="Расскажите о работе"
-              name="Job"
-              value={ this.props.user.job }
-              onChange={ this.handleJobChange }
-            />
+        <input
+          type="text"
+          placeholder="Расскажите о работе"
+          name="Job"
+          value={ this.props.user.job }
+          onChange={ this.handleJobChange }
+        />
 
-            <input
-              type="text"
-              placeholder="Расскажите о себе"
-              name="PersonalInfo"
-              value={ this.props.user.personalInfo }
-              onChange={ this.handlePersonalInfoChange }
-            />
+        <input
+          type="text"
+          placeholder="Расскажите о себе"
+          name="PersonalInfo"
+          value={ this.props.user.personalInfo }
+          onChange={ this.handlePersonalInfoChange }
+        />
 
-            <input
-              type="text"
-              placeholder="Вконтакте"
-              name="Vk"
-              value={ this.props.user.vk }
-              onChange={ this.handleVkChange }
-            />
+        <input
+          type="text"
+          placeholder="Вконтакте"
+          name="Vk"
+          value={ this.props.user.vk }
+          onChange={ this.handleVkChange }
+        />
 
-            <input
-              type="text"
-              placeholder="Facebook"
-              name="Facebook"
-              value={ this.props.user.facebook }
-              onChange={ this.handleFacebookChange }
-            />
+        <input
+          type="text"
+          placeholder="Facebook"
+          name="Facebook"
+          value={ this.props.user.facebook }
+          onChange={ this.handleFacebookChange }
+        />
 
-            <input
-              type="text"
-              placeholder="Instagram"
-              name="Instagram"
-              value={ this.props.user.instagram }
-              onChange={ this.handleInstagramChange }
-            />
-
-
-        </div>
+        <input
+          type="text"
+          placeholder="Instagram"
+          name="Instagram"
+          value={ this.props.user.instagram }
+          onChange={ this.handleInstagramChange }
+        />
       </div>
     )
   }

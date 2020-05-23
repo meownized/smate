@@ -1,12 +1,17 @@
 @import "components";
 
-// Show Users
+// Profile Users
 
 .ava_name {
+  margin-top: 56px;
   @include ava_name;
 }
 
 .nav_tab {
   margin-top: 56px;
   @include nav_tab;
+}
+
+.label_checkbox {
+  width: 332px;
 }

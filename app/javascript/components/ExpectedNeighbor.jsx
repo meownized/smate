@@ -61,7 +61,7 @@ class ExpectedNeihgbor extends React.Component {
               type="text"
               placeholder="Пол"
               name="sex"
-              value={ this.props.user.expected_neighbor.sex }
+              value={ this.props.user.neighbor_sex }
               onChange={ this.handleNeighborSexChange }
             />
           </h2>
@@ -71,7 +71,7 @@ class ExpectedNeihgbor extends React.Component {
               type="text"
               placeholder="Возраст"
               name="age"
-              value={ this.props.user.expected_neighbor.age }
+              value={ this.props.user.neighbor_age }
               onChange={ this.handleNeighborAgeChange }
             />
           </h2>
@@ -81,7 +81,7 @@ class ExpectedNeihgbor extends React.Component {
           type="text"
           placeholder="Дети"
           name="Children"
-          value={ this.props.user.expected_neighbor.children }
+          value={ this.props.user.neighbor_children }
           onChange={ this.handleNeighborChildrenChange }
           />
           </h2>
@@ -91,7 +91,7 @@ class ExpectedNeihgbor extends React.Component {
               type="text"
               placeholder="Животные"
               name="animals"
-              value={ this.props.user.expected_neighbor.animals }
+              value={ this.props.user.neighbor_animals }
               onChange={ this.handleNeighborAnimalsChange }
             />
           </h2>
@@ -101,7 +101,7 @@ class ExpectedNeihgbor extends React.Component {
               type="text"
               placeholder="Отношение к курению"
               name="Smoke"
-              value={ this.props.user.expected_neighbor.smoke }
+              value={ this.props.user.neighbor_smoke }
               onChange={ this.handleNeighborSmokeChange }
             />
           </h2>
@@ -111,7 +111,7 @@ class ExpectedNeihgbor extends React.Component {
               type="text"
               placeholder="Отношение к алкоголю"
               name="Alcohol"
-              value={ this.props.user.expected_neighbor.alcohol }
+              value={ this.props.user.neighbor_alcohol }
               onChange={ this.handleNeighborAlcoholChange }
             />
           </h2>
@@ -122,7 +122,7 @@ class ExpectedNeihgbor extends React.Component {
               type="text"
               placeholder="LGBTQ"
               name="Lgbtq"
-              value={ this.props.user.expected_neighbor.lgbtq }
+              value={ this.props.user.neighbor_lgbtq }
               onChange={ this.handleNeighborLgbtqChange }
             />
           </h2>
@@ -133,4 +133,4 @@ class ExpectedNeihgbor extends React.Component {
   }
 }
 
-export default UserInfo
+export default ExpectedNeihgbor

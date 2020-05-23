@@ -1,6 +1,9 @@
-.flat_arrow_icon {
-  background-image: url("flat_arrow_icon.svg");
-  width: 32px;
-  height: 32px;
-  background-size: contain;
+@mixin icon_sq($url, $size) {
+  background: url($url) no-repeat center;
+  width: $size;
+  height: $size;
 }
+
+.flat_arrow { @include icon_sq("icons/flat_arrow_icon.svg", 32px); }
+.plus { @include icon_sq("icons/plus.svg", 24px); }
+.minus { @include icon_sq("icons/minus.svg", 24px); }

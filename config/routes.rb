@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   end
 
   resources :users
-
+  get 'users/profile/:id', to: 'users#profile'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

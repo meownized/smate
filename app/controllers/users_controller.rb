@@ -1,13 +1,19 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update destroy neighbor_edit]
+  before_action :set_user, only: %i[show edit update destroy neighbor_edit profile]
 
   def index
     @users = User.all
   end
 
-  def show; end
+  def show
+    # @user_json = UserSerializer.new(@user).to_json
+  end
+
+  def profile
+    @user_json = UserSerializer.new(@user).to_json
+  end
 
   def new
     @user = User.new

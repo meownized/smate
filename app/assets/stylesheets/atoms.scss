@@ -2,6 +2,91 @@
 @import "fonts";
 @import "icons";
 
+// Buttons
+// .button_size.button_name
+
+@mixin button($padding-h, $padding-w) {
+  padding: $padding-h $padding-w;
+  display: block;
+  border-radius: 8px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: center;
+  border: none;
+  &:disabled {
+    opacity: 0.56;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@mixin button_colors($background, $font_color, $hover) {
+  background-color: $background;
+  color: $font_color;
+  &:hover {
+    background-color: $hover;
+  }
+}
+
+.l_button {
+  @include button(16px, 16px);
+  @include l_button_font;
+}
+
+.m_button {
+  @include button(10px, 12px);
+  @include m_button_font;
+}
+
+.s_button {
+  @include button(10px, 12px);
+  @include s_button_font;
+}
+
+.primary {
+  @include button_colors($primary, $white, $dark_primary);
+}
+
+.primary_grey {
+  @include button_colors($grey1, $neutral, $grey2);
+}
+
+.flat {
+  @include button_colors(none, $primary, none);
+  &:hover {
+    color: $dark_primary;
+  }
+}
+
+// ICON BUTTONS
+// .button_size.icon
+
+@mixin icon_button($size) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.l_icon_button {
+  @include icon_button(56px);
+}
+
+.m_icon_button {
+  @include icon_button(44px);
+}
+
+.s_icon_button {
+  @include icon_button(36px);
+}
+
 // Tabs
 
 @mixin tab {

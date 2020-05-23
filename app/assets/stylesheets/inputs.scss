@@ -1,74 +1,270 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&display=swap");
+@import "colors";
+@import "fonts";
 
-button,
-input,
-select,
-textarea {
+*:disabled {
+  opacity: 0.56;
+}
+
+// Навесить любому инпуту этот класс, включая чекбоксы и тд
+
+@mixin default_input($padding, $padding-r, $padding-l) {
+  display: inline-block;
+  box-sizing: border-box;
+  background-color: transparent;
+  -webkit-appearance: none;
+  padding: $padding $padding-r $padding $padding-l;
+  border-radius: 8px;
+  border: 1px solid $grey2;
+  color: $dark;
+  @include p2;
+
+  &:hover {
+    border: 1px solid $grey3;
+    color: $grey3;
+  }
+  &::-webkit-input-placeholder {
+    color: $grey2;
+  }
+  &::-moz-placeholder {
+    color: $grey2;
+  }
+  &:-ms-input-placeholder {
+    color: $grey2;
+  }
+  &::-ms-input-placeholder {
+    color: $grey2;
+  }
+  &::placeholder {
+    color: $grey4;
+  }
+  &:focus {
+    outline: none;
+    border: 1px solid $grey4;
+  }
+  &:invalid {
+    background-color: $light_red;
+    border: 1px solid #ffe5e3;
+    &:focus,
+    &:active {
+      border: 1px solid $red;
+      background-color: transparent;
+    }
+  }
+  &[type="number"]::-webkit-inner-spin-button,
+  &[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  // &select {
+  //   &:hover {
+  //     cursor: pointer;
+  //   }
+  // }
+}
+
+.default_input {
+  @include default_input(16px, 16px, 20px);
+}
+
+// input_box
+
+@mixin box {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   outline: none;
-}
+  transition: background 175ms cubic-bezier(0.1, 0.1, 0.25, 1);
 
-.form {
-  h1 {
-    margin-bottom: 12px;
+  &:hover {
+    cursor: pointer;
+    border-color: $grey4;
   }
 
-  p {
-    margin-bottom: 16px;
+  &:invalid {
+    background-color: $light_red;
+  }
+
+  &:invalid + label {
+    color: $red;
   }
 }
 
-.field {
+@mixin checkbox {
+  border-radius: 4px;
+  border: 1px solid $grey3;
+
+  &::before {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 4px;
+    height: 12px;
+    top: 3px;
+    left: 9px;
+    border-style: solid;
+    border-color: $white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+  }
+
+  &:checked {
+    color: $white;
+    background: $primary;
+    border: 1px solid $primary;
+
+    &::before {
+      opacity: 1;
+    }
+
+    &:hover {
+      cursor: pointer;
+      border: 1px solid $dark_primary;
+      background-color: $dark_primary;
+    }
+  }
+}
+
+@mixin radio {
+  border-radius: 50%;
+
+  &:checked {
+    color: $white;
+    background: $primary;
+    border: 6px solid $grey5;
+
+    &::before {
+      opacity: 1;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: $dark_primary;
+    }
+  }
+}
+
+@mixin box_label {
+  @include p2;
+  margin-left: 16px;
+  margin-right: 12px;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  // &::before {
+  //   position: absolute;
+  //   content: attr(data-content);
+  //   color: $grey2;
+  // }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@mixin box_label_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  border: 1px solid $grey2;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+// COUNT
+
+.count_input {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  width: 168px;
+
+  input[type="number"] {
+    @include default_input(16px, 36px, 36px);
+    width: 168px;
+    text-align: center;
+  }
+
+  .minus,
+  .plus {
+    position: absolute;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .minus {
+    left: 16px;
+  }
+
+  .plus {
+    right: 16px;
+  }
+}
+
+// textarea
+// Этот миксин достаточно добавить в нужный контейнер
+
+@mixin textarea {
+  textarea {
+    min-height: 108px;
+    background-color: $grey2;
+    color: $dark
+  }
+}
+
+// SEARCH
+
+.search_input {
+  .default_input {
+    padding: 16px 54px;
+  }
+  .search {
+    position: absolute;
+    margin: 16px 8px 16px 16px;
+  }
+}
+
+
+// IMAGE UPLOADER
+
+.image_uploader {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  margin-top: 0;
-
-  // background: white;
-  input,
-  select {
-    margin-bottom: 16px;
-  }
-}
-
-input,
-select {
-  font-size: 16px;
-  border: 2px solid #adb2ba;
-  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  width: 352px;
+  height: 124px;
   border-radius: 8px;
-  height: 50px;
-  width: 302px;
-  background: white;
-  padding: 8px;
+  border: 1px dashed $grey2;
 
-  &[type="text"] {
-    font-size: 18px;
-    line-height: 26px;
-    letter-spacing: -0.3px;
-    color: #18214d;
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    background-color: $grey5;
+    border-radius: 50%;
   }
 
-  &:focus {
-    border: 2px solid #18214d;
+  input {
+    text-align: center;
   }
-}
 
-label {
-  color: red;
-
-  //opacity: 0;
-}
-
-.remember_me {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-}
-
-.field label {
-  font-family: "Open Sans", sans-serif;
-  color: #adb2ba;
-  margin-bottom: 4px;
-
-  /*or whatever you want to change*/
+  .file_field {
+    position: absolute;
+    cursor: pointer;
+    width: inherit;
+    height: inherit;
+    opacity: 0;
+  }
 }

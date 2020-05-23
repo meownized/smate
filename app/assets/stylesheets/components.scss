@@ -2,6 +2,7 @@
 @import "fonts";
 @import "icons";
 @import "atoms";
+@import "inputs";
 
 @mixin ava_name {
   display: flex;
@@ -30,5 +31,36 @@
 
   .tab {
     @include tab;
+  }
+}
+
+// Checkbox Button
+
+.box_label_container {
+  @include box_label_container;
+
+  .checkbox[type="checkbox"] {
+    @include box;
+    @include checkbox;
+  }
+
+  label {
+    @include box_label;
+  }
+}
+
+
+// Radio Button
+
+.box_label_container {
+  @include box_label_container;
+
+  .radio[type="radio"] {
+    @include box;
+    @include radio;
+  }
+
+  label {
+    @include box_label;
   }
 }

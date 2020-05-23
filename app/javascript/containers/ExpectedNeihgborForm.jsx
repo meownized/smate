@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from "prop-types"
 import $ from 'jquery'
 
-import ExpectedNeihgbor from '../components/ExpectedNeihgbor'
+import ExpectedNeihgbor from '../components/ExpectedNeighbor'
 
 
 export default class ExpectedNeihgborForm extends React.Component {
@@ -20,13 +20,13 @@ export default class ExpectedNeihgborForm extends React.Component {
 
     this.state = {
       user: {
-        sex: props.user.expected_neighbor.sex,
-        age: props.user.expected_neighbor.age,
-        children: props.user.expected_neighbor.children,
-        animals: props.user.expected_neighbor.animals,
-        smoke: props.user.expected_neighbor.smoke,
-        alcohol: props.user.expected_neighbor.alcohol,
-        lgbtq: props.user.expected_neighbor.lgbtq,
+        neighbor_sex: props.user.neighbor_sex,
+        neighbor_age: props.user.neighbor_age,
+        neighbor_children: props.user.neighbor_children,
+        neighbor_animals: props.user.neighbor_animals,
+        neighbor_smoke: props.user.neighbor_smoke,
+        neighbor_alcohol: props.user.neighbor_alcohol,
+        neighbor_lgbtq: props.user.neighbor_lgbtq,
       }
     }
   }
@@ -40,13 +40,13 @@ export default class ExpectedNeihgborForm extends React.Component {
       method: 'PUT',
       data: {
         user: {
-          sex: this.state.user.expected_neighbor.sex,
-          age: this.state.user.expected_neighbor.age,
-          children: this.state.user.expected_neighbor.children,
-          animals: this.state.user.expected_neighbor.animals,
-          smoke: this.state.user.expected_neighbor.smoke,
-          alcohol: this.state.user.expected_neighbor.alcohol,
-          lgbtq: this.state.user.expected_neighbor.lgbtq,
+          sex: this.state.user.neighbor_sex,
+          age: this.state.user.neighbor_age,
+          children: this.state.user.neighbor_children,
+          animals: this.state.user.neighbor_animals,
+          smoke: this.state.user.neighbor_smoke,
+          alcohol: this.state.user.neighbor_alcohol,
+          lgbtq: this.state.user.neighbor_lgbtq,
         }
       },
       success: response => {
@@ -57,7 +57,7 @@ export default class ExpectedNeihgborForm extends React.Component {
 
   handleNeighborSexChange(sex) {
     let newState = this.state
-    newState.user.expected_neighbor.sex = sex
+    newState.user.neighbor_sex = sex
 
     this.setState({
       newState
@@ -66,7 +66,7 @@ export default class ExpectedNeihgborForm extends React.Component {
 
   handleNeighborAgeChange(age) {
     let newState = this.state
-    newState.user.expected_neighbor.age = age
+    newState.user.neighbor_age = age
 
     this.setState({
       newState
@@ -75,7 +75,7 @@ export default class ExpectedNeihgborForm extends React.Component {
 
   handleNeighborAnimalsChange(animals) {
     let newState = this.state
-    newState.user.expected_neighbor.animals = animals
+    newState.user.neighbor_animals = animals
 
     this.setState({
       newState
@@ -84,7 +84,7 @@ export default class ExpectedNeihgborForm extends React.Component {
 
   handleNeighborSmokeChange(smoke) {
     let newState = this.state
-    newState.user.expected_neighbor.smoke = smoke
+    newState.user.neighbor_smoke = smoke
 
     this.setState({
       newState
@@ -93,7 +93,7 @@ export default class ExpectedNeihgborForm extends React.Component {
 
   handleNeighborAlcoholChange(alcohol) {
     let newState = this.state
-    newState.user.expected_neighbor.alcohol = alcohol
+    newState.user.neighbor_alcohol = alcohol
 
     this.setState({
       newState
@@ -102,7 +102,7 @@ export default class ExpectedNeihgborForm extends React.Component {
 
   handleNeighborChildrenChange(children) {
     let newState = this.state
-    newState.user.expected_neighbor.children = children
+    newState.user.neighbor_children = children
 
     this.setState({
       newState
@@ -111,7 +111,7 @@ export default class ExpectedNeihgborForm extends React.Component {
 
   handleNeighborLgbtqChange(lgbtq) {
     let newState = this.state
-    newState.user.expected_neighbor.lgbtq = lgbtq
+    newState.user.neighbor_lgbtq = lgbtq
 
     this.setState({
       newState
@@ -120,16 +120,18 @@ export default class ExpectedNeihgborForm extends React.Component {
 
   render() {
     return (
-      <div className="UserForm">
-        <UserInfo
+      <div>
+        <ExpectedNeihgbor
           user={ this.state.user }
           handleNeighborSexChange={ this.handleNeighborSexChange }
           handleNeighborAgeChange={ this.handleNeighborAgeChange }
           handleNeighborAnimalsChange={ this.handleNeighborAnimalsChange }
+          handleNeighborChildrenChange={ this.handleNeighborChildrenChange }
+
+          handleNeighborLgbtqChange={ this.handleNeighborLgbtqChange }
+
           handleNeighborSmokeChange={ this.handleNeighborSmokeChange }
           handleNeighborAlcoholChange={ this.handleNeighborAlcoholChange }
-          handleNeighborChildrenChange={ this.handleNeighborChildrenChange }
-          handleNeighborLgbtqChange={ this.handleNeighborLgbtqChange }
         />
 
         <input
