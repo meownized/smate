@@ -220,7 +220,7 @@ export default class UserForm extends React.Component {
 
   render() {
     return (
-      <section className="UserForm">
+      <section className="">
         <UserInfo
           user={ this.state.user }
           handleEmailChange={ this.handleEmailChange }
@@ -240,19 +240,19 @@ export default class UserForm extends React.Component {
           handleInstagramChange={ this.handleInstagramChange }
         />
 
-        <div class="buttonWrapper">
+        <div>
           <button
           onClick={this.handleSubmit}
           type="submit"
           value="Submit"
-          className="submitButton primary"> Сохранить
+          className="l_button primary_button"> Сохранить
           </button>
 
           <button
           onClick={this.handleSubmit}
           type="submit"
           value="Submit"
-          className="submitButton secondary"> Пропустить
+          className="l_button flat_button"> Пропустить
           </button>
         </div>
 

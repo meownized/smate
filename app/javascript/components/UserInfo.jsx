@@ -92,13 +92,17 @@ class UserInfo extends React.Component {
 
   render () {
     return (
-      <div className="user_form">
+      <div className="UserForm">
+
+      <h4> Основное </h4>
+
         <input
           type="text"
           placeholder="Email"
           name="email"
           value={ this.props.user.email }
           onChange={ this.handleEmailChange }
+          className="default_input"
         />
 
         <input
@@ -107,6 +111,7 @@ class UserInfo extends React.Component {
           name="name"
           value={ this.props.user.name }
           onChange={ this.handleNameChange }
+          className="default_input"
         />
 
         <input
@@ -115,6 +120,7 @@ class UserInfo extends React.Component {
           name="surname"
           value={ this.props.user.surname }
           onChange={ this.handleSurnameChange }
+          className="default_input"
         />
 
         <select
@@ -122,7 +128,8 @@ class UserInfo extends React.Component {
           placeholder="Пол"
           name="sex"
           value={ this.props.user.sex }
-          onChange={ this.handleSexChange }>
+          onChange={ this.handleSexChange }
+          className="default_input">
           <option value="ж">Женский</option>
           <option value="м">Мужской</option>
         </select>
@@ -134,6 +141,7 @@ class UserInfo extends React.Component {
           name="age"
           value={ this.props.user.age }
           onChange={ this.handleAgeChange }
+          className="default_input"
         />
 
         <select
@@ -141,17 +149,21 @@ class UserInfo extends React.Component {
           placeholder="Животные"
           name="animals"
           value={ this.props.user.animals }
-          onChange={ this.handleAnimalsChange }>
+          onChange={ this.handleAnimalsChange }
+          className="default_input">
           <option value="No_pets">Без животных</option>
           <option value="Has_pets">Есть животные</option>
         </select>
+
+        <h4> Вредные привычки </h4>
 
         <select
           type="text"
           placeholder="Отношение к курению"
           name="Smoke"
           value={ this.props.user.smoke }
-          onChange={ this.handleSmokeChange }>
+          onChange={ this.handleSmokeChange }
+          className="default_input">
           <option value="No_smoking">Не курю</option>
           <option value="Sometimes_smoking">Иногда курю</option>
           <option value="Smoking_allowed">Курю постоянно</option>
@@ -162,17 +174,21 @@ class UserInfo extends React.Component {
           placeholder="Отношение к алкоголю"
           name="Alcohol"
           value={ this.props.user.alcohol }
-          onChange={ this.handleAlcoholChange }>
+          onChange={ this.handleAlcoholChange }
+          className="default_input">
           <option value="No_alchohol">Не пью</option>
           <option value="Alchohol_allowed">Иногда пью</option>
         </select>
+
+        <h4> Социальная активность </h4>
 
         <select
           type="text"
           placeholder="Дети"
           name="Children"
           value={ this.props.user.children }
-          onChange={ this.handleChildrenChange }>
+          onChange={ this.handleChildrenChange }
+          className="default_input">
           <option value="No_children">Нет детей</option>
           <option value="Has_children">Есть дети</option>
         </select>
@@ -183,14 +199,18 @@ class UserInfo extends React.Component {
           name="Lgbtq"
           value={ this.props.user.lgbtq }
           onChange={ this.handleLgbtqChange }
+          className="default_input"
         />
 
-        <input
+        <h4> Дополнительно </h4>
+
+        <textarea
           type="text"
           placeholder="Расскажите о работе"
           name="Job"
           value={ this.props.user.job }
           onChange={ this.handleJobChange }
+          className="default_input textarea"
         />
 
         <input
@@ -199,7 +219,10 @@ class UserInfo extends React.Component {
           name="PersonalInfo"
           value={ this.props.user.personalInfo }
           onChange={ this.handlePersonalInfoChange }
+          className="default_input"
         />
+
+        <h4> Социальные сети </h4>
 
         <input
           type="text"
@@ -207,6 +230,7 @@ class UserInfo extends React.Component {
           name="Vk"
           value={ this.props.user.vk }
           onChange={ this.handleVkChange }
+          className="default_input"
         />
 
         <input
@@ -215,6 +239,7 @@ class UserInfo extends React.Component {
           name="Facebook"
           value={ this.props.user.facebook }
           onChange={ this.handleFacebookChange }
+          className="default_input"
         />
 
         <input
@@ -223,6 +248,7 @@ class UserInfo extends React.Component {
           name="Instagram"
           value={ this.props.user.instagram }
           onChange={ this.handleInstagramChange }
+          className="default_input"
         />
       </div>
     )

@@ -6,11 +6,11 @@
 
     .field
       = f.label :email
-      = f.email_field :email, autofocus: true, autocomplete: "email"
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: 'default_input'
 
     .field
       = f.label :password
-      = f.password_field :password, autocomplete: "current-password"
+      = f.password_field :password, autocomplete: "current-password", class: 'default_input'
       - if devise_mapping.rememberable?
 
     //.field

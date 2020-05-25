@@ -1,18 +1,22 @@
-section .UserForm {
-  width: 800px;
-  margin: 0 auto;
-  padding: 80px 184px;
+@import "colors";
+@import "inputs";
+
+.UserForm {
+  width: 400px;
+  padding-top: 40px;
   background-color: white;
+  display: flex;
+  flex-direction: column;
 
-  p {
-    margin-top: auto;
+  .default_input {
+    width: 320px;
+    margin-bottom: 16px;
   }
 
-  .buttonWrapper {
-    margin-top: 8px;
+  .textarea {@include textarea}
 
-    button {
-      margin-right: 12px;
-    }
+  h4 {
+    margin-bottom: 16px;
+    color: $dark;
   }
-}
+  }

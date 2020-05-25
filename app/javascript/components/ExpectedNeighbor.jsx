@@ -52,83 +52,77 @@ class ExpectedNeihgbor extends React.Component {
 
   render () {
     return (
-      <div className="form">
-        <h1>О себе</h1>
-        <div className="field">
+      <div className="UserForm">
+        <h4>О соседях</h4>
 
-          <h2>
-            <input
-              type="text"
-              placeholder="Пол"
-              name="sex"
-              value={ this.props.user.neighbor_sex }
-              onChange={ this.handleNeighborSexChange }
-            />
-          </h2>
+          <input
+            type="text"
+            placeholder="Пол"
+            name="sex"
+            value={ this.props.user.neighbor_sex }
+            onChange={ this.handleNeighborSexChange }
+            className="default_input"
+          />
 
-          <h2>
             <input
               type="text"
               placeholder="Возраст"
               name="age"
               value={ this.props.user.neighbor_age }
               onChange={ this.handleNeighborAgeChange }
+              className="default_input"
             />
-          </h2>
 
-          <h2>
           <input
           type="text"
           placeholder="Дети"
           name="Children"
           value={ this.props.user.neighbor_children }
           onChange={ this.handleNeighborChildrenChange }
+          className="default_input"
           />
-          </h2>
 
-          <h2>
-            <input
-              type="text"
-              placeholder="Животные"
-              name="animals"
-              value={ this.props.user.neighbor_animals }
-              onChange={ this.handleNeighborAnimalsChange }
-            />
-          </h2>
+          <input
+            type="text"
+            placeholder="Животные"
+            name="animals"
+            value={ this.props.user.neighbor_animals }
+            onChange={ this.handleNeighborAnimalsChange }
+            className="default_input"
+          />
 
-          <h2>
-            <input
-              type="text"
-              placeholder="Отношение к курению"
-              name="Smoke"
-              value={ this.props.user.neighbor_smoke }
-              onChange={ this.handleNeighborSmokeChange }
-            />
-          </h2>
+          <h4>Социальная активность</h4>
 
-          <h2>
-            <input
-              type="text"
-              placeholder="Отношение к алкоголю"
-              name="Alcohol"
-              value={ this.props.user.neighbor_alcohol }
-              onChange={ this.handleNeighborAlcoholChange }
-            />
-          </h2>
+          <input
+            type="text"
+            placeholder="Отношение к курению"
+            name="Smoke"
+            value={ this.props.user.neighbor_smoke }
+            onChange={ this.handleNeighborSmokeChange }
+            className="default_input"
+          />
 
+          <h4>Вредные привычки</h4>
 
-          <h2>
-            <input
-              type="text"
-              placeholder="LGBTQ"
-              name="Lgbtq"
-              value={ this.props.user.neighbor_lgbtq }
-              onChange={ this.handleNeighborLgbtqChange }
-            />
-          </h2>
+          <input
+            type="text"
+            placeholder="Отношение к алкоголю"
+            name="Alcohol"
+            value={ this.props.user.neighbor_alcohol }
+            onChange={ this.handleNeighborAlcoholChange }
+            className="default_input"
+          />
+
+          <input
+            type="text"
+            placeholder="LGBTQ"
+            name="Lgbtq"
+            value={ this.props.user.neighbor_lgbtq }
+            onChange={ this.handleNeighborLgbtqChange }
+            className="default_input"
+          />
 
         </div>
-      </div>
     )
   }
 }

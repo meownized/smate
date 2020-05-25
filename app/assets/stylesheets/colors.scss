@@ -4,7 +4,7 @@ $black: opacify(rgba(#000000, 0), 0.9);
 $dark: #18214D;
 $neutral: #3E4462;
 $primary: #F36D03;
-$dark_primary: darken($primary, 10);
+$dark_primary: darken($primary, 8);
 
 .white { color: $white !important; }
 .black { color: $black !important; }

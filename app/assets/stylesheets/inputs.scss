@@ -20,7 +20,7 @@
 
   &:hover {
     border: 1px solid $grey3;
-    color: $grey3;
+    color: $dark;
   }
   &::-webkit-input-placeholder {
     color: $grey2;
@@ -37,10 +37,18 @@
   &::placeholder {
     color: $grey4;
   }
+
   &:focus {
     outline: none;
-    border: 1px solid $grey4;
+    border: 1px solid $primary;
   }
+
+  &:active {
+    outline: none;
+    border: 1px solid $primary;
+    color: $dark;
+  }
+
   &:invalid {
     background-color: $light_red;
     border: 1px solid #ffe5e3;
@@ -66,7 +74,7 @@
   @include default_input(16px, 16px, 20px);
 }
 
-// input_box
+// input_box общая логика для чекбокса
 
 @mixin box {
   position: relative;

@@ -4,12 +4,21 @@ h1, h2, h3, h4, h5, p, a,
 .h1, .h2, .h3, .h4, .h5, .p, .p2, .p3, .p4,
 div {
   font-family: 'Helvetica', sans-serif;
-  color: $black;
+  color: $neutral;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3 {
   font-weight: bold;
   letter-spacing: -3px;
+}
+
+a, .a {
+  text-decoration: none;
+  &:hover {
+    color: $dark;
+  }
 }
 
 @mixin font_settings($size, $height, $spacing) {
@@ -37,12 +46,12 @@ h4 { @include h4; }
 .h4 { @include h4; }
 
 @mixin h5 { @include font_settings(16px, 20px, -0.4px) }
-h5 { @include h1; }
-.h5 { @include h1; }
+h5 { @include h5; }
+.h5 { @include h5; }
 
 // Buttons
 @mixin l_button_font { @include font_settings(20px, 24px, -0.5px) }
-@mixin m_button_font { @include font_settings(18px, 24px, -0.5px) }
+@mixin m_button_font { @include font_settings(18px, 24px, -0.5pxF) }
 @mixin s_button_font { @include font_settings(16px, 16px, -0.4px) }
 
 // Paragraphs
@@ -59,3 +68,6 @@ p { @include p; }
 
 @mixin p4 { @include font_settings(14px, 20px, -0.4px) }
 .p4 { @include p4; }
+
+// @mixin a { @include font_settings(18px, 24px, -0.3px) }
+// .a { @include a; }
