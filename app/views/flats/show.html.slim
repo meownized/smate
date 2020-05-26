@@ -31,11 +31,11 @@ p#notice
   .photosFlat
 
     .first
-      = image_tag(@flat.flat_attachments.first.image.to_s)
+      = image_tag(@flat.flat_attachments.first.image)
 
     .other
       - @flat.flat_attachments.drop(1).each do |flat_attachment|
-        = image_tag(flat_attachment.image.to_s)
+        = image_tag(flat_attachment.image)
 
   .people
     h2

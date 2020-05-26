@@ -74,6 +74,64 @@
   @include default_input(16px, 16px, 20px);
 }
 
+.label_default_input {
+  position: relative;
+
+  label {
+    position: absolute;
+    top: 21px;
+    left: 21px;
+    transition: top 0.3s ease-in-out, opacity 0.1s ease-in-out;
+    opacity: 0;
+    background-color: $white;
+    padding: 8px;
+    font-size: 0px;
+    z-index: 0;
+  }
+
+  .default_input:invalid + label {
+    color: $red;
+  }
+
+  .default_input:valid + label,
+  .default_input:focus + label {
+    @include p4;
+    opacity: 1;
+    color: $black;
+    top: -18px;
+    box-sizing: border-box;
+    z-index: 500;
+  }
+
+  .default_input:valid + label {
+    color: $grey2;
+  }
+
+  .default_input:valid::-webkit-input-placeholder,
+  .default_input:focus::-webkit-input-placeholder {
+    opacity: 0;
+  }
+
+  .default_input:focus::-moz-placeholder {
+    opacity: 0;
+  }
+
+  .default_input:focus:-ms-input-placeholder {
+    opacity: 0;
+  }
+
+  .default_input:focus::-ms-input-placeholder {
+    opacity: 0;
+  }
+
+  .default_input:focus::-webkit-input-placeholder {
+    opacity: 0;
+  }
+
+  .default_input:focus::placeholder {
+    opacity: 0;
+  }
+}
 // input_box общая логика для чекбокса
 
 @mixin box {

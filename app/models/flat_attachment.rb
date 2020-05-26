@@ -6,5 +6,5 @@ class FlatAttachment < ApplicationRecord
   belongs_to :user, required: false # временно
 
   # mount_uploader :image, FlatAttachmentUploader
-  has_many_attached :images
+  has_one_attached :image
 end

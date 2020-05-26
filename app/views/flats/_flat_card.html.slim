@@ -1,7 +1,7 @@
 .flatCard
   = link_to flat_path(flat) do
     .flat_image
-      = image_tag(flat.flat_attachments.first.image.to_s)
+      = image_tag(flat.flat_attachments.first.image)
     .flat_info
       .flat_description
         h3 = flat.name

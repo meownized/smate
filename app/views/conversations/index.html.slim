@@ -1,7 +1,6 @@
 = javascript_pack_tag 'conversation_pack'
 
-.conversation_container
-  section.flat_conversations data-props=FlatSerializer.new(@flat).to_json
+.flat_conversations data-props=FlatSerializer.new(@flat).to_json
 
 //  - if @flat.conversations.pluck(:user_id).uniq.include? @flat.users.ids
 //    = link_to 'Проголосовать за кандидата',
@@ -10,6 +9,3 @@
 //    = link_to 'Отклонить',
 //      flat_conversation_path(@flat, @flat.conversations.last, decision: false),
 //      method: :delete
-
-  section.flat_info
-    = render partial: 'flats/flat_info', locals: {flat: @flat}
