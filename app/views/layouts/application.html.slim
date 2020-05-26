@@ -13,11 +13,7 @@ html
     .menubar
       .menu_items_left
         = link_to '', flats_path, class: 'logo menu_item'
-
-        a
-          = link_to 'Поиск', flats_path
-
-        </%= a Уведомления >
+        = link_to 'Поиск', flats_path
 
         - if current_user&.flats.present?
           = link_to 'Чаты', flat_conversations_path(current_user.flats.first), class: 'menu_item'

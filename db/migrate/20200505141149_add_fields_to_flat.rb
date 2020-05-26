@@ -4,12 +4,12 @@ class AddFieldsToFlat < ActiveRecord::Migration[5.2]
   def change
     change_table :flats do |t|
       t.string :sex, default: %w[м ж другой], array: true
-      t.boolean :couple, default: true
-      t.boolean :smoke, default: true
-      t.boolean :animals, default: true
-      t.boolean :party, default: true
-      t.boolean :children, default: true
-      t.boolean :lgbtq, default: true
+      t.boolean :couple, default: nil
+      t.boolean :smoke, default: nil
+      t.boolean :animals, default: nil
+      t.boolean :party, default: nil
+      t.boolean :children, default: nil
+      t.boolean :lgbtq, default: nil
     end
   end
 end

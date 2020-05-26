@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_22_170539) do
+ActiveRecord::Schema.define(version: 2020_05_25_190948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,12 +75,12 @@ ActiveRecord::Schema.define(version: 2020_05_22_170539) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "sex", default: ["м", "ж", "другой"], array: true
-    t.boolean "couple", default: true
-    t.boolean "smoke", default: true
-    t.boolean "animals", default: true
-    t.boolean "party", default: true
-    t.boolean "children", default: true
-    t.boolean "lgbtq", default: true
+    t.boolean "couple"
+    t.boolean "smoke"
+    t.boolean "animals"
+    t.boolean "party"
+    t.boolean "children"
+    t.boolean "lgbtq"
     t.integer "owner_id"
   end
 
@@ -150,6 +150,13 @@ ActiveRecord::Schema.define(version: 2020_05_22_170539) do
     t.datetime "remember_created_at"
     t.string "decision", default: [], array: true
     t.boolean "party"
+    t.string "neighbor_sex"
+    t.integer "neighbor_age"
+    t.boolean "neighbor_children"
+    t.boolean "neighbor_animals"
+    t.boolean "neighbor_smoke"
+    t.boolean "neighbor_alcohol"
+    t.boolean "neighbor_lgbtq"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
