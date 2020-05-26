@@ -13,17 +13,19 @@ class JoinConversationList extends React.Component {
 	};
 
 	conversationsList() {
-		const conversations = this.props.conversations
+		const {
+			conversations
+		} = this.props
 
-		return conversations.map((conversation, index) => <div className="col-sm-12" key={index} onClick={() => this.handleClick(conversation.conversation.id)}>
+		return conversations.map((conversation, index) => <div className="col-sm-12" key={index} onClick={() => this.handleClick(conversation.id)}>
 			<p className="message-text">
-				{conversation.conversation.title}
+				{conversation.flat_name}
 			</p>
 		</div>);
 	}
 
 	render() {
-		return <div className="row" id="chat-box">
+		return <div className="conversations_list">
 			{this.conversationsList()}
 		</div>
 	}

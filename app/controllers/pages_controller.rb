@@ -7,11 +7,25 @@ class PagesController < ApplicationController
 
   def join_conversations
     @conversations = Conversation.all.where(user_id: current_user.id)
-    @conversations_ser = @conversations.map { |conversation| ConversationSerializer.new(conversation) }
+    @conversations_json = ActiveModel::ArraySerializer.new(@conversations, serializer: ConversationSerializer).as_json
+    @flats = @conversations.map { |conversation| conversation.flat }
+
     @join_conversations = {
-      active_conversation: @conversations.last.id,
-      join_conversations: @conversations_ser
+      active_conversation: @conversations&.last&.id,
+      join_conversations: @conversations_json,
+      flats: flat_serialize
     }
+  end
+
+  def flat_serialize
+    @flats.map do |flat|
+      {
+        id: flat.id,
+        name: flat.name,
+        price: flat.price,
+        description: flat.description
+      }
+    end
   end
 
   def resolve_layout

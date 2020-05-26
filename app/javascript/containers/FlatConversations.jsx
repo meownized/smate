@@ -33,66 +33,97 @@ export default class FlatConversations extends React.Component {
 	}
 
 	newConversation(conversation) {
-		const {conversations} = this.state.flat;
+		const {
+			conversations
+		} = this.state.flat;
 		const cnvs = [...conversations];
 
 		cnvs.push(conversation);
 
 		let newState = this.state
 		newState.flat.conversations = cnvs
-		this.setState({newState})
+		this.setState({
+			newState
+		})
 	}
 
 	handleClick = id => {
 		let newState = this.state
 		newState.flat.activeConversation = id
 
-		this.setState({newState});
+		this.setState({
+			newState
+		});
 	};
 
 	showModal = () => {
 		console.log('Показать');
-		this.setState({usersShow: true});
+		this.setState({
+			usersShow: true
+		});
 	};
 
 	hideModal = () => {
-		this.setState({usersShow: false});
+		this.setState({
+			usersShow: false
+		});
 	};
 
-	userList(){
-		const {conversations, activeConversation} = this.state.flat;
+	userList() {
+		const {
+			conversations,
+			activeConversation
+		} = this.state.flat;
 		const findActiveConversation = conversations.find(conversation => conversation.id === activeConversation);
-		const {users} = findActiveConversation;
-		
-	  const all_users = [...users];
+		const {
+			users
+		} = findActiveConversation;
 
-	  return all_users.map((user, index) =>
-	    <div className="col-sm-12" key={index}>
+		const all_users = [...users];
+
+		return all_users.map((user, index) =>
+			<div className="col-sm-12" key={index}>
 	      <p className="message-text">
 	        {user.full_name}
 	      </p>
 	    </div>
-	  );
+		);
 	}
 
 	render() {
-		const {conversations, activeConversation} = this.state.flat;
+		const {
+			flat
+		} = this.state;
+		const {
+			conversations,
+			activeConversation
+		} = flat;
 		const findActiveConversation = conversations.find(conversation => conversation.id === activeConversation);
-		const {users} = findActiveConversation
+		const {
+			users
+		} = findActiveConversation
 
-		return (<div className="conversation_container">
-			<ConversationList className="flat_conversation" conversations={conversations} handleClick={this.handleClick}/>
-			<div className="conversation">
-				<div className="users_count" onClick={this.showModal}>{users.length}
-					участника</div>
-				<button type="button" onClick={this.showModal}>
-          open
-        </button>
-				<UsersPopup usersShow={this.state.usersShow} handleClose={this.hideModal}>
-					{this.userList()}
-				</UsersPopup>
-				<Conversation conversation={findActiveConversation}/>
-			</div>
+		return (
+			<div className="conversation_container">
+				<ConversationList
+					conversations={conversations}
+					handleClick={this.handleClick}
+					/>
+
+				<div className="conversation">
+					<div className="users_count" onClick={this.showModal}>{users.length}
+						участника</div>
+					<button type="button" onClick={this.showModal}>
+	          open
+	        </button>
+					<UsersPopup usersShow={this.state.usersShow} handleClose={this.hideModal}>
+						{this.userList()}
+					</UsersPopup>
+					<Conversation conversation={findActiveConversation}/>
+				</div>
+
+				<div className='flat_info'>
+				</div>
 		</div>)
 	}
 }

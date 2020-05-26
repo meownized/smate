@@ -23,7 +23,7 @@ class ConversationList extends React.Component {
 	}
 
 	render() {
-		return <div className="row" id="chat-box">
+		return <div className="conversations_list">
 			{this.conversationsList()}
 		</div>
 	}
