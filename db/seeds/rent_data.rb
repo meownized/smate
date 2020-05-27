@@ -8,7 +8,7 @@ def create_rents
       Rent.where(flat_id: flat.id, room_id: room.id).each do |rent|
         user = User.create(basic_info)
         time = rand(0..3)
-        user.avatar.attach(filename: "#{time}.jpg", io: File.open("db/images/avatars/#{time}.jpg", content_type: "image/jpg"))
+        user.avatar.attach(filename: "#{time}.jpg", io: File.open("db/images/avatars/#{time}.jpg", content_type: 'image/jpg'))
 
         rent.update(user_id: user.id)
         flat.conversations.each do |conversation|

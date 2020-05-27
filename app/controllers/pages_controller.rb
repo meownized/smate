@@ -8,7 +8,7 @@ class PagesController < ApplicationController
   def join_conversations
     @conversations = Conversation.all.where(user_id: current_user.id)
     @conversations_json = ActiveModel::ArraySerializer.new(@conversations, serializer: ConversationSerializer).as_json
-    @flats = @conversations.map { |conversation| conversation.flat }
+    @flats = @conversations.map(&:flat)
 
     @join_conversations = {
       active_conversation: @conversations&.last&.id,

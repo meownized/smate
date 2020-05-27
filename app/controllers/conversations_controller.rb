@@ -56,7 +56,7 @@ class ConversationsController < ApplicationController
     {
       flat_id: @flat.id,
       user_id: current_user.id,
-      title: "#{current_user.name + ' ' + current_user.surname}"
+      title: (current_user.name + ' ' + current_user.surname).to_s
     }
   end
 
