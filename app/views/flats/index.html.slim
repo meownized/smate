@@ -1,10 +1,9 @@
-p#notice
-  = notice
-h1
-  | Объявления
+.flats_wrapper
+  h3
+    | Объявления
 
-.flat_container
-  = render partial: 'flat_card', collection: @flats, as: :flat
+  .flats_container
+    = render partial: 'flat_card', collection: @flats, as: :flat
 
-.tertiary
-  = link_to 'New Flat', new_flat_path
+  .tertiary
+    = link_to 'Добавить объявление', new_flat_path, class: 'm_button secondary_button'

@@ -1,60 +1,47 @@
-p#notice
-  = notice
-
-.info
-  - if @flat.conversations.any? { |conversation| conversation.user_id == current_user.id}
-    = link_to 'Перейти в чат', flat_conversations_path(@flat)
-  - else
-    = link_to 'Подать заявку', flat_conversations_path(@flat), :method => :post, class: 'apply'
-
-  p.flat_price
-    = @flat.price
-    |  руб. в месяц
-
-  p.flat_description
-    | 2 человека в комнате •  2 комнаты • 4 человека всего
-
-  p.subway
-    = @flat.subway
-
-  p.distance
-   | 15  Пушкинская, Фёдора Длинное-имя Полетаева, дом 20 к1
-
-
-
 .flat_wrapper
-  p.flat_back
-    = link_to '← Назад', flats_path
-  h1
-    | Комната в трешке на соколе
+  .cta_block
+    h3
+      = flat_price(@flat)
+      |  ₽ в месяц
+    .p4
+      = @flat.subway
+    .p4
+     | 15  Пушкинская, Фёдора Длинное-имя Полетаева, дом 20 к1
+    - if @flat.conversations.any? { |conversation| conversation.user_id == current_user.id}
+      = link_to 'Перейти в чат', flat_conversations_path(@flat), class: 'l_button primary_button'
+    - else
+      = link_to 'Подать заявку', flat_conversations_path(@flat), :method => :post, class: 'apply l_button primary_button'
 
-  .photosFlat
 
-    .first
-      = image_tag(@flat.flat_attachments.first.image)
+  .flat_info_wrapper
+    .p2.arrow_back
+      = link_to '← Назад', flats_path
+    h3
+      | Комната в трешке на соколе
+    .photosFlat
+      .first
+        = image_tag(@flat.flat_attachments.first.image)
+      .other
+        - @flat.flat_attachments.drop(1).each do |flat_attachment|
+          = image_tag(flat_attachment.image)
 
-    .other
-      - @flat.flat_attachments.drop(1).each do |flat_attachment|
-        = image_tag(flat_attachment.image)
+    .flat_neighbours
+      h4
+        | В квартире живут
+      .people_cards
+        - @flat.users.each do |user|
+          .person_card
+            .photo
+            .p2
+              = fullname(user)
 
-  .people
-    h2
-      | В квартире живут
-    .people_cards
-      - @flat.users.each do |user|
-        .person_card
-          .photo
-          .about_person
-            p.person_name
-              = user.name
-            p.person_job
-              = user.job
-
-  .about
-    h2
-      | О квартире
-    p.about_
-      | Сдается комната. Без комиссии. Метро ВДНХ 10-12 минут, раcстояние - 1км если ходит по прямой, как ходят все люди микрорайона, 1,3 км это если по автодорогам. Для одной девушки или одного парня, можно студентам. В квартире чисто и очень уютная. Южная сторона - светло и красиво. В комнате есть комод, двуспальный большой что-то.
-
-= link_to 'Edit', edit_flat_path(@flat)
-= link_to 'Destroy', @flat, method: :delete, data: { confirm: 'Are you sure?' }
+    .about_flat
+      h4
+        | О квартире
+      .p2
+        | Сдается комната. Без комиссии. Метро ВДНХ 10-12 минут, раcстояние - 1км если ходит по прямой, как ходят все люди микрорайона, 1,3 км это если по автодорогам. Для одной девушки или одного парня, можно студентам. В квартире чисто и очень уютная. Южная сторона - светло и красиво. В комнате есть комод, двуспальный большой диван, письменный стол, большой шкаф для вещей в коридоре. Район тихий и безопасный, три пятёрочки магнит, фикспрайс и билла в трёх минутах. Во дворе бесплатная парковка без шлагбаумов, парковка есть всегда, т.к. рядом идут односторонние улицы. всегда близко каршеринг Яндекса 3-6 минут. Состояние такое же как на фото, только кухня еще уютнее, со шторой и креслом. Цена: 20 000 руб. в месяц (коммуналка и интернет включены.) Депозит 17.500 (возврат при съезде от следующих заезжающих) Соседи мы, молодые супруги, порядочная и творческая пара, фотографы из Fashion индустрии. Пишите в чятик!
+      h4
+        | Карта
+      iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2242.365351286026!2d37.51109561565865!3d55.80425739549012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b549b5690611df%3A0x2793b6d687e61ea1!2z0JvQtdC90LjQvdCz0YDQsNC00YHQutC40Lkg0L_RgC3Rgi4sIDc10LoxLCDQnNC-0YHQutCy0LAsIDEyNTA1Nw!5e0!3m2!1sru!2sru!4v1590620585025!5m2!1sru!2sru" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"
+      = link_to 'Edit', edit_flat_path(@flat)
+      = link_to 'Destroy', @flat, method: :delete, data: { confirm: 'Are you sure?' }

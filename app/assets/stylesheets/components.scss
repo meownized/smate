@@ -13,12 +13,17 @@
     @include images(140px, 140px, 50%);
     margin-right: 40px;
   }
+
   .user_info {
     display: flex;
     flex-direction: column;
     h3 {
-      width: 332px;
+      max-width: 332px;
       color: $dark;
+      margin-bottom: 8px;
+    }
+    .p2 {
+      color: $grey5;
     }
   }
 }

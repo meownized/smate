@@ -104,6 +104,7 @@ class UserInfo extends React.Component {
             value={ this.props.user.email }
             onChange={ this.handleEmailChange }
             className="default_input"
+						required
             />
 
           <label for='email'>Email</label>

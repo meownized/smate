@@ -28,6 +28,7 @@
   color: $font_color;
   &:hover {
     background-color: $hover;
+    color: $font_color;
   }
 }
 
@@ -123,4 +124,39 @@
   height: $height;
   -o-object-fit: cover;
   object-fit: cover;
+}
+
+//Badges
+@mixin badge($padding-h, $padding-w) {
+  display: inline-block;
+  padding: $padding-h $padding-w;
+  border-radius: 40px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: center;
+  border: none;
+  white-space: nowrap;
+}
+
+.sq {
+  border-radius: 4px !important;
+}
+
+.l_badge {
+  @include badge(10px, 16px);
+  @include p2;
+}
+
+.m_badge {
+  @include badge(6px, 12px);
+  @include p4;
+}
+
+.default_badge {
+  @include button_colors($grey2, $dark, $grey2);
+}
+
+.primary_badge {
+  @include button_colors($primary, $white, $primary);
 }
