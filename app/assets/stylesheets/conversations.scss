@@ -1,6 +1,10 @@
 // Place all the styles related to the conversations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "components";
+@import "colors";
+@import "fonts";
+@import "icons";
 
 .conversation_container {
   position: absolute;
@@ -11,18 +15,52 @@
   flex-wrap: wrap;
 
   .conversations_list {
-    width: 352px;
+    width: 332px;
+    margin: 20px;
     display: flex;
     flex-direction: column;
   }
 
+  .chat_card {
+    display: flex;
+    flex-direction: row;
+    width: 308px;
+    height: 48px;
+    padding: 12px;
+    border-radius: 8px;
+    &:hover {
+      background-color: $grey1;
+      cursor: pointer;
+    }
+    .chat_avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: $grey1;
+    }
+    .chat_name_and_message {
+      margin-left: 16px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .p4 {
+      color: $grey4;
+    }
+  }
+
+
+
+
   .conversation {
-    width: 738px;
+    width: 700px;
+    border: solid 1px $grey1;
   }
 
   .flat_info {
     position: absolute;
     width: 352px;
     right: 0;
+    background-color: $grey1;
   }
 }

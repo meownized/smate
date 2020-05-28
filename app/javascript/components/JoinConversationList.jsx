@@ -17,10 +17,14 @@ class JoinConversationList extends React.Component {
 			conversations
 		} = this.props
 
-		return conversations.map((conversation, index) => <div className="col-sm-12" key={index} onClick={() => this.handleClick(conversation.id)}>
-			<p className="message-text">
-				{conversation.flat_name}
+		return conversations.map((conversation, index) => <div className="chat_card" key={index} onClick={() => this.handleClick(conversation.id)}>
+			<div className="chat_avatar"></div>
+			<div className="chat_name_and_message">
+			<p className="p3">
+			{conversation.flat_name}
 			</p>
+			<p className="p4">Вы: Привет!</p>
+			</div>
 		</div>);
 	}
 

@@ -1,11 +1,123 @@
 // Place all the styles related to the flats controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "colors";
+@import "fonts";
+@import "icons";
 
-.flat_container {
+// Index
+
+.flats_wrapper {
+  position: static;
+  margin-top: 48px;
+}
+
+.flats_container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
   margin-top: 28px;
+}
+
+// Show
+
+.flat_wrapper {
+  position: static;
+  width: 1104px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.flat_info_wrapper {
+  width: 700px;
+
+  .arrow_back {
+    margin-bottom: 20px;
+  }
+}
+
+.cta_block {
+  padding: 20px;
+  position: sticky;
+  margin-top: 132px;
+  top: 80px;
+  margin-left: 40px;
+  height: 100%;
+  width: 328px;
+  background: $white;
+  border-radius: 8px;
+  border: 1px solid $grey2;
+
+  .l_button.primary_button {
+    width: 288px;
+    margin-top: 16px;
+  }
+
+  h3, .p4 {
+    margin-bottom: 12px;
+  }
+}
+
+.flat_neighbours {
+  margin-top: 48px;
+
+  .people_cards {
+    margin-top: 16px;
+    display: flex;
+    max-width: 516px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .person_card {
+      display: flex;
+      flex-direction: row;
+      width: 248px;
+      height: 88px;
+      background: $white;
+      border-radius: 8px;
+      border: 1px solid $grey2;
+
+      .p2 {
+        max-width: 148px;
+        margin-top: 16px;
+      }
+
+      .photo {
+        width: 64px;
+        height: 64px;
+        margin: 12px;
+        background-color: $grey3;
+        border-radius: 4px;
+      }
+
+      .about_person {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 12px;
+        margin-bottom: 12px;
+      }
+    }
+  }
+}
+
+.about_flat {
+  margin-top: 48px;
+  max-width: 516px;
+
+  .p2 {
+    margin-top: 12px;
+    margin-bottom: 80px;
+  }
+
+  iframe {
+    margin-top: 20px;
+    margin-bottom: 80px;
+    width: 632px;
+    height: 450px;
+    border-radius: 4px;
+  }
 }

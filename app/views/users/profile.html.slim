@@ -3,6 +3,7 @@
 .ava_name
   = image_tag(@user.avatar)
   .user_info
-    h3 Мария Кондратенко
+    h3
+      = fullname(user)
 
 .profile_pack data-props=@user_json

@@ -120,7 +120,7 @@ export default class JoinConversations extends React.Component {
 			</div>
 
 			<div className='flat_info'>
-				<h1>{findActiveFlat.name}</h1>
+				<h5>{findActiveFlat.name}</h5>
 				<h2>{findActiveFlat.price}</h2>
 				<p>{findActiveFlat.description}</p>
 			</div>

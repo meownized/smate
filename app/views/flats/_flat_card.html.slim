@@ -4,15 +4,16 @@
       = image_tag(flat.flat_attachments.first.image)
     .flat_info
       .flat_description
-        h3 = flat.name
-        p.card = flat.description
-        //p = flat.district
-        p = flat.subway
+        p = flat.name
+        .p4 = flat.description
+        .p4 = flat.district
+        // .p4 = flat.subway
+
       .flat_action
-        p.price
-          = flat.price
-          |   руб
-        = link_to '', flat_path(flat), class: 'flat_arrow_icon'
+        h5
+          = flat_price(flat)
+          |  ₽ в месяц
+        = link_to '', flat_path(flat), class: 'flat_arrow'
 
           // Тут первая? фотка квартиры
           // - flat.flat_attachments.each do |flat_attachment|

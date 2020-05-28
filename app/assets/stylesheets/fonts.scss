@@ -66,7 +66,7 @@ p { @include p; }
 @mixin p3 { @include font_settings(16px, 20px, -0.2px) }
 .p3 { @include p3; }
 
-@mixin p4 { @include font_settings(14px, 20px, -0.4px) }
+@mixin p4 { @include font_settings(14px, 20px, 0px) }
 .p4 { @include p4; }
 
 // @mixin a { @include font_settings(18px, 24px, -0.3px) }

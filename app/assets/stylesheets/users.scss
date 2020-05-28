@@ -1,11 +1,9 @@
 @import "components";
+@import "colors";
+@import "fonts";
+@import "icons";
 
 // Profile Users
-
-.ava_name {
-  margin-top: 56px;
-  @include ava_name;
-}
 
 .nav_tab {
   margin-top: 56px;
@@ -14,4 +12,105 @@
 
 .label_checkbox {
   width: 332px;
+}
+
+// Show
+.person {
+  width: 1068px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .profile_info {
+    width: 516px;
+
+    .badges {
+      display: flex;
+      flex-direction: row;
+      margin-top: 48px;
+      margin-bottom: 32px;
+
+      .m_badge {
+        margin-right: 12px;
+      }
+    }
+
+    .p2 {
+      margin-bottom: 32px;
+    }
+
+    h5 {
+      margin-bottom: 12px;
+    }
+
+    .photos {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      margin-bottom: 32px;
+
+      .photo {
+        width: 96px;
+        height: 96px;
+        background: $grey1;
+        border-radius: 4px;
+        margin-top: 8px;
+        margin-right: 8px;
+      }
+    }
+
+    .social_icons {
+      display: flex;
+      flex-direction: row;
+
+      & * {
+        margin-right: 12px;
+        margin-bottom: 56px;
+      }
+    }
+  }
+
+  .flat_card {
+    position: sticky;
+    margin-top: 150px;
+    top: 88px;
+    max-width: 372px;
+    height: 100%;
+    background: $grey1;
+    border-radius: 8px;
+
+    .main_photo {
+      width: 330px;
+      height: 200px;
+      background: $grey3;
+      margin: 20px 20px 0 20px;
+      border-radius: 4px;
+    }
+
+    .small_photos {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      margin: 4px 20px 20px 20px;
+
+      & * {
+        width: 56px;
+        height: 56px;
+        background: $grey3;
+        border-radius: 4px;
+        margin-top: 8px;
+        margin-right: 12px;
+      }
+    }
+
+    h5, .p2, .p4 {
+      margin: 20px;
+    }
+  }
+}
+
+
+.ava_name {
+  margin-top: 56px;
+  @include ava_name;
 }

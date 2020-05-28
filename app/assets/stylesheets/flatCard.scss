@@ -10,12 +10,13 @@
 //   position: relative;
 // }
 @import "colors";
+@import "inputs";
 
 .flatCard {
   width: 476px;
   height: 200px;
   border-radius: 8px;
-  // border: 1px solid $grey;
+  border: 1px solid $grey2;
   display: flex;
   justify-content: flex-start;
   padding: 20px;
@@ -59,18 +60,18 @@
     }
   }
 
-  a,
-  h1,
-  h2,
-  h3,
-  p {
-    &:hover {
-      text-decoration: none;
-    }
-
-    a {
-      margin: 0;
-      padding: 0;
-    }
-  }
+  // a,
+  // h1,
+  // h2,
+  // h3,
+  // p {
+  //   &:hover {
+  //     text-decoration: none;
+  //   }
+  //
+  //   a {
+  //     margin: 0;
+  //     padding: 0;
+  //   }
+  // }
 }
