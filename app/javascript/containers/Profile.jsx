@@ -1,5 +1,12 @@
-import React from 'react'
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import React, {
+	useRef
+} from 'react'
+import {
+	Tab,
+	Tabs,
+	TabList,
+	TabPanel
+} from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import $ from 'jquery'
 
@@ -11,71 +18,77 @@ import ExpectedFlatForm from '../containers/ExpectedFlatForm'
 // import OrderList from '../components/order'
 
 export default class Profile extends React.Component {
-  constructor(props) {
+	constructor(props) {
 		super(props)
 
-    // this.handleInfoSubmit = this.handleInfoSubmit.bind(this)
+		this.triggerFormSubmit = this.triggerFormSubmit.bind(this)
 
-    this.state = {
-      user: this.props.user
-    }
+		this.state = {
+			user: this.props.user
+		}
 	}
 
-  componentDidMount() {
-    $.ajaxSetup({
-      headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') }
-    })
-  }
+	componentDidMount() {
+		$.ajaxSetup({
+			headers: {
+				'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+			}
+		})
+	}
 
-  // handleInfoSubmit(e) {
-  //   $.ajax({
-  //     url: "../users/" + this.props.user.id,
-  //     dataType: 'JSON',
-  //     type: 'PATCH',
-  //     method: 'PATCH',
-  //     data: {
-  //       user: {
-  //         email: this.state.user.email,
-  //         name: this.state.user.name,
-  //         surname: this.state.user.surname,
-  //         birthdate: this.state.user.birthdate
-  //       }
-  //     },
-  //     success: response => {
-  //       console.log('User updated: ', response);
-  //     }
-  //     })
-  //     .done(function (data) {
-  //       console.log("success", data, data.url);
-  //   })
-  // }
+	triggerFormSubmit() {
+		console.log('дергаем');
+		this.refs.formRef.handleSubmit();
+	}
 
-  render(){
-    const {user} = this.state
-    const {orders} = this.state.user;
+	render() {
+		const {
+			user
+		} = this.state
+		const {
+			orders
+		} = this.state.user;
 
-    return(
-      <div>
+		// const formRef = useRef();
+
+		return (
+			<div>
         <Tabs selectedTabClassName='active'>
           <TabList className='nav_tab'>
             <Tab className='tab'>О себе</Tab>
             <Tab className='tab'>О соседях</Tab>
             <Tab className='tab'>О квартире</Tab>
+
+            <div className='horizontal'>
+              <button
+                className='s_button secondary_button'
+                onClick={this.triggerFormSubmit}
+                >
+                Отменить
+              </button>
+              <div><div className='spacing-m-w'></div></div>
+              <button
+                className='s_button primary_button'
+                onClick={this.triggerFormSubmit}
+                >
+                Сохранить
+              </button>
+            </div>
           </TabList>
 
           <TabPanel>
-            <UserForm user={user}/>
+            <UserForm ref='formRef' user={user}/>
           </TabPanel>
 
           <TabPanel>
-            <ExpectedNeihgborForm user={user}/>
+            <ExpectedNeihgborForm ref='formRef' user={user}/>
           </TabPanel>
 
           <TabPanel>
-            <ExpectedFlatForm user={user}/>
+            <ExpectedFlatForm ref='formRef' user={user}/>
           </TabPanel>
         </Tabs>
       </div>
-    )
-  }
+		)
+	}
 }

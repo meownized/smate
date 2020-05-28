@@ -1,8 +1,8 @@
 = javascript_pack_tag 'profile_pack'
 
 .ava_name
-  = image_tag(@user.avatar)
   .user_info
-    h3 Мария Кондратенко
+    h3
+      = @user.name + ' ' + @user.surname
 
 .profile_pack data-props=@user_json

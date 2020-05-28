@@ -2,6 +2,7 @@
 @import "fonts";
 
 .menubar {
+  position: -webkit-sticky;
   position: sticky;
   top:0px;
   width: 100%;
@@ -49,12 +50,4 @@
       margin-right: 40px;
     }
   }
-
-  // .icons {
-  //   margin-right: 160px;
-  //
-  //   a {
-  //     margin-left: 16px;
-  //   }
-  // }
 }

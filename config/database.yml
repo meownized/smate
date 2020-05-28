@@ -6,8 +6,8 @@ default: &default
 development:
   <<: *default
   database: smate_development
-  username: smate
-  password: peeshuBooL5haed
+  # username: smate
+  # password: peeshuBooL5haed
 
 test:
   <<: *default

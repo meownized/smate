@@ -2,14 +2,17 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
-import UserForm from '../containers/UserForm'
+import Registration from '../containers/Registration'
 
-const UserFormPack = props => (<div>
-  <UserForm {...props}/>
+const RegistrationPack = props => (<div>
+  <Registration {...props}/>
 </div>)
 
 document.addEventListener('DOMContentLoaded', () => {
-  const userForm = JSON.parse(document.getElementsByClassName('user_form')[0].dataset.props)
+	const userForm = JSON.parse(document.getElementsByClassName('user_form')[0].dataset.props)
 
-  ReactDOM.render(<UserFormPack {...userForm}/>, document.body.appendChild(document.createElement('section')),)
+	ReactDOM.render(
+		<RegistrationPack {...userForm}/>,
+		document.body.appendChild(document.createElement('section'))
+	)
 })

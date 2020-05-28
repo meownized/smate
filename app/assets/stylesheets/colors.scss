@@ -31,6 +31,8 @@ $red: #FC2828;
 $light_red: opacify(rgba($red, 0), 0.12);
 $green: #07A358;
 $light_green: opacify(rgba($green, 0), 0.12);
+$light_orange: opacify(rgba($primary, 0), 0.2);
+$middle_orange: opacify(rgba($primary, 0), 0.4);
 
 .red { color: $red; }
 .light_red { color: $light_red; }

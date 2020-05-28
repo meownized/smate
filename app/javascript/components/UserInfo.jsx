@@ -16,7 +16,6 @@ class UserInfo extends React.Component {
 		this.handleAlcoholChange = this.handleAlcoholChange.bind(this)
 		this.handleChildrenChange = this.handleChildrenChange.bind(this)
 		this.handleLgbtqChange = this.handleLgbtqChange.bind(this)
-		this.handleJobChange = this.handleJobChange.bind(this)
 		this.handlePersonalInfoChange = this.handlePersonalInfoChange.bind(this)
 		this.handleVkChange = this.handleVkChange.bind(this)
 		this.handleFacebookChange = this.handleFacebookChange.bind(this)
@@ -71,10 +70,6 @@ class UserInfo extends React.Component {
 		this.props.handleLgbtqChange(e.target.value)
 	}
 
-	handleJobChange(e) {
-		this.props.handleJobChange(e.target.value)
-	}
-
 	handlePersonalInfoChange(e) {
 		this.props.handlePersonalInfoChange(e.target.value)
 	}
@@ -94,10 +89,14 @@ class UserInfo extends React.Component {
 
 	render() {
 		return (
-			<div className="UserForm">
+			<div className='registration_container'>
+				<div className='avatar_uploader'>
+					<div className='avatar'></div>
+					<div><div className='spacing-s-w'></div></div>
+					<div className='m_button flat_button'>Загрузить аватар</div>
+				</div>
 
-        <h4> Основное </h4>
-        <div className='label_default_input'>
+				<div className='label_default_input'>
           <input
             type="text"
             placeholder="Email"
@@ -110,7 +109,7 @@ class UserInfo extends React.Component {
           <label for='email'>Email</label>
         </div>
 
-        <div className='label_default_input'>
+				<div className='label_default_input'>
           <input
             type="text"
             placeholder="Имя"
@@ -123,7 +122,7 @@ class UserInfo extends React.Component {
           <label for='name'>Имя</label>
         </div>
 
-        <div className='label_default_input'>
+				<div className='label_default_input'>
           <input
             type="text"
             placeholder="Фамилия"
@@ -136,34 +135,53 @@ class UserInfo extends React.Component {
           <label for='surname'>Фамилия</label>
         </div>
 
-        <div className='label_default_input'>
-          <select
-            type="text"
-            placeholder="Пол"
-            name="sex"
-            value={ this.props.user.sex }
-            onChange={ this.handleSexChange }
-            className="default_input">
-            <option value="ж">Женский</option>
-            <option value="м">Мужской</option>
-          </select>
+				<h4> Основное </h4>
 
-          <label for='sex'>Пол</label>
-        </div>
+				<div className='horizontal'>
+					<div className='label_default_input sex_input'>
+						<select
+							type="text"
+							placeholder="Пол"
+							name="sex"
+							value={ this.props.user.sex }
+							onChange={ this.handleSexChange }
+							className="default_input">
+							<option value="ж">Женский</option>
+							<option value="м">Мужской</option>
+						</select>
 
-        <div className='label_default_input'>
-          <input
-            type="text"
-            placeholder="Возраст"
-            name="age"
-            value={ this.props.user.age }
-            onChange={ this.handleAgeChange }
-            className="default_input"
-          />
-          <label for='age'>Возраст</label>
-        </div>
+						<label for='sex'>Пол</label>
+					</div>
+					<div><div className='spacing-m-w'></div></div>
+					<div className='label_default_input age_input'>
+						<input
+							type="text"
+							placeholder="Возраст"
+							name="age"
+							value={ this.props.user.age }
+							onChange={ this.handleAgeChange }
+							className="default_input"
+							/>
+						<label for='age'>Возраст</label>
+					</div>
+				</div>
 
-        <div className='label_default_input'>
+				<div className='label_default_input'>
+					<select
+						type="text"
+						placeholder="Дети"
+						name="children"
+						value={ this.props.user.children }
+						onChange={ this.handleChildrenChange }
+						className="default_input">
+						<option value="false">Нет детей</option>
+						<option value="true">Есть дети</option>
+					</select>
+
+					<label for='children'>Дети</label>
+				</div>
+
+				<div className='label_default_input'>
           <select
             type="text"
             placeholder="Животные"
@@ -176,6 +194,56 @@ class UserInfo extends React.Component {
           </select>
 
           <label for='animals'>Животные</label>
+        </div>
+
+				<div className='label_default_input'>
+          <input
+            type="text"
+            placeholder="Расскажите о себе"
+            name="personal_info"
+            value={ this.props.user.personalInfo }
+            onChange={ this.handlePersonalInfoChange }
+            className="default_input"
+          />
+
+          <label for='personal_info'>Расскажите о себе</label>
+        </div>
+
+				<h4> Фото </h4>
+
+				<div className='image_uploader'>
+					<div className='photos'></div>
+					<div><div className='spacing-s-h'></div></div>
+					<div className='p3'>
+						<span className='primary'>Добавьте фотографии </span>
+						или перетащите их сюда
+					</div>
+				</div>
+
+				<h4> Социальная активность </h4>
+
+				<div className='label_default_input'>
+					<input
+						type="text"
+						placeholder="LGBTQ"
+						name="lgbtq"
+						className="default_input"
+						/>
+
+					<label for='lgbtq'>Люблю много общаться</label>
+				</div>
+
+        <div className='label_default_input'>
+          <input
+            type="text"
+            placeholder="LGBTQ"
+            name="lgbtq"
+            value={ this.props.user.lgbtq }
+            onChange={ this.handleLgbtqChange }
+            className="default_input"
+            />
+
+          <label for='lgbtq'>LGBTQ</label>
         </div>
 
         <h4> Вредные привычки </h4>
@@ -196,7 +264,7 @@ class UserInfo extends React.Component {
           <label for='smoke'>Отношение к курению</label>
         </div>
 
-        <div className='label_default_input'>
+				<div className='label_default_input'>
           <select
             type="text"
             placeholder="Отношение к алкоголю"
@@ -209,64 +277,6 @@ class UserInfo extends React.Component {
           </select>
 
           <label for='alcohol'></label>
-        </div>
-
-        <h4> Социальная активность </h4>
-
-        <div className='label_default_input'>
-          <select
-            type="text"
-            placeholder="Дети"
-            name="children"
-            value={ this.props.user.children }
-            onChange={ this.handleChildrenChange }
-            className="default_input">
-            <option value="false">Нет детей</option>
-            <option value="true">Есть дети</option>
-          </select>
-
-          <label for='children'>Дети</label>
-        </div>
-
-        <div className='label_default_input'>
-          <input
-            type="text"
-            placeholder="LGBTQ"
-            name="lgbtq"
-            value={ this.props.user.lgbtq }
-            onChange={ this.handleLgbtqChange }
-            className="default_input"
-            />
-
-          <label for='lgbtq'>LGBTQ</label>
-        </div>
-
-        <h4> Дополнительно </h4>
-
-        <div className='label_default_input'>
-          <textarea
-            type="text"
-            placeholder="Расскажите о работе"
-            name="job"
-            value={ this.props.user.job }
-            onChange={ this.handleJobChange }
-            className="default_input textarea"
-          />
-
-          <label for='job'>Расскажите о работе</label>
-        </div>
-
-        <div className='label_default_input'>
-          <input
-            type="text"
-            placeholder="Расскажите о себе"
-            name="personal_info"
-            value={ this.props.user.personalInfo }
-            onChange={ this.handlePersonalInfoChange }
-            className="default_input"
-          />
-
-          <label for='personal_info'>Расскажите о себе</label>
         </div>
 
         <h4> Социальные сети </h4>

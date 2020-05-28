@@ -14,28 +14,28 @@
   -webkit-appearance: none;
   padding: $padding $padding-r $padding $padding-l;
   border-radius: 8px;
-  border: 1px solid $grey2;
+  border: 1px solid $grey3;
   color: $dark;
   @include p2;
 
   &:hover {
-    border: 1px solid $grey3;
+    border: 1px solid $grey4;
     color: $dark;
   }
   &::-webkit-input-placeholder {
-    color: $grey2;
+    color: $grey3;
   }
   &::-moz-placeholder {
-    color: $grey2;
+    color: $grey3;
   }
   &:-ms-input-placeholder {
-    color: $grey2;
+    color: $grey3;
   }
   &::-ms-input-placeholder {
-    color: $grey2;
+    color: $grey3;
   }
   &::placeholder {
-    color: $grey4;
+    color: $grey5;
   }
 
   &:focus {
@@ -84,9 +84,13 @@
     transition: top 0.3s ease-in-out, opacity 0.1s ease-in-out;
     opacity: 0;
     background-color: $white;
-    padding: 8px;
+    padding: 2px 8px;
     font-size: 0px;
     z-index: 0;
+  }
+
+  .default_input {
+    width: inherit;
   }
 
   .default_input:invalid + label {
@@ -98,13 +102,13 @@
     @include p4;
     opacity: 1;
     color: $black;
-    top: -18px;
+    top: -11px;
     box-sizing: border-box;
     z-index: 500;
   }
 
   .default_input:valid + label {
-    color: $grey2;
+    color: $grey3;
   }
 
   .default_input:valid::-webkit-input-placeholder,
@@ -283,7 +287,7 @@
   textarea {
     min-height: 108px;
     background-color: $grey2;
-    color: $dark
+    color: $dark;
   }
 }
 
@@ -299,7 +303,6 @@
   }
 }
 
-
 // IMAGE UPLOADER
 
 .image_uploader {
@@ -307,23 +310,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 352px;
+  width: 424px;
   height: 124px;
   border-radius: 8px;
-  border: 1px dashed $grey2;
+  border: 1px dashed $light_orange;
 
-  .icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .photos {
     width: 44px;
     height: 44px;
-    background-color: $grey5;
+    border: 1px solid $light_orange;
     border-radius: 50%;
-  }
-
-  input {
-    text-align: center;
   }
 
   .file_field {
@@ -333,4 +329,36 @@
     height: inherit;
     opacity: 0;
   }
+}
+
+.avatar_uploader {
+  display: flex;
+  align-items: center;
+  margin: 40px 0;
+  .avatar {
+    width: 80px;
+    height: 80px;
+    background-color: $light_orange;
+    border-radius: 50%;
+    &:hover {
+      background-color: $middle_orange;
+      cursor: pointer;
+    }
+  }
+}
+
+// autocomplete
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  background-color: $white;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
 }

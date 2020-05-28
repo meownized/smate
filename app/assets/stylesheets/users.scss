@@ -1,5 +1,74 @@
 @import "components";
 
+// SIGN IN
+
+.sign_in_form,
+.sign_up_form {
+  margin: 0 auto;
+  width: 400px;
+
+  > * {
+    width: 400px;
+    text-align: center;
+  }
+  form {
+    > * {
+      width: 400px;
+    }
+  }
+}
+
+// Edit || Registration
+
+.registration {
+  margin-left: 370px;
+
+  .step_bar {
+    margin-top: 120px;
+    margin-bottom: 48px;
+  }
+
+  h3 {
+    margin-bottom: 8px;
+  }
+  //
+  // h4 {
+  //   margin-top: 48px;
+  //   margin-bottom: 16px;
+  // }
+
+  .p2 {
+    width: 649px;
+  }
+
+  .horizontal.buttons {
+    margin-top: 48px;
+    margin-bottom: 96px;
+  }
+}
+
+.registration_container {
+  h4 {
+    margin-top: 48px;
+    margin-bottom: 16px;
+  }
+
+  .label_default_input {
+    margin-bottom: 16px;
+    width: 424px;
+  }
+
+  .horizontal {
+    .sex_input {
+      width: 220px;
+    }
+
+    .age_input {
+      width: 184px;
+    }
+  }
+}
+
 // Profile Users
 
 .ava_name {
@@ -8,8 +77,15 @@
 }
 
 .nav_tab {
+  position: relative;
   margin-top: 56px;
+
   @include nav_tab;
+  .horizontal {
+    position: absolute;
+    right: 0;
+    bottom: 8px;
+  }
 }
 
 .label_checkbox {

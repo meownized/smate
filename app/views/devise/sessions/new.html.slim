@@ -1,23 +1,25 @@
-.login
+.sign_in_form
+  div
+    .spacing-huge-h
+  h2 Вход
+  div
+    .spacing-xl-h
 
-  h1
-    | Вход
-  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'sign_in_form'}) do |f|
 
-    .field
+    .label_default_input
+      = f.email_field :email, autofocus: true, autocomplete: "off", class: 'default_input'
       = f.label :email
-      = f.email_field :email, autofocus: true, autocomplete: "email", class: 'default_input'
 
-    .field
+    div
+      .spacing-m-h
+
+    .label_default_input
+      = f.password_field :password, autocomplete: "off", class: 'default_input'
       = f.label :password
-      = f.password_field :password, autocomplete: "current-password", class: 'default_input'
       - if devise_mapping.rememberable?
 
-    //.field
-      //= f.check_box :remember_me
-      //= f.label :remember_me
+    div
+      .spacing-m-h
 
-    .actions
-      = f.submit "Войти"
-
-  //= render "devise/shared/links"
+    = f.submit "Войти", class: 'l_button primary_button'
