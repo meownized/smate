@@ -9,9 +9,14 @@
   flex-direction: row;
   align-items: center;
 
-  img {
+  img,
+  .avatar {
     @include images(140px, 140px, 50%);
     margin-right: 40px;
+  }
+
+  .avatar {
+    border: 1px solid $primary;
   }
 
   .user_info {

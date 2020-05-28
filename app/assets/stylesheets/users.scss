@@ -111,21 +111,17 @@
       }
     }
 
-    .p2 {
-      margin-bottom: 32px;
-    }
-
     h5 {
       margin-bottom: 12px;
     }
 
-    .photos {
+    .profile_photos {
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
       margin-bottom: 32px;
 
-      .photo {
+      .profile_photo {
         width: 96px;
         height: 96px;
         background: $grey1;
@@ -147,6 +143,7 @@
   }
 
   .flat_card {
+    position: -webkit-sticky;
     position: sticky;
     margin-top: 150px;
     top: 88px;
