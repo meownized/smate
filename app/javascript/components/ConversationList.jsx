@@ -15,10 +15,14 @@ class ConversationList extends React.Component {
 	conversationsList() {
 		const conversations = this.props.conversations
 
-		return conversations.map((conversation, index) => <div className="col-sm-12" key={index} onClick={() => this.handleClick(conversation.id)}>
-			<p className="message-text">
+		return conversations.map((conversation, index) => <div className="chat_card" key={index} onClick={() => this.handleClick(conversation.id)}>
+			<div className="chat_avatar"></div>
+			<div className="chat_name_and_message">
+			<p className="p3">
 				{conversation.title}
 			</p>
+			<p className="p4">Вы: Привет!</p>
+			</div>
 		</div>);
 	}
 

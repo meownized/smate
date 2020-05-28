@@ -67,7 +67,13 @@ p { @include p; }
 .p3 { @include p3; }
 
 @mixin p4 { @include font_settings(14px, 20px, 0px) }
-.p4 { @include p4; }
+.p4 { @include p4; font-weight: normal; }
+
+@mixin p5 { @include font_settings(13px, auto, 0px) }
+.p5 { @include p5; font-weight: bold; }
+
+@mixin p6 { @include font_settings(12px, auto, 0px) }
+.p6 { @include p6; font-weight: normal; }
 
 // @mixin a { @include font_settings(18px, 24px, -0.3px) }
 // .a { @include a; }

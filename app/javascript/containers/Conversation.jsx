@@ -20,7 +20,9 @@ export default class Conversation extends React.Component {
 
 	newMessage(message) {
 
-		const {messages} = this.state.conversation;
+		const {
+			messages
+		} = this.state.conversation;
 
 		const msgs = [...messages];
 
@@ -33,7 +35,9 @@ export default class Conversation extends React.Component {
 		let newState = this.state
 		newState.conversation.messages = msgs
 
-		this.setState({newState})
+		this.setState({
+			newState
+		})
 	}
 
 	postMessage(event) {
@@ -74,35 +78,40 @@ export default class Conversation extends React.Component {
 				}
 			});
 
-			this.setState({conversation: this.props.conversation})
+			this.setState({
+				conversation: this.props.conversation
+			})
 		}
 	}
 
 	form() {
-		return (<div className="col-sm-12">
-			<form className="form-inline" onSubmit={this.postMessage}>
-				<div className="form-group col-sm-11">
-					<input style={{
-							width: "100%"
-						}} ref="body" type="text" className="form-control" placeholder="Text..."/>
-				</div>
-				<div className="form-group col-sm-1">
-					<button type="submit" className="btn btn-primary">send</button>
+		return (<div>
+			<form className='message_form' onSubmit={ this.postMessage }>
+				<div className='new_message'>
+					<input
+						ref="body"
+						type="text"
+						className="new_message_input"
+						placeholder="Новое сообщение..."
+					/>
+
+					<button type="submit" className="s_icon_button"><div className='send_icon'></div></button>
 				</div>
 			</form>
 		</div>)
 	}
 
 	render() {
-		const {messages} = this.state.conversation;
-		console.log('Передаваемые сообщения', messages);
+		const {
+			messages
+		} = this.state.conversation;
 
-		return (<div className="row">
-			<div className="col-sm-12">
+		return (<div>
+			<div>
 				<MessageList messages={messages}/>
 			</div>
 
-			{this.form()}
+			{ this.form() }
 		</div>)
 	}
 }

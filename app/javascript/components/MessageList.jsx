@@ -2,25 +2,34 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function MessageList(props) {
-  const {messages} = props;
+	const {
+		messages
+	} = props;
 
 	const messagesList = messages.map((message, index) => (
-		<div className="col-sm-12" key={index}>
-			<p className="message-text">
-				<span className="text-muted">
-					{message.user.full_name}
-					&#160; at {message.written_at}
-					says
-				</span>
-				<br /> {message.body}
-			</p>
+		<div className='message' key={index}>
+      { (message.user.avatar.length > 0)
+        ? <img src={ message.user.avatar }></img>
+        : <div className='message_photo'></div>
+      }
+      <div><div className='spacing-xs-w'></div></div>
+      <div className='p5 dirty_orange'>
+        {message.user.full_name}
+        <span className='p6 grey4'>
+          &#160; {message.time_sent_at}
+        </span>
+        <div><div className='spacing-xxxs-h'></div></div>
+        <div className='p4'>
+          {message.body}
+        </div>
+      </div>
 		</div>
 	))
-  return (
-    <div className="row" id="chat-box">
+	return (
+		<div className="message_list">
       {messagesList}
     </div>
-  );
+	);
 }
 
 export default MessageList;

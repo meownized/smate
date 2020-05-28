@@ -12,3 +12,5 @@
 .instagram { @include icon("icons/instagram.svg", 24px); }
 .avatar { @include icon("icons/avatar.svg", 24px); }
 .photos { @include icon("icons/photos.svg", 24px); }
+.send_icon { @include icon("icons/send_icon.svg", 20px); }
+.close { @include icon("icons/close.svg", 20px); cursor: pointer; }

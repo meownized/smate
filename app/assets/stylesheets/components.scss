@@ -97,3 +97,64 @@
     }
   }
 }
+
+// Flat card
+@mixin flat_card {
+  max-width: 372px;
+  border-radius: 8px;
+
+  .main_photo {
+    width: 330px;
+    height: 200px;
+    background: $grey3;
+    margin: 20px 20px 0 20px;
+    border-radius: 4px;
+  }
+
+  .small_photos {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 4px 20px 20px 20px;
+
+    & * {
+      width: 56px;
+      height: 56px;
+      background: $grey3;
+      border-radius: 4px;
+      margin-top: 8px;
+      margin-right: 12px;
+    }
+  }
+
+  h5, .p2, .p4 {
+    margin: 20px;
+  }
+}
+
+.flat_card {
+  @include flat_card;
+}
+
+@mixin conversation_header {
+  display: flex;
+  align-items: center;
+  padding: 20px 16px;
+  border-bottom: solid 1px $grey2;
+  @include p3;
+
+  .conversation_avatar {
+    @include fake_avatar(32px);
+    margin-right: 12px;
+  }
+  .users_count {
+    margin-left: 16px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.conversation_header {
+  @include conversation_header;
+}

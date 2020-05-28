@@ -20,11 +20,11 @@ $grey3: #D1D3DA;
 $grey4: #ADB2BA;
 $grey5: #65676E;
 
-.grey1 { color: $grey1; }
-.grey2 { color: $grey2; }
-.grey3 { color: $grey3; }
-.grey4 { color: $grey4; }
-.grey5 { color: $grey5; }
+.grey1 { color: $grey1 !important; }
+.grey2 { color: $grey2 !important; }
+.grey3 { color: $grey3 !important; }
+.grey4 { color: $grey4 !important; }
+.grey5 { color: $grey5 !important; }
 
 // Дополнительные Цвета
 $red: #FC2828;
@@ -33,8 +33,11 @@ $green: #07A358;
 $light_green: opacify(rgba($green, 0), 0.12);
 $light_orange: opacify(rgba($primary, 0), 0.2);
 $middle_orange: opacify(rgba($primary, 0), 0.4);
+$dirty_orange: darken($primary, 20%);
+
 
 .red { color: $red; }
 .light_red { color: $light_red; }
 .green { color: $green; }
 .light_green { color: $light_green; }
+.dirty_orange { color: $dirty_orange !important; }
