@@ -1,3 +1,8 @@
-= javascript_pack_tag 'user_form_pack'
+= javascript_pack_tag 'profile_pack'
 
-section.user_form data-props=UserSerializer.new(@user).to_json
+.ava_name
+  .user_info
+    h3
+      = fullname(@user)
+
+.profile_pack data-props=@user_json

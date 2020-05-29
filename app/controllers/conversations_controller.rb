@@ -17,8 +17,11 @@ class ConversationsController < ApplicationController
 
     if conversation.save
       serialized_data = ConversationSerializer.new(conversation).as_json
-      ActionCable.server.broadcast 'conversations_channel', serialized_data[:conversation]
-      redirect_to pages_join_conversations_path({ activeConversation: conversation.id })
+      ActionCable.server.broadcast 'conversations_channel',
+        serialized_data[:conversation]
+      redirect_to pages_join_conversations_path(
+        { activeConversation: conversation.id }
+      )
     end
   end
 

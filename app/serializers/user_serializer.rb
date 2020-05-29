@@ -19,9 +19,15 @@ class UserSerializer < ActiveModel::Serializer
              :neighbor_animals,
              :neighbor_smoke,
              :neighbor_alcohol,
-             :neighbor_lgbtq
+             :neighbor_lgbtq,
+             :avatar
 
   def full_name
     object.name + ' ' + object.surname
+  end
+
+  def avatar
+    return rails_blob_path(object.avatar, only_path: true) if object.avatar.present?
+    ''
   end
 end

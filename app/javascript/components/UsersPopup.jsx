@@ -1,14 +1,17 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-const UsersPopup = ({handleClose, usersShow, children}) => {
-  const showHideClassName = usersShow ? "modal display-block" : "modal display-none";
+const UsersPopup = ({
+	handleClose,
+	usersShow,
+	children
+}) => {
+	const showHideClassName = usersShow ? 'modal display-block' : 'modal display-none';
 
-  return (<div className={showHideClassName}>
-    <section className="modal-main">
+	return (<div className={showHideClassName}>
+    <div className='user_list'>
       {children}
-      <button onClick={handleClose}>close</button>
-    </section>
+    </div>
   </div>);
 };
 

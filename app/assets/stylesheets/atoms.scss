@@ -73,9 +73,12 @@
   width: $size;
   height: $size;
   border-radius: 50%;
-  display: flex;
+  background-color: $primary;
+  display: block;
   align-items: center;
   justify-content: center;
+  border: none;
+
   &:hover {
     cursor: pointer;
   }
@@ -90,7 +93,7 @@
 }
 
 .s_icon_button {
-  @include icon_button(36px);
+  @include icon_button(32px);
 }
 
 // Tabs
@@ -159,4 +162,12 @@
 
 .primary_badge {
   @include button_colors($primary, $white, $primary);
+}
+
+// Fake avatars
+@mixin fake_avatar($size) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  background-color: $grey1;
 }

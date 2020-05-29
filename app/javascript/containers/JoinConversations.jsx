@@ -81,10 +81,19 @@ export default class JoinConversations extends React.Component {
 		console.log(all_users);
 
 		return all_users.map((user, index) =>
-			<div key={index}>
-	      <p>
-	        {user.name + ' ' + user.surname}
-	      </p>
+			<div className='ava_user' key={index}>
+				{ (user.avatar.length > 0)
+	        ? <img src={ user.avatar }></img>
+	        : <div className='message_photo'></div>
+	      }
+	      <div><div className='spacing-xs-w'></div></div>
+	      <div className='p5 dirty_orange'>
+	        {user.full_name}
+	        <div><div className='spacing-xxxs-h'></div></div>
+	        <div className='p4 grey4'>
+	          online
+	        </div>
+	      </div>
 	    </div>
 		);
 	}
@@ -108,21 +117,35 @@ export default class JoinConversations extends React.Component {
 			<JoinConversationList className="flat_conversation" conversations={join_conversations} handleClick={this.handleClick}/>
 
 			<div className="conversation">
-				<div className="users_count" onClick={this.showModal}>{users.length}
-					участника</div>
-				<button type="button" onClick={this.showModal}>
-          open
-        </button>
+				<div className='conversation_header'>
+					<div className='conversation_avatar'></div>
+					<h5>{findActiveFlat.name}</h5>
+					<div className="users_count grey4" onClick={this.showModal}>{users.length} чел.</div>
+				</div>
+
 				<UsersPopup usersShow={this.state.usersShow} handleClose={this.hideModal}>
-					{this.userList()}
+					<div className='conversation_header'>
+						<div className='conversation_avatar'></div>
+						<h5>{findActiveFlat.name}</h5>
+						<div className="users_count grey4" onClick={this.showModal}>{users.length} чел.</div>
+						<div className='close' onClick={this.hideModal}></div>
+					</div>
+
+					{ this.userList() }
 				</UsersPopup>
 				<Conversation conversation={findActiveConversation}/>
 			</div>
 
-			<div className='flat_info'>
+			<div className='flat_info flat_card'>
 				<h5>{findActiveFlat.name}</h5>
-				<h2>{findActiveFlat.price}</h2>
-				<p>{findActiveFlat.description}</p>
+				<div class='main_photo'></div>
+				<div class='small_photos'>
+					<div className='photo'></div>
+				</div>
+
+				<div className='p2'>{findActiveFlat.price} ₽ в месяц</div>
+				<div className='p4'>{findActiveFlat.description}</div>
+				<div className='p4'>{findActiveFlat.subway}</div>
 			</div>
 		</div>)
 	}

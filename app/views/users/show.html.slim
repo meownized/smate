@@ -1,7 +1,11 @@
 .person
   .profile_info
     .ava_name
-      = image_tag(@user.avatar)
+      - if @user.avatar.present?
+        = image_tag(@user.avatar)
+      - else
+        .avatar
+
       .user_info
         h3
           =fullname(@user)
@@ -14,16 +18,20 @@
 
     .p2
       | Работаю дизайнером в своей веб-студии, дома бываю нечасто, в основном чтобы переночевать. Гостей парней и прочую живность не вожу. Живу с лысым котом, к лотку приучен, из комнаты не выходиит. Вообще я могу много чего о себе написать, например, ка кпочти научилась укладываться в дедлайны. Это особое умение, и я готова поделитсья им с миром.
+
+    div
+      .spacing-xl-h
+
     h5
       | Фото
 
-      .photos
-        .photo
-        .photo
-        .photo
-        .photo
-        .photo
-        .photo
+      .profile_photos
+        .profile_photo
+        .profile_photo
+        .profile_photo
+        .profile_photo
+        .profile_photo
+        .profile_photo
 
     h5
       | Cоциальные сети

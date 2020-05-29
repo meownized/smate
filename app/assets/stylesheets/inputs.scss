@@ -362,3 +362,40 @@ select:-webkit-autofill:focus {
   -webkit-transition: background-color 5000s ease-in-out 0s;
   transition: background-color 5000s ease-in-out 0s;
 }
+
+// Messages
+
+.message_form {
+  width: calc(100% - 16px);
+  padding: 8px;
+  background-color: $grey2;
+
+  .new_message {
+    position: relative;
+
+    .new_message_input {
+      @include default_input(12px, 12px, 24px);
+      width: 100%;
+      background-color: $white;
+      border: none;
+
+      &:hover {
+        border: none;
+      }
+
+      &:active {
+        border: none;
+      }
+
+      &:focus {
+        border: none;
+      }
+    }
+
+    .s_icon_button {
+      position: absolute;
+      right: 8px;
+      top: 9px;
+    }
+  }
+}

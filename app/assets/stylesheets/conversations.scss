@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "components";
+@import "atoms";
 @import "colors";
 @import "fonts";
 @import "icons";
@@ -10,15 +11,16 @@
   position: absolute;
   left: 0;
   width: 100vw;
+  height: calc(100vh - 84px);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 
   .conversations_list {
-    width: 332px;
-    margin: 20px;
+    width: 370px;
     display: flex;
     flex-direction: column;
+    border-top: 1px solid $grey2;
   }
 
   .chat_card {
@@ -26,17 +28,16 @@
     flex-direction: row;
     width: 308px;
     height: 48px;
-    padding: 12px;
+    padding: 16px;
+    margin: 0 20px;
     border-radius: 8px;
+
     &:hover {
       background-color: $grey1;
       cursor: pointer;
     }
     .chat_avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background-color: $grey1;
+      @include fake_avatar(48px);
     }
     .chat_name_and_message {
       margin-left: 16px;
@@ -49,18 +50,103 @@
     }
   }
 
-
-
-
   .conversation {
     width: 700px;
-    border: solid 1px $grey1;
+    border: solid 1px $grey2;
+
+    .message_list {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow-y: scroll;
+      height: calc(100vh - 212px);
+      padding-left: 20px;
+      padding-right: 252px;
+      min-height: 100%;
+
+      .message {
+        margin-bottom: 16px;
+        display: flex;
+        flex-direction: row;
+
+        img {
+          @include images(32px, 32px, 50%);
+        }
+
+        .message_photo {
+          @include fake_avatar(32px);
+        }
+      }
+    }
   }
 
   .flat_info {
+    border-top: solid 1px $grey2;
     position: absolute;
-    width: 352px;
+    width: 370px;
     right: 0;
-    background-color: $grey1;
   }
+}
+
+
+.user_list {
+  position: fixed;
+  height: auto;
+  min-height: 380px;
+  width: 424px;
+  background-color: $white;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  border-radius: 8px;
+
+}
+
+// перенести в компоонент!!!!!
+@mixin ava_user {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: row;
+
+  img {
+    @include images(32px, 32px, 50%);
+  }
+
+  .message_photo {
+    @include fake_avatar(32px);
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 99999;
+
+  .ava_user {
+    @include ava_user;
+    margin: 20px;
+  }
+
+  .conversation_header {
+    position: relative;
+    border-radius: 8px;
+    background-color:  $grey1;
+    .close {
+      position: absolute;
+      right: 24px;
+      top: 26px;
+    }
+  }
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
 }
