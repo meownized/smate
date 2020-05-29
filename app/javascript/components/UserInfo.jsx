@@ -107,7 +107,7 @@ class UserInfo extends React.Component {
 						required
             />
 
-          <label for='email'>Email</label>
+          <label>Email</label>
         </div>
 
 				<div className='label_default_input'>
@@ -120,7 +120,7 @@ class UserInfo extends React.Component {
             className="default_input"
             />
 
-          <label for='name'>Имя</label>
+          <label>Имя</label>
         </div>
 
 				<div className='label_default_input'>
@@ -133,7 +133,7 @@ class UserInfo extends React.Component {
             className="default_input"
             />
 
-          <label for='surname'>Фамилия</label>
+          <label>Фамилия</label>
         </div>
 
 				<h4> Основное </h4>
@@ -141,17 +141,14 @@ class UserInfo extends React.Component {
 				<div className='horizontal'>
 					<div className='label_default_input sex_input'>
 						<select
-							type="text"
-							placeholder="Пол"
-							name="sex"
-							value={ this.props.user.sex }
 							onChange={ this.handleSexChange }
 							className="default_input">
+							<option value="none" selected>Пол</option>
 							<option value="ж">Женский</option>
 							<option value="м">Мужской</option>
 						</select>
 
-						<label for='sex'>Пол</label>
+						<label>Пол</label>
 					</div>
 					<div><div className='spacing-m-w'></div></div>
 					<div className='label_default_input age_input'>
@@ -163,7 +160,7 @@ class UserInfo extends React.Component {
 							onChange={ this.handleAgeChange }
 							className="default_input"
 							/>
-						<label for='age'>Возраст</label>
+						<label>Возраст</label>
 					</div>
 				</div>
 
@@ -179,7 +176,7 @@ class UserInfo extends React.Component {
 						<option value="true">Есть дети</option>
 					</select>
 
-					<label for='children'>Дети</label>
+					<label>Дети</label>
 				</div>
 
 				<div className='label_default_input'>
@@ -194,7 +191,7 @@ class UserInfo extends React.Component {
             <option value="true">Есть животные</option>
           </select>
 
-          <label for='animals'>Животные</label>
+          <label>Животные</label>
         </div>
 
 				<div className='label_default_input'>
@@ -207,7 +204,7 @@ class UserInfo extends React.Component {
             className="default_input"
           />
 
-          <label for='personal_info'>Расскажите о себе</label>
+          <label>Расскажите о себе</label>
         </div>
 
 				<h4> Фото </h4>
@@ -231,7 +228,7 @@ class UserInfo extends React.Component {
 						className="default_input"
 						/>
 
-					<label for='lgbtq'>Люблю много общаться</label>
+					<label>Люблю много общаться</label>
 				</div>
 
         <div className='label_default_input'>
@@ -244,7 +241,7 @@ class UserInfo extends React.Component {
             className="default_input"
             />
 
-          <label for='lgbtq'>LGBTQ</label>
+          <label>LGBTQ</label>
         </div>
 
         <h4> Вредные привычки </h4>
@@ -262,7 +259,7 @@ class UserInfo extends React.Component {
             <option value="true">Курю постоянно</option>
           </select>
 
-          <label for='smoke'>Отношение к курению</label>
+          <label>Отношение к курению</label>
         </div>
 
 				<div className='label_default_input'>
@@ -277,7 +274,7 @@ class UserInfo extends React.Component {
             <option value="true">Иногда пью</option>
           </select>
 
-          <label for='alcohol'></label>
+          <label></label>
         </div>
 
         <h4> Социальные сети </h4>
@@ -292,7 +289,7 @@ class UserInfo extends React.Component {
             className="default_input"
           />
 
-          <label for='vk'>Вконтакте</label>
+          <label>Вконтакте</label>
         </div>
 
         <div className='label_default_input'>
@@ -305,7 +302,7 @@ class UserInfo extends React.Component {
             className="default_input"
           />
 
-          <label for='facebook'>Facebook</label>
+          <label>Facebook</label>
         </div>
 
         <div className='label_default_input'>
@@ -318,7 +315,7 @@ class UserInfo extends React.Component {
             className="default_input"
           />
 
-          <label for='instagram'>Instagram</label>
+          <label>Instagram</label>
         </div>
       </div>
 		)

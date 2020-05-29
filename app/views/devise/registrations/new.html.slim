@@ -1,5 +1,15 @@
 .sign_up_form
+  div
+    .spacing-xxxl-h
   h3 Регистрация
+
+  div
+    .spacing-xl-h
+
+  .p2
+      | Уже зарегистрированы? &#160;
+      = link_to 'Войти', new_user_session_path, class: 'primary'
+
   div
     .spacing-xl-h
 
@@ -7,21 +17,21 @@
     = render "devise/shared/error_messages", resource: resource
 
     .label_default_input
-      = f.text_field :name, autocomplete: "name", class: 'default_input'
+      = f.text_field :name, placeholder: 'Имя', autocomplete: "name", class: 'default_input', value: ''
       = f.label :name, 'Имя'
 
     div
       .spacing-m-h
 
     .label_default_input
-      = f.text_field :surname, autocomplete: "surname", class: 'default_input'
+      = f.text_field :surname, placeholder: 'Фамилия', autocomplete: "surname", class: 'default_input', value: ''
       = f.label :surname, 'Фамилия'
 
     div
       .spacing-m-h
 
     .label_default_input
-      = f.email_field :email, autocomplete: "email", class: 'default_input'
+      = f.email_field :email, placeholder: 'E-mail', autocomplete: "email", class: 'default_input'
       = f.label :email, 'E-mail'
 
 
@@ -29,18 +39,26 @@
       .spacing-m-h
 
     .label_default_input
-      = f.password_field :password, autocomplete: "new-password", class: 'default_input'
+      = f.password_field :password, placeholder: 'Пароль', autocomplete: "new-password", class: 'default_input', value: ''
       = f.label :password, 'Пароль'
 
     div
       .spacing-m-h
 
     .label_default_input
-      = f.password_field :password_confirmation, autocomplete: "new-password", class: 'default_input'
+      = f.password_field :password_confirmation, placeholder: 'Подтвердите пароль', autocomplete: "new-password", class: 'default_input', value: ''
       = f.label :password_confirmation, 'Подтвердите пароль'
 
     div
       .spacing-m-h
 
-    .actions
-      = f.submit "Зарегистрироваться", class: 'l_button primary_button'
+
+    = f.submit "Зарегистрироваться", class: 'l_button primary_button'
+
+    div
+      .spacing-m-h
+
+    .p4.gray1 Создавая личный кабинет, вы соглашаетесь с нашими Условиями использования & Политикой Конфиденциальности
+
+    div
+      .spacing-m-h

@@ -4,15 +4,8 @@ import PropTypes from 'prop-types'
 
 import Registration from '../containers/Registration'
 
-const RegistrationPack = props => (<div>
-  <Registration {...props}/>
-</div>)
-
 document.addEventListener('DOMContentLoaded', () => {
-	const userForm = JSON.parse(document.getElementsByClassName('user_form')[0].dataset.props)
+ const userForm = JSON.parse(document.getElementsByClassName('user_form')[0].dataset.props)
 
-	ReactDOM.render(
-		<RegistrationPack {...userForm}/>,
-		document.body.appendChild(document.createElement('section'))
-	)
+ ReactDOM.render(<Registration {...userForm}/>, document.getElementsByClassName('user_form')[0].appendChild(document.createElement('div')))
 })
