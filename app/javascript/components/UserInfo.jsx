@@ -225,9 +225,7 @@ class UserInfo extends React.Component {
 
 				<div className='label_default_input'>
 					<input
-						type="text"
-						placeholder="LGBTQ"
-						name="lgbtq"
+						placeholder="Люблю много общаться"
 						className="default_input"
 						/>
 

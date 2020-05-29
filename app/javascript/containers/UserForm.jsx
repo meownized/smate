@@ -49,8 +49,8 @@ export default class UserForm extends React.Component {
 		$.ajax({
 				url: "../" + this.props.user.id,
 				dataType: 'JSON',
-				type: 'PUT',
-				method: 'PUT',
+				type: 'PATCH',
+				method: 'PATCH',
 				data: {
 					user: {
 						email: this.state.user.email,

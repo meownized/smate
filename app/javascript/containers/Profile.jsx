@@ -37,7 +37,6 @@ export default class Profile extends React.Component {
 	}
 
 	triggerFormSubmit() {
-		console.log('дергаем');
 		this.refs.formRef.handleSubmit();
 	}
 
@@ -48,8 +47,6 @@ export default class Profile extends React.Component {
 		const {
 			orders
 		} = this.state.user;
-
-		// const formRef = useRef();
 
 		return (
 			<div>
