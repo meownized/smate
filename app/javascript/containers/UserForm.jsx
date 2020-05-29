@@ -70,7 +70,8 @@ export default class UserForm extends React.Component {
 					}
 				},
 				success: response => {
-					console.log('User updated: ', response);
+					console.log('User updated');
+					this.props.stepHandler(2);
 				}
 			})
 			.done(function (data) {})
@@ -226,20 +227,14 @@ export default class UserForm extends React.Component {
         />
 				<div className='horizontal buttons'>
 						<button
-							onClick={() => {
-								this.handleSubmit;
-								this.props.stepHandler(2);
-							}}
+							onClick={this.handleSubmit}
 							type="submit"
 							value="Submit"
 							className="l_button primary_button"> Сохранить
 						</button>
 						<div><div className='spacing-m-w'></div></div>
 						<button
-							onClick={() => {
-								this.handleSubmit;
-								this.props.stepHandler(2);
-							}}
+							onClick={this.handleSubmit}
 							type="submit"
 							value="Submit"
 							className="l_button flat_button"> Пропустить

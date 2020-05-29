@@ -1,50 +1,170 @@
-.wrapper {
+@import 'fonts';
+@import 'colors';
+
+.hero {
+  margin-top: 56px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  .picture {
-    background-image: url("main.svg");
+  .hero_image {
+    background-image: url("landing/hero.png");
     background-size: contain;
-    width: 120px;
-    height: 168px;
-  }
-
-  h1,
-  p {
-    text-align: center;
-  }
-
-  h1 {
-    margin-top: 20px;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 44px;
-    line-height: 52px;
-    text-align: center;
-    letter-spacing: -2.4px;
-    color: #18214d;
+    background-repeat: no-repeat;
+    width: 156px;
+    height: 177px;
   }
 
   p {
-    margin-top: 16px;
+    margin-top: 24px;
     max-width: 540px;
-    padding-top: 0;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 26px;
     text-align: center;
-    letter-spacing: -0.4px;
-    color: #3e4462;
   }
 
-  .log_in {
-    margin-top: 28px;
-    width: 292px;
+  .buttons_row {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    margin-top: 28px;
+
+    .l_button.primary_button {
+      margin-right: 20px;
+      width: 140px;
+    }
   }
+
+  .arrow_down {
+    margin-top: 80px;
+  }
+}
+
+.about {
+  padding-top: 140px;
+  height: 600px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+
+  .cards_image {
+    background-image: url("landing/cards.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 576px;
+    height: 480px;
+  }
+
+  .description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 364px;
+  }
+
+  h3, p {
+    max-width: 372px;
+    margin-bottom: 24px;
+  }
+
+  .l_button.primary_button {
+    margin-right: 20px;
+    width: 140px;
+  }
+}
+
+.how_it_works {
+  h2 {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .about_me, .about_neighbor, .search, .chat {
+    padding-top: 80px;
+    height: 740px;
+    position: relative;
+
+    h3 {
+      position: absolute;
+      margin-left: 52px;
+    }
+
+    .about_me_image {
+      position: absolute;
+      margin-top: -40px;
+      background-image: url("landing/about_me.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 1068px;
+      height: 740px;
+    }
+
+    .about_flat_image {
+      position: absolute;
+      margin-top: 44px;
+      background-image: url("landing/about_flat.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 1068px;
+      height: 740px;
+    }
+
+    .search_image {
+      position: absolute;
+      margin-top: 32px;
+      background-image: url("landing/search.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 1068px;
+      height: 740px;
+    }
+
+    .chat_image {
+      position: absolute;
+      margin-top: -48px;
+      background-image: url("landing/chat.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 1068px;
+      height: 740px;
+    }
+  }
+}
+
+.final {
+  padding-top: 140px;
+  height: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  .final_image {
+    background-image: url("landing/final.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 404px;
+    height: 368px;
+    margin-right: 88px;
+  }
+
+  .description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 364px;
+
+    h3 {
+      max-width: 360px;
+      margin-bottom:  8px;
+    }
+
+    .l_button.primary_button {
+      margin-right: 20px;
+      // width: 140px;
+    }
+
+    .l_button.flat_button {
+      padding-left: 0px;
+    }
+  }
+
+
 }

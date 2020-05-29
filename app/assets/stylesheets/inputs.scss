@@ -97,7 +97,7 @@
     color: $red;
   }
 
-  .default_input:valid + label,
+  .default_input:not([value='']) + label,
   .default_input:focus + label {
     @include p4;
     opacity: 1;
@@ -107,32 +107,12 @@
     z-index: 500;
   }
 
-  .default_input:valid + label {
+  .default_input:not([value='']) + label {
     color: $grey3;
   }
 
-  .default_input:valid::-webkit-input-placeholder,
+  .default_input:not([value=''])::-webkit-input-placeholder,
   .default_input:focus::-webkit-input-placeholder {
-    opacity: 0;
-  }
-
-  .default_input:focus::-moz-placeholder {
-    opacity: 0;
-  }
-
-  .default_input:focus:-ms-input-placeholder {
-    opacity: 0;
-  }
-
-  .default_input:focus::-ms-input-placeholder {
-    opacity: 0;
-  }
-
-  .default_input:focus::-webkit-input-placeholder {
-    opacity: 0;
-  }
-
-  .default_input:focus::placeholder {
     opacity: 0;
   }
 }

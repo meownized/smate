@@ -14,7 +14,10 @@ Rails.application.routes.draw do
     resources :rooms
   end
 
-  resources :users
-  get 'users/registration/:id', to: 'users#registration'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :users do
+  end
+  get 'registration_preferences/:id',  action: :registration_preferences, controller: 'users', as: :registration_preferences
+
+  get 'users/profile/:id', to: 'users#profile'
+  get 'pages/home', to: 'pages#home'
 end

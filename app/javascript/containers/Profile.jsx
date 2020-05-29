@@ -14,9 +14,6 @@ import UserForm from '../containers/UserForm'
 import ExpectedNeihgborForm from '../containers/ExpectedNeihgborForm'
 import ExpectedFlatForm from '../containers/ExpectedFlatForm'
 
-// import UserSettings from '../components/user_settings'
-// import OrderList from '../components/order'
-
 export default class Profile extends React.Component {
 	constructor(props) {
 		super(props)

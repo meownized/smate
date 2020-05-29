@@ -17,7 +17,10 @@
 
 .container {
   /* padding-top: 48px; */
-  margin: auto;
+  position: relative;
+  margin: 0 auto;
   width: 1068px;
   /* margin-bottom: 48px; */
+  height: calc(100vh - 80px);
+  min-height: calc(100vh - 80px);
 }

@@ -51,7 +51,7 @@ h5 { @include h5; }
 
 // Buttons
 @mixin l_button_font { @include font_settings(20px, 24px, -0.5px) }
-@mixin m_button_font { @include font_settings(18px, 24px, -0.5pxF) }
+@mixin m_button_font { @include font_settings(18px, 24px, -0.5px) }
 @mixin s_button_font { @include font_settings(16px, 16px, -0.4px) }
 
 // Paragraphs

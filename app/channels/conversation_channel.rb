@@ -12,7 +12,10 @@ class ConversationChannel < ApplicationCable::Channel
   end
 
   def send_message(data)
-    message = current_user.messages.create(body: data['body'], conversation_id: data['conversation_id'])
+    message = current_user.messages.create(
+      body: data['body'],
+      conversation_id: data['conversation_id']
+    )
 
     if message.errors.present?
       transmit({ type: 'conversation', data: message.error.full_messages })

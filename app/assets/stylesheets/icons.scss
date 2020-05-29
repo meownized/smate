@@ -14,3 +14,4 @@
 .photos { @include icon("icons/photos.svg", 24px); }
 .send_icon { @include icon("icons/send_icon.svg", 20px); }
 .close { @include icon("icons/close.svg", 20px); cursor: pointer; }
+.arrow_down { @include icon("icons/arrow_down.svg", 36px); }

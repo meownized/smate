@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update destroy neighbor_edit profile registration]
+  before_action :set_user, only: %i[show edit update destroy neighbor_edit profile registration_preferences]
 
   def index
     @users = User.all
@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     # @user_json = UserSerializer.new(@user).to_json
   end
 
-  def registration; end
+  def registration_preferences; end
 
   def new
     @user = User.new
@@ -37,11 +37,13 @@ class UsersController < ApplicationController
   end
 
   def update
+    # respond_to :json
+    # respond_to :js
     respond_to do |format|
       if @user.update(user_params)
-        format.js
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, notice: 'User was successfully updated.' }
+        # format.js
+        # format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.json
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
