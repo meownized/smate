@@ -4,6 +4,7 @@ class UserSerializer < ActiveModel::Serializer
   attributes :id,
              :name,
              :surname,
+             :full_name,
              :email,
              :sex,
              :age,

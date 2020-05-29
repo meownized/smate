@@ -1,28 +1,46 @@
-.register
-  h1
-    | Регистрация
-  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'sign_in_form'}) do |f|
+.sign_up_form
+  h3 Регистрация
+  div
+    .spacing-xl-h
+
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     = render "devise/shared/error_messages", resource: resource
 
-    .field
-      = f.label :name
-      = f.text_field :name, autocomplete: "name"
+    .label_default_input
+      = f.text_field :name, autocomplete: "name", class: 'default_input'
+      = f.label :name, 'Имя'
 
-    .field
-      = f.label :surname
-      = f.text_field :surname, autocomplete: "surname"
+    div
+      .spacing-m-h
 
-    .field
-      = f.label :email
-      = f.email_field :email, autocomplete: "email"
+    .label_default_input
+      = f.text_field :surname, autocomplete: "surname", class: 'default_input'
+      = f.label :surname, 'Фамилия'
 
-    .field
-      = f.label :password
-      = f.password_field :password, autocomplete: "new-password"
+    div
+      .spacing-m-h
 
-    .field
-      = f.label :password_confirmation
-      = f.password_field :password_confirmation, autocomplete: "new-password"
+    .label_default_input
+      = f.email_field :email, autocomplete: "email", class: 'default_input'
+      = f.label :email, 'E-mail'
+
+
+    div
+      .spacing-m-h
+
+    .label_default_input
+      = f.password_field :password, autocomplete: "new-password", class: 'default_input'
+      = f.label :password, 'Пароль'
+
+    div
+      .spacing-m-h
+
+    .label_default_input
+      = f.password_field :password_confirmation, autocomplete: "new-password", class: 'default_input'
+      = f.label :password_confirmation, 'Подтвердите пароль'
+
+    div
+      .spacing-m-h
 
     .actions
-      = f.submit "Зарегистрироваться"
+      = f.submit "Зарегистрироваться", class: 'l_button primary_button'

@@ -1,19 +1,53 @@
-.wrapper
-  .picture
-
-  h1
+.hero
+  .hero_image
+  h2
     | Снимай жильё, заводи друзей
-
   p
     | S!Mate – приложение для коллективного съёма жилья. Регистрируйся, заполняй анкету и смотри только подходящие тебе предложения и квартиры.
-
   //h2
      //= link_to 'All flats', flats_path
+  .buttons_row
+    = link_to 'Начать', new_user_registration_path, class: 'l_button primary_button'
+    = link_to 'Подробнее', '#about_link', class: 'l_button flat_button'
 
+  .arrow_down
 
-  div.log_in
-    .secondary
-      | Подробнее
-      //= link_to 'Подробнее',  new_user_session_path
-    .primary
-      = link_to 'Начать', new_user_registration_path
+.about#about_link
+  .cards_image
+  .description
+    h3
+      | Только подходящие предложения
+    p
+      | Мы предлагаем заполнить профиль и указать интересы, чтобы подобрать лучших соседей.
+    = link_to 'Начать', new_user_registration_path, class: 'l_button primary_button'
+
+.how_it_works
+  h2
+    | Как работает?
+
+  .about_me
+    h3
+      | Ответь на пару вопросов о себе
+    .about_me_image
+
+  .about_neighbor
+    h3
+      | Отметь предпочтения по соседям и квартире
+    .about_flat_image
+
+  .search
+    h3
+      | Смотри подходящие предложения
+    .search_image
+
+  .chat
+    h3
+      | Общайся и выбирай
+    .chat_image
+
+.final
+  .final_image
+  .description
+    h3
+      | Твои новые соседи уже ждут
+    = link_to 'Зарегистрироваться', new_user_registration_path, class: 'l_button primary_button'
