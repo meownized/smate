@@ -32,6 +32,8 @@ class PagesController < ApplicationController
     case action_name
     when 'home'
       'home_layout'
+    when 'join_conversations'
+      'conversation_layout'
     else
       'application'
     end

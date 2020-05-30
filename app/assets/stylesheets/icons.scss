@@ -15,3 +15,7 @@
 .send_icon { @include icon("icons/send_icon.svg", 20px); }
 .close { @include icon("icons/close.svg", 20px); cursor: pointer; }
 .arrow_down { @include icon("icons/arrow_down.svg", 36px); }
+.default_avatar { @include icon("icons/default_avatar.svg", 140px); }
+.wanna_live { @include icon("icons/default_avatar.svg", 216px); }
+.settings { @include icon("icons/settings.svg", 32px); }
+.log_out { @include icon("icons/log_out.svg", 32px); }

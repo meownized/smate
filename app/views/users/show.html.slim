@@ -4,7 +4,7 @@
       - if @user.avatar.present?
         = image_tag(@user.avatar)
       - else
-        .avatar
+        .avatar.default_avatar
 
       .user_info
         h3
@@ -21,17 +21,13 @@
 
     div
       .spacing-xl-h
+    - if @user.images.present?
+      h5
+        | Фото
 
-    h5
-      | Фото
-
-      .profile_photos
-        .profile_photo
-        .profile_photo
-        .profile_photo
-        .profile_photo
-        .profile_photo
-        .profile_photo
+        .profile_photos
+          - @user.images.each do |image|
+            = image_tag(image, class: 'profile_photo')
 
     h5
       | Cоциальные сети
@@ -40,17 +36,20 @@
       .facebook
       .instagram
 
-  .flat_card
-    h5 Комната для тусовщика
-    .main_photo
-    .small_photos
-      .photo
-      .photo
-      .photo
-      .photo
-    .p2
-      | 15 000 ₽ в месяц
-    .p4
-      | Сдается комната. Без комиссии. Метро ВДНХ 10-12 минут, раcстояние - 1км если ходит по прямой, как ходят все люди микрорайона, 1,3 км это если по автодорогам. Для одной девушки или одного парня, можно студентам.
-    .p4
-      | Сокол
+  - if @flat.present?
+    .flat_card
+      h5
+        = @flat.name
+
+      = image_tag(@flat.flat_attachments.first.image, class: 'main_photo')
+
+      .small_photos
+        - @flat.flat_attachments.drop(1).each do |flat_attachment|
+          = image_tag(flat_attachment.image, class: 'photo')
+
+      .p2
+        | #{flat_price(@flat)} ₽ в месяц
+      .p4
+        = @flat.description
+      .p4
+        = @flat.subway

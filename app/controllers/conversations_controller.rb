@@ -2,6 +2,16 @@
 
 class ConversationsController < ApplicationController
   before_action :get_outlet
+  layout :resolve_layout
+
+  def resolve_layout
+    case action_name
+    when 'index'
+      'conversation_layout'
+    else
+      'application'
+    end
+  end
 
   def index
     @json_object = ConversationSerializer.new(@conversation).to_json

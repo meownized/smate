@@ -15,10 +15,6 @@
     margin-right: 40px;
   }
 
-  .avatar {
-    border: 1px solid $primary;
-  }
-
   .user_info {
     display: flex;
     flex-direction: column;
@@ -107,7 +103,7 @@
     width: 330px;
     height: 200px;
     background: $grey3;
-    margin: 20px 20px 0 20px;
+    margin: 0 20px 0 20px;
     border-radius: 4px;
   }
 
@@ -117,7 +113,7 @@
     flex-direction: row;
     margin: 4px 20px 20px 20px;
 
-    & * {
+    .photo {
       width: 56px;
       height: 56px;
       background: $grey3;
@@ -149,9 +145,14 @@
   }
   .users_count {
     margin-left: 16px;
+    margin-right: 82px;
     &:hover {
       cursor: pointer;
     }
+  }
+
+  .s_button.flat_button {
+    margin-right: 16px;
   }
 }
 
