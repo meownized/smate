@@ -48,6 +48,17 @@
     .flat_description {
       display: flex;
       flex-direction: column;
+      // max-height: 240px;
+      // overflow: hidden;
+      // white-space: nowrap;
+      // text-overflow: ellipsis;
+
+      .p4 {
+        height: 80px;
+        overflow: hidden;
+        // white-space: nowrap;
+        // text-overflow: ellipsis;
+      }
     }
 
     .flat_description * {
