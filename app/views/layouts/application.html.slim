@@ -14,7 +14,7 @@ html
       .menu_items_left
         = link_to flats_path do
           .logo.menu_item
-        = link_to 'Поиск', flats_path
+        = link_to 'Поиск', flats_path, class:'menu_item'
 
         - if current_user&.flats.present?
           = link_to 'Чаты', flat_conversations_path(current_user.flats.first), class: 'menu_item'

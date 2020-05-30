@@ -1,7 +1,12 @@
 .sign_in_form
   div
-    .spacing-huge-h
+    .spacing-xl-h
   h3 Вход
+  div
+    .spacing-xl-h
+  .p2
+      | Еще не зарегистрированы? &#160;
+      = link_to 'Завести аккаунт', new_user_registration_path, class: 'primary'
   div
     .spacing-xl-h
 

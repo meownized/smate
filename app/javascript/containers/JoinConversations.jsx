@@ -150,7 +150,7 @@ export default class JoinConversations extends React.Component {
 			<div className="conversation">
 				<div className='conversation_header'>
 					<img src={findActiveFlat.cover} className='conversation_avatar'></img>
-					<h5>{findActiveFlat.name}</h5>
+					<h5 className='flat_name_shorter'>{findActiveFlat.name}</h5>
 					<div className="users_count grey4" onClick={this.showModal}>{users.length} чел.</div>
 
 						<div className='s_button flat_button'>Мне не подходит</div>

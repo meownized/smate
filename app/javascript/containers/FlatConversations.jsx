@@ -161,7 +161,7 @@ export default class FlatConversations extends React.Component {
 				<div className="conversation">
 					<div className='conversation_header'>
 						<img src={flat.cover} className='conversation_avatar'></img>
-						<h5>{findActiveConversation.title}</h5>
+						<h5 className='flat_name_shorter'>{findActiveConversation.title}</h5>
 						<div className="users_count_flat grey4" onClick={this.showModal}>{users.length} чел.</div>
 
 						<div className='s_button flat_button'>Мне не нравится</div>

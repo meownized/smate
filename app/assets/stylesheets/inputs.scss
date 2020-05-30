@@ -355,6 +355,7 @@ select:-webkit-autofill:focus {
 
     .new_message_input {
       @include default_input(12px, 12px, 24px);
+      font-size: 14px;
       width: 100%;
       background-color: $white;
       border: none;
