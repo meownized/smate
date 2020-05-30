@@ -7,6 +7,8 @@ def create_flats
   create_flat(flat_subway: subway, pack: 2, rooms_count: 2)
   create_flat(flat_subway: subway, pack: 3, rooms_count: 3)
   create_flat(flat_subway: subway, pack: 4, rooms_count: 2)
+  create_flat(flat_subway: subway, pack: 5, rooms_count: 3)
+  create_flat(flat_subway: subway, pack: 6, rooms_count: 1)
 
   puts "Созданы квартиры c названиями: #{Flat.all.pluck(:name)}"
 end
@@ -18,12 +20,12 @@ def create_flat(flat_subway:, pack:, rooms_count:)
     name: ::FLAT_NAME.sample,
     price: rand(80_000..200_000).round(-3),
     subway: flat_subway,
-    description: FFaker::LoremRU.sentence(5),
+    description: ::FLAT_DESCRIPTION.sample,
     district: district(flat_subway),
     owner_id: user.id
   )
 
-  2.times do |time|
+  5.times do |time|
     create_image(flat: flat, pack: pack, time: time + 1)
   end
 
