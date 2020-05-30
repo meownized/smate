@@ -66,7 +66,6 @@
   margin-top: 48px;
 
   .people_cards {
-    margin-top: 16px;
     display: flex;
     max-width: 516px;
     flex-direction: row;
@@ -74,6 +73,7 @@
     justify-content: space-between;
 
     .person_card {
+      margin-top: 16px;
       display: flex;
       flex-direction: row;
       width: 248px;
