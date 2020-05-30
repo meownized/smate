@@ -101,6 +101,10 @@
   .profile_info {
     width: 516px;
 
+    .p2.arrow_back {
+      margin-top: 40px;
+    }
+
     .badges {
       display: flex;
       flex-direction: row;

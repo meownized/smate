@@ -8,8 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @flat = @user.flats.last
-    @flat = Flat.first
+    @flat = @user.flats.last
   end
 
   def registration_preferences; end

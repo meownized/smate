@@ -1,5 +1,7 @@
 .person
   .profile_info
+    .p2.arrow_back
+      = link_to '← Назад', flat_path(@user.flats.last)
     .ava_name
       - if @user.avatar.present?
         = image_tag(@user.avatar)
