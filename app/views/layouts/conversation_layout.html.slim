@@ -7,10 +7,9 @@ html
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
-
+ 
   body
-
-    .menubar
+    .conversation_menubar
       .menu_items_left
         = link_to flats_path do
           .logo.menu_item
@@ -28,10 +27,7 @@ html
           div
             .spacing-xs-w
           = image_tag(current_user.avatar, class: 'menu_item_icon')
-        = link_to '', edit_user_path(current_user), class: 'menu_item settings'
-        = link_to '', destroy_user_session_path, method: :delete, class: 'menu_item log_out'
 
-    .container
-      = yield
+    = yield
 
     footer

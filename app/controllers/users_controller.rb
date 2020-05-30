@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @user_json = UserSerializer.new(@user).to_json
+    # @flat = @user.flats.last
+    @flat = Flat.first
   end
 
   def registration_preferences; end

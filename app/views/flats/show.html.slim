@@ -31,7 +31,7 @@
       .people_cards
         - @flat.users.each do |user|
           .person_card
-            .photo
+            = image_tag(user.avatar, class: 'photo')
             .p2
               = fullname(user)
 

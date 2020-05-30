@@ -17,19 +17,21 @@
   flex-wrap: wrap;
 
   .conversations_list {
+    padding-top: 8px;
     width: 370px;
     display: flex;
     flex-direction: column;
     border-top: 1px solid $grey2;
-  }
+    align-content: center;
+    align-items: center;
 
-  .chat_card {
+    .chat_card {
     display: flex;
     flex-direction: row;
     width: 308px;
     height: 48px;
     padding: 16px;
-    margin: 0 20px;
+    // margin: 0 20px;
     border-radius: 8px;
 
     &:hover {
@@ -49,6 +51,8 @@
       color: $grey4;
     }
   }
+  }
+
 
   .conversation {
     width: 700px;
@@ -89,17 +93,35 @@
 }
 
 
-.user_list {
+.user_list,
+.wanna_live_popup {
   position: fixed;
   height: auto;
-  min-height: 380px;
-  width: 424px;
   background-color: $white;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
   border-radius: 8px;
+}
 
+.user_list {
+  min-height: 380px;
+  width: 424px;
+}
+
+.wanna_live_popup {
+  height: 524px;
+  width: 636px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  
+  h5, p {
+    width: 460px;
+    text-align: center;
+  }
 }
 
 // перенести в компоонент!!!!!
@@ -141,6 +163,12 @@
       top: 26px;
     }
   }
+}
+
+.close {
+  position: absolute;
+  right: 24px;
+  top: 26px;
 }
 
 .display-block {

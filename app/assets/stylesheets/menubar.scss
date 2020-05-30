@@ -1,9 +1,10 @@
 @import "colors";
 @import "fonts";
+@import "atoms";
 
 .menubar {
   top:0px;
-  width: 100%;
+  width: calc(100vw - 186px - 64px);
   height: 64px;
   background-color: white;
   display: flex;
@@ -11,41 +12,123 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 12px;
+  padding-left: 186px;
+  padding-right: 98px;
   font-size: 18px;
 
-  //Вот это гранд-костыль
+  .menu_item {
+    @include s_button_font;
+  }
+
+  .menu_item_icon {
+    @include images(28px, 28px, 50%);
+  }
 
   .logo {
     display: block;
     background-image: url("logo.svg");
-    margin-left: 60px;
-    background-size: contain;
-    width: 88px;
+    background-size: cover;
+    width: 94px;
     height: 20px;
-    margin-top: -4px;
-
-    a {
-      opacity: 0;
-    }
   }
 
   .menu_items_left {
     display: flex;
     flex-direction: row;
+    align-items: center;
   }
 
-  .menu_items_right {
+  .menu_items_right,
+  .current_user {
     display: flex;
+    align-items: center;
   }
 
   .menu_items_left,
   .menu_items_right {
     a {
-      margin-left: 20px;
+      margin-right: 20px;
     }
 
-    a:last-child {
-      margin-right: 40px;
+    .current_user {
+      margin-right: 124px;
+    }
+  }
+
+  .settings,
+  .log_out {
+    display: none;
+  }
+
+  &:hover {
+    .settings,
+    .log_out {
+      display: block;
+    }
+
+    .current_user {
+      margin-right: 20px;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+.conversation_menubar {
+  top:0px;
+  width: calc(100vw - 64px);
+  height: 64px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  padding-left: 32px;
+  padding-right: 32px;
+  font-size: 18px;
+
+  .menu_item {
+    @include s_button_font;
+  }
+
+  .menu_item_icon {
+    @include images(28px, 28px, 50%);
+  }
+
+  .logo {
+    display: block;
+    background-image: url("logo.svg");
+    background-size: cover;
+    width: 94px;
+    height: 20px;
+  }
+
+  .menu_items_left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .menu_items_right,
+  .current_user {
+    display: flex;
+    align-items: center;
+  }
+
+  .menu_items_left,
+  .menu_items_right {
+    a {
+      margin-right: 20px;
+    }
+
+    .current_user {
+      margin-right: 0;
     }
   }
 }
