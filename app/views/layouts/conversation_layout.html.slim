@@ -7,7 +7,7 @@ html
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
- 
+
   body
     .conversation_menubar
       .menu_items_left
@@ -26,7 +26,8 @@ html
           .menu_item #{current_user.name}
           div
             .spacing-xs-w
-          = image_tag(current_user.avatar, class: 'menu_item_icon')
+          - if current_user.avatar.present?
+            = image_tag(current_user.avatar, class: 'menu_item_icon')
 
     = yield
 

@@ -54,7 +54,7 @@ def create_image(flat:, pack:, time:)
     user_id: flat.owner_id
   )
 
-  photo.image.attach(filename: "flat_#{pack}_#{time}.jpg", io: File.open("db/images/flat_#{pack}_#{time}.jpg", content_type: 'image/jpg'))
+  photo.image.attach(filename: "flat_#{pack}_#{time}.jpeg", io: File.open("db/images/flat_#{pack}_#{time}.jpeg", content_type: 'image/jpeg'))
 end
 
 def create_room(flat)

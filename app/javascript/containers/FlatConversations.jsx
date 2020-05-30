@@ -29,7 +29,7 @@ export default class FlatConversations extends React.Component {
 					activeConversation: this.props.flat.conversations[0].id,
 					cover: this.props.flat.cover,
 					photos: this.props.flat.photos,
-					wannaLive: this.props.wannaLive
+					wannaLive: false
 				}
 			}
 		}
@@ -160,20 +160,17 @@ export default class FlatConversations extends React.Component {
 
 				<div className="conversation">
 					<div className='conversation_header'>
-						<div className='conversation_avatar'></div>
+						<img src={flat.cover} className='conversation_avatar'></img>
 						<h5>{findActiveConversation.title}</h5>
-						<div className="users_count grey4" onClick={this.showModal}>{users.length} чел.</div>
+						<div className="users_count_flat grey4" onClick={this.showModal}>{users.length} чел.</div>
 
-						<div className='s_button flat_button'>Мне не подходит</div>
-
-						<div className='s_button primary_button' onClick={this.showSecondModal}>Хочу тут жить</div>
+						<div className='s_button flat_button'>Мне не нравится</div>
+						<div className='s_button primary_button' onClick={this.showSecondModal}>Вселить кандидата</div>
 					</div>
 					<WannaLivePopup wannaLive={this.state.wannaLive} handleClose={this.hideSecondModal}>
 						<div className='wanna_live'></div>
 						<div><div className='spacing-xl-h'></div></div>
-						<h4>Добро пожаловать в новый дом!</h4>
-						<div><div className='spacing-xs-h'></div></div>
-						<p>Твой домашний чат с супер-соседями появится слева в самом верху.</p>
+						<h4>Поздравляем с новым соседом!</h4>
 						<div className='close' onClick={this.hideSecondModal}></div>
 					</WannaLivePopup>
 
@@ -188,7 +185,7 @@ export default class FlatConversations extends React.Component {
 						{ this.userList() }
 					</UsersPopup>
 
-					<Conversation conversation={findActiveConversation}/>
+					<Conversation conversation={findActiveConversation} cover={flat.cover}/>
 				</div>
 
 				<div className='flat_info flat_card'>

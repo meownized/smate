@@ -27,7 +27,8 @@ html
           .menu_item #{current_user.name}
           div
             .spacing-xs-w
-          = image_tag(current_user.avatar, class: 'menu_item_icon')
+          - if current_user.avatar.present?
+            = image_tag(current_user.avatar, class: 'menu_item_icon')
         = link_to '', edit_user_path(current_user), class: 'menu_item settings'
         = link_to '', destroy_user_session_path, method: :delete, class: 'menu_item log_out'
 

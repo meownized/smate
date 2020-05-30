@@ -16,7 +16,7 @@ class ConversationList extends React.Component {
 		const conversations = this.props.conversations
 
 		return conversations.map((conversation, index) => <div className="chat_card" key={index} onClick={() => this.handleClick(conversation.id)}>
-			<div className="chat_avatar"></div>
+			<img src={conversation.flat_cover} className="chat_avatar"></img>
 			<div className="chat_name_and_message">
 			<p className="p3">
 				{conversation.title}

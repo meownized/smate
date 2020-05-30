@@ -145,11 +145,21 @@
   }
   .users_count {
     margin-left: 16px;
-    margin-right: 82px;
+    margin-right: 132px;
     &:hover {
       cursor: pointer;
     }
   }
+
+  .users_count_flat {
+    margin-left: 16px;
+    margin-right: 52px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+
 
   .s_button.flat_button {
     margin-right: 16px;

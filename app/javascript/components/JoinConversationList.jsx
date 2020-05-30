@@ -18,7 +18,7 @@ class JoinConversationList extends React.Component {
 		} = this.props
 
 		return conversations.map((conversation, index) => <div className="chat_card" key={index} onClick={() => this.handleClick(conversation.id)}>
-			<div className="chat_avatar"></div>
+			<img src={conversation.flat_cover} className="chat_avatar"></img>
 			<div className="chat_name_and_message">
 			<p className="p3">
 			{conversation.flat_name}

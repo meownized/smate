@@ -23,8 +23,16 @@ class PagesController < ApplicationController
         id: flat.id,
         name: flat.name,
         price: flat.price,
-        description: flat.description
+        description: flat.description,
+        cover: rails_blob_path(flat.flat_attachments.first.image, only_path: true),
+        photos: photos(flat)
       }
+    end
+  end
+
+  def photos(flat)
+    flat.flat_attachments.drop(1).map do |flat_attachment|
+      rails_blob_path(flat_attachment.image, only_path: true)
     end
   end
 

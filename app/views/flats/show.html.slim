@@ -30,7 +30,7 @@
         | В квартире живут
       .people_cards
         - @flat.users.each do |user|
-          .person_card
+          = link_to user, class: 'person_card' do
             = image_tag(user.avatar, class: 'photo')
             .p2
               = fullname(user)

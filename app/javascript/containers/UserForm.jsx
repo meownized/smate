@@ -47,7 +47,7 @@ export default class UserForm extends React.Component {
 
 	handleSubmit(e) {
 		$.ajax({
-				url: "../" + this.props.user.id,
+				url: "../users/" + this.props.user.id,
 				dataType: 'JSON',
 				type: 'PATCH',
 				method: 'PATCH',
